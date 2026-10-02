@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="header-reserva">
+        <a href="servicios.html" class="btn-volver">←</a>
+        <h3 class="titulo-header">Reservar cita</h3>
+        <button class="menu-hamburguesa">☰</button>
+    </header>
+
+    <main>
+        <!-- Barrita de progreso (Stepper) -->
+        <div class="stepper">
+            <!-- Paso 1 (Activo) -->
+            <div class="step activo">
+                <div class="circulo">1</div>
+                <span>Servicio</span>
+            </div>
+            <div class="linea"></div>
+            
+            <!-- Paso 2 -->
+            <div class="step">
+                <div class="circulo">2</div>
+                <span>Fecha y hora</span>
+            </div>
+            <div class="linea"></div>
+            
+            <!-- Paso 3 -->
+            <div class="step">
+                <div class="circulo">3</div>
+                <span>Confirmación</span>
+            </div>
+        </div>
+
+        <h4 class="titulo-seccion">Selecciona el servicio</h4>
+
+        <!-- Formulario con las opciones seleccionables -->
+        <form class="form-reserva">
+            
+            <!-- Opción 1: Baño canino (Seleccionada por defecto) -->
+            <label class="tarjeta-opcion activa">
+                <input type="radio" name="servicio_elegido" checked>
+                <span class="icono-servicio">🛁</span>
+                <div class="info-opcion">
+                    <h5>Baño canino</h5>
+                    <span class="precio-opcion">$15</span>
+                </div>
+                <span class="check-icono">✔️</span>
+            </label>
+
+            <!-- Opción 2: Corte canino -->
+            <label class="tarjeta-opcion">
+                <input type="radio" name="servicio_elegido">
+                <span class="icono-servicio">✂️</span>
+                <div class="info-opcion">
+                    <h5>Corte canino</h5>
+                    <span class="precio-opcion">$20</span>
+                </div>
+            </label>
+
+            <!-- Opción 3: Baño + Corte -->
+            <label class="tarjeta-opcion">
+                <input type="radio" name="servicio_elegido">
+                <span class="icono-servicio">🐾</span>
+                <div class="info-opcion">
+                    <h5>Baño + Corte</h5>
+                    <span class="precio-opcion">$30</span>
+                </div>
+            </label>
+
+            <<!-- Reemplaza el botón que tienes al final de reservar.html por esto: -->
+    <a href="fecha-hora.html" style="text-decoration: none; display: block;">
+        <button type="button" class="btn-principal" style="margin-top: 30px;">Siguiente →</button>
+    </a>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Encabezado de Mis Mascotas -->
+    <header class="header-mascotas">
+        <h2 class="titulo-grande">Mis mascotas</h2>
+        <!-- Botón de agregar mascota -->
+        <button class="btn-agregar">+ Agregar</button>
+    </header>
+
+    <main>
+        <!-- Lista de Tarjetas de Mascotas -->
+        <div class="lista-citas">
+            
+            <!-- TARJETA 1: Max -->
+            <div class="tarjeta-cita tarjeta-mascota">
+                
+                <!-- Parte superior: Foto, Info y Menú de opciones -->
+                <div class="mascota-superior">
+                    <!-- Foto con patita (Reusamos la clase pero haremos la foto más grande en CSS) -->
+                    <div class="avatar-container-mediano">
+                        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=200" class="avatar-mascota-mediano" alt="Max">
+                        <span class="icono-patita-mediano">🐾</span>
+                    </div>
+                    
+                    <!-- Información de la mascota -->
+                    <div class="info-mascota-detalle">
+                        <div class="nombre-y-menu">
+                            <h3>Max</h3>
+                            <button class="btn-tres-puntos">⋮</button>
+                        </div>
+                        <p class="raza-texto">Golden Retriever</p>
+                        
+                        <!-- Lista de características -->
+                        <div class="caracteristicas-lista">
+                            <div class="caracteristica-item">
+                                <span class="icono-carac">⏳</span> <span>3 años</span>
+                            </div>
+                            <div class="caracteristica-item">
+                                <span class="icono-carac">♂️</span> <span>Macho</span>
+                            </div>
+                            <div class="caracteristica-item">
+                                <span class="icono-carac">📏</span> <span>Tamaño: Grande</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botón de acción inferior -->
+                <button class="btn-historial">Ver historial</button>
+            </div>
+
+            <!-- TARJETA 2: Luna -->
+            <div class="tarjeta-cita tarjeta-mascota">
+                <div class="mascota-superior">
+                    <div class="avatar-container-mediano">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=200" class="avatar-mascota-mediano" alt="Luna">
+                        <span class="icono-patita-mediano">🐾</span>
+                    </div>
+                    <div class="info-mascota-detalle">
+                        <div class="nombre-y-menu">
+                            <h3>Luna</h3>
+                            <button class="btn-tres-puntos">⋮</button>
+                        </div>
+                        <p class="raza-texto">Poodle</p>
+                        
+                        <div class="caracteristicas-lista">
+                            <div class="caracteristica-item">
+                                <span class="icono-carac">⏳</span> <span>2 años</span>
+                            </div>
+                            <div class="caracteristica-item">
+                                <span class="icono-carac">♀️</span> <span>Hembra</span>
+                            </div>
+                            <div class="caracteristica-item">
+                                <span class="icono-carac">📏</span> <span>Tamaño: Pequeño</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-historial">Ver historial</button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Menú de navegación inferior (Bottom Nav) -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <span class="nav-icon">🏠</span> 
+            <span class="nav-text">Inicio</span>
+        </a>
+        <a href="servicios.html" class="nav-item">
+            <span class="nav-icon">🐾</span>
+            <span class="nav-text">Servicios</span>
+        </a>
+        <a href="reservar.html" class="nav-item">
+            <span class="nav-icon">📅</span>
+            <span class="nav-text">Reservar</span>
+        </a>
+        <a href="mis-citas.html" class="nav-item">
+            <span class="nav-icon">📋</span>
+            <span class="nav-text">Mis citas</span>
+        </a>
+        
+        <!-- ESTE ES EL ACTIVO AHORA (Perfil/Mascotas) -->
+        <a href="mis-mascotas.html" class="nav-item activo">
+            <span class="nav-icon">👤</span>
+            <span class="nav-text">Perfil</span>
+        </a>
+    </nav>
+</body>
+</html>

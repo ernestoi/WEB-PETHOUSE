@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Encabezado solo con la flecha -->
+    <header class="header-registro">
+        <a href="index.html" class="btn-volver">←</a>
+    </header>
+
+    <main>
+        <!-- Logo central -->
+        <div class="logo-login-container">
+            <img src="logo.png" alt="Logo PetHouse" class="logo-login">
+        </div>
+
+        <!-- Textos -->
+        <div class="texto-encabezado">
+            <h2>Inicia sesión</h2>
+            <p>Ingresa a tu cuenta para gestionar<br>tus citas.</p>
+        </div>
+
+        <!-- Formulario -->
+        <form class="form-registro">
+            <div class="input-group">
+                <span class="input-icono">✉️</span>
+                <input type="email" placeholder="Correo electrónico">
+            </div>
+            
+            <div class="input-group">
+                <span class="input-icono">🔒</span>
+                <input type="password" placeholder="Contraseña">
+                <span class="icono-ojo">👁️</span> <!-- El ojito nuevo -->
+            </div>
+
+            <!-- Fila de Recordarme y Olvidaste contraseña -->
+            <div class="opciones-sesion">
+                <label class="recordarme">
+                    <input type="checkbox"> Recordarme
+                </label>
+                <a href="#" class="link-olvido">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <!-- Botón principal -->
+            <button type="submit" class="btn-principal">Iniciar sesión</button>
+
+            <!-- Divisor con líneas -->
+            <div class="divisor">
+                <span>o continúa con</span>
+            </div>
+
+            <!-- Botón de WhatsApp -->
+            <button type="button" class="btn-whatsapp">
+                <span class="icono-wa">💬</span> Iniciar con WhatsApp
+            </button>
+        </form>
+
+        <!-- Pie de página que te lleva al registro -->
+        <p class="texto-footer">
+            ¿No tienes una cuenta? <a href="registro.html">Regístrate</a>
+        </p>
+    </main>
+</body>
+</html>

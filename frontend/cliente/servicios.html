@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Encabezado con flecha de regresar -->
+    <header class="header-secundario">
+        <a href="index.html" class="btn-volver">←</a>
+        <h3>Servicios</h3>
+        <button class="menu-hamburguesa">☰</button>
+    </header>
+
+    <!-- Lista de tarjetas de servicios -->
+    <main class="lista-servicios">
+        
+        <!-- Tarjeta 1: Baño canino -->
+        <div class="tarjeta-servicio">
+            <!-- Si no tienes la foto, usamos una de internet por ahora -->
+            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=200" alt="Baño">
+            <div class="info-servicio">
+                <h4>Baño canino</h4>
+                <p>Limpieza profunda y cuidado del pelaje.</p>
+                <span class="precio">$15</span>
+            </div>
+            <button class="btn-flecha">➔</button>
+        </div>
+
+        <!-- Tarjeta 2: Corte canino -->
+        <div class="tarjeta-servicio">
+            <img src="https://images.unsplash.com/photo-1596733430284-f7437764b1a9?w=200" alt="Corte">
+            <div class="info-servicio">
+                <h4>Corte canino</h4>
+                <p>Estilo según la raza y preferencia.</p>
+                <span class="precio">$20</span>
+            </div>
+            <button class="btn-flecha">➔</button>
+        </div>
+
+        <!-- Tarjeta 3: Baño + Corte -->
+        <div class="tarjeta-servicio">
+            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=200" alt="Baño y Corte">
+            <div class="info-servicio">
+                <h4>Baño + Corte</h4>
+                <p>Servicio completo de estética canina.</p>
+                <span class="precio">$30</span>
+            </div>
+            <button class="btn-flecha">➔</button>
+        </div>
+
+    </main>
+
+    <!-- Menú de navegación inferior -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <span class="nav-icon">🏠</span> 
+            <span class="nav-text">Inicio</span>
+        </a>
+        
+        <!-- A este le ponemos la clase "activo" porque es la pantalla actual -->
+        <a href="servicios.html" class="nav-item activo">
+            <span class="nav-icon">🐾</span>
+            <span class="nav-text">Servicios</span>
+        </a>
+        
+        <a href="reservar.html" class="nav-item">
+            <span class="nav-icon">📅</span>
+            <span class="nav-text">Reservar</span>
+        </a>
+        
+        <a href="mis-citas.html" class="nav-item">
+            <span class="nav-icon">📋</span>
+            <span class="nav-text">Mis citas</span>
+        </a>
+        
+        <!-- Cambiaste el "#" por "registro.html" -->
+        <a href="registro.html" class="nav-item">
+            <span class="nav-icon">👤</span>
+            <span class="nav-text">Perfil</span>
+        </a>
+    </nav>
+</body>
+</html>

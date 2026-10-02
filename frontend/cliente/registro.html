@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Encabezado con flecha y textos -->
+    <header class="header-registro">
+        <a href="index.html" class="btn-volver">←</a>
+        <div class="texto-encabezado">
+            <h2>Crea tu cuenta</h2>
+            <p>Regístrate para gestionar tus citas<br>y la información de tu mascota.</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Foto de perfil con su ícono de cámara -->
+        <div class="avatar-container">
+            <!-- Usamos una imagen de perrito de internet temporalmente -->
+            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=200" alt="Foto de mascota" class="avatar-img">
+            <span class="icono-camara">📷</span>
+        </div>
+
+        <!-- Formulario de registro -->
+        <form class="form-registro">
+            <div class="input-group">
+                <span class="input-icono">👤</span>
+                <input type="text" placeholder="Nombre completo">
+            </div>
+            
+            <div class="input-group">
+                <span class="input-icono">✉️</span>
+                <input type="email" placeholder="Correo electrónico">
+            </div>
+            
+            <div class="input-group">
+                <span class="input-icono">📞</span>
+                <input type="tel" placeholder="Número de teléfono">
+            </div>
+            
+            <div class="input-group">
+                <span class="input-icono">🔒</span>
+                <input type="password" placeholder="Contraseña">
+            </div>
+            
+            <div class="input-group">
+                <span class="input-icono">🔒</span>
+                <input type="password" placeholder="Confirmar contraseña">
+            </div>
+
+            <!-- Botón principal (reutilizamos la clase que ya teníamos) -->
+            <button type="submit" class="btn-principal" style="margin-top: 10px;">Registrarse</button>
+        </form>
+
+        <!-- Texto del pie de página -->
+        <p class="texto-footer">
+            ¿Ya tienes una cuenta? <a href="login.html">Iniciar sesión</a>
+        </p>
+    </main>
+</body>
+</html>

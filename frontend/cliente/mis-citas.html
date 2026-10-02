@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Encabezado de Mis Citas -->
+    <header class="header-citas">
+        <h2 class="titulo-grande">Mis citas</h2>
+        
+        <!-- El engranaje ahora es un enlace a Mis Mascotas -->
+        <div class="iconos-header">
+            <a href="mis-mascotas.html" style="text-decoration: none; color: inherit;">
+                <span>⚙️</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Pestañas (Tabs) -->
+        <div class="tabs-container">
+            <button class="tab-btn activo">Próximas</button>
+            <button class="tab-btn">Historial</button>
+            <button class="tab-btn">Canceladas</button>
+        </div>
+
+        <!-- Lista de Tarjetas de Citas -->
+        <div class="lista-citas">
+            
+            <!-- TARJETA 1: Max -->
+            <div class="tarjeta-cita">
+                <!-- Cabecera de la tarjeta: Foto y nombre -->
+                <div class="cita-perfil">
+                    <div class="avatar-container-pequeno">
+                        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=200" class="avatar-mascota" alt="Max">
+                        <span class="icono-patita">🐾</span>
+                    </div>
+                    <div class="cita-info-mascota">
+                        <h3>Max</h3>
+                        <p>Golden Retriever</p>
+                    </div>
+                </div>
+
+                <!-- Detalles de la cita -->
+                <div class="cita-detalles">
+                    <div class="cita-fila">
+                        <div class="cita-label"><span class="icono-resumen">📅</span> Fecha</div>
+                        <div class="cita-valor">22 de septiembre 2026</div>
+                    </div>
+                    <div class="cita-fila">
+                        <div class="cita-label"><span class="icono-resumen">🕒</span> Hora</div>
+                        <div class="cita-valor">10:00 AM</div>
+                    </div>
+                    <div class="cita-fila">
+                        <div class="cita-label"><span class="icono-resumen">✂️</span> Servicio</div>
+                        <div class="cita-valor">Baño + Corte</div>
+                    </div>
+                    <div class="cita-fila">
+                        <div class="cita-label"><span class="icono-resumen">🔄</span> Estado</div>
+                        <div class="cita-valor"><span class="badge-estado">Confirmada</span></div>
+                    </div>
+                </div>
+
+                <!-- Botones de acción de la tarjeta -->
+                <div class="cita-acciones">
+                    <button class="btn-fantasma">Ver detalles</button>
+                    <button class="btn-solido">Reprogramar</button>
+                </div>
+            </div>
+
+            <!-- TARJETA 2: Luna (Solo puse un pedacito como en el diseño) -->
+            <div class="tarjeta-cita">
+                <div class="cita-perfil">
+                    <div class="avatar-container-pequeno">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=200" class="avatar-mascota" alt="Luna">
+                        <span class="icono-patita">🐾</span>
+                    </div>
+                    <div class="cita-info-mascota">
+                        <h3>Luna</h3>
+                        <p>Poodle</p>
+                    </div>
+                </div>
+                <!-- Aquí irían los demás detalles de Luna... -->
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Menú de navegación inferior (Bottom Nav) -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <span class="nav-icon">🏠</span> 
+            <span class="nav-text">Inicio</span>
+        </a>
+        <a href="servicios.html" class="nav-item">
+            <span class="nav-icon">🐾</span>
+            <span class="nav-text">Servicios</span>
+        </a>
+        <a href="reservar.html" class="nav-item">
+            <span class="nav-icon">📅</span>
+            <span class="nav-text">Reservar</span>
+        </a>
+        
+        <!-- ESTE ES EL ACTIVO AHORA -->
+        <a href="mis-citas.html" class="nav-item activo">
+            <span class="nav-icon">📋</span>
+            <span class="nav-text">Mis citas</span>
+        </a>
+        
+        <a href="mis-mascotas.html" class="nav-item">
+            <span class="nav-icon">👤</span>
+            <span class="nav-text">Perfil</span>
+        </a>
+    </nav>
+</body>
+</html>
