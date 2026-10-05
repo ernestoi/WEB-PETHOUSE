@@ -4,14 +4,22 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+:root{
+    --color-gris: #5e5e5e; 
+    --color-turquesa: #047e89;
+    --color-blanco: #ffff;
+    --color-negro: #000;
+}
+html{
+    font-size: 62.5%;
+}
 body {
     font-family: Arial, sans-serif;
     padding: 20px; /* Un poco de espacio a los lados para que no pegue a los bordes del celular */
 }
 
 /* Ejemplo de cómo centrar y dar color al texto principal */
-h1 {
+.title {
     color: #00796b; /* Un verde similar al del diseño */
     font-size: 28px;
     margin-bottom: 10px;
@@ -37,15 +45,22 @@ main img {
 /* --- NUEVOS ESTILOS PARA AGREGAR --- */
 
 /* 1. Acomodar el encabezado (Logo izquierda, Menú derecha) */
-header {
+.content-header{
     display: flex; /* Esto pone los elementos en fila */
     justify-content: space-between; /* Empuja uno a cada lado */
     align-items: center; /* Los centra verticalmente */
     margin-bottom: 25px; /* Espacio hacia abajo */
+    position: relative;
+}
+.content-header .list-menu{
+    display: none;
 }
 
 /* Quitarle el borde feo al botón del menú */
 .menu-hamburguesa {
+    position: absolute;
+    top: 0;
+    right: 0;
     background: none;
     border: none;
     font-size: 28px;
@@ -979,4 +994,61 @@ body {
     border-radius: 25px;
     font-size: 13px;
     font-weight: bold;
+}
+@media(width > 750px){
+    .content-header{
+        width: 100%;
+        height: auto;
+        display: flex;
+        gap: 1rem;
+    }
+    .header{
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+    }
+    .logo{
+        width: 5rem;
+    }
+    .content-header .list-menu{
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+        color: var(--color-gris);
+        font-weight: 550;
+        align-items: center;
+    }
+    .menu-hamburguesa{
+        display: none;
+    }
+    .content-buttons{
+        margin-left: 4rem;
+        display: flex;
+        gap: 1rem;
+    }
+    .content-buttons a{
+        text-decoration: none;
+    }
+    .content-buttons .btn-iniciar{
+        color: var(--color-turquesa);
+        border: 1px solid var(--color-turquesa);
+        padding: .8rem 1.5rem;
+        border-radius: 1.5rem;
+    }
+    .content-buttons .btn-registrar{
+        color: var(--color-blanco);
+        border: 1px solid var(--color-turquesa);
+        padding: .8rem 1.5rem;
+        border-radius: 1.5rem;
+        background-color: var(--color-turquesa);
+    }
+    /* AQUI EMPEZAMOS A MODIFICAR TODO EL CONTENIDO*/
+    .title span{
+        color: var(--color-negro);
+        line-height: 1.5rem;
+    }
+    .main{
+        width: 100%;
+    }
 }

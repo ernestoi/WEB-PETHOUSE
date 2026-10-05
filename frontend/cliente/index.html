@@ -4,26 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
 
 </head>
 <body>
-    <body>
     <!-- 1. El encabezado: Logo y el menú de rayitas -->
-    <header>
+    <header class="content-header">
+        <nav class="header">
+            <img src="../img/Logo.png" alt="Logo PetHouse" class="logo"> 
+            <ul class="list-menu">
+                <li>Inicio</li>
+                <li>Servicio</li>
+                <li>Reserva tu cita</li>
+                <li>Nosotros</li>
+                <li>Contacto</li>
+                <li>
+                    <div class="content-buttons">
+                        <a href="#" class="btn-iniciar">Iniciar Sesión</a>
+                        <a href="#" class="btn-registrar">Registrarse</a>
+                    </div>
+                </li>
+            </ul>
+            <button class="menu-hamburguesa">☰</button>
+        </nav>
     <!-- Asegúrate de poner el nombre exacto de tu imagen con su extensión (.png o .jpg) -->
-    <img src="../img/Logo.png" alt="Logo PetHouse" class="logo"> 
-    <button class="menu-hamburguesa">☰</button>
-</header>
+    </header>
 
     <!-- 2. Contenido principal: Textos, perro y botones -->
     <main>
-        <h2>ESTÉTICA CANINA</h2>
-        <h1>Cuidado y belleza para su mejor amigo</h1>
-        <p>Baño, corte y estética canina con atención personalizada...</p>
-        
-        <img src="perro feliz.png" alt="Perro feliz">
-        
+        <div class="about-hero">
+            <section class="about-hero_content">
+                <h2 class="about-hero_subtitle">ESTÉTICA CANINA</h2>
+                <h1 class="about-hero_title"><span>Cuidado y belleza</span> para su mejor amigo</h1>
+                <p>Baño, corte y estética canina con atención personalizada, en un ambiente seguro y profesional.</p>
+            </section>
+            <figure class="about-hero_figure">
+                <img class="about-hero_img" src="../img/perro feliz.png" alt="Perro feliz">
+            </figure>
+        </div>
+
         <button class="btn-principal">Reservar cita -></button>
         <a href="servicios.html" class="btn-secundario" style="display: block; text-align: center; text-decoration: none;">Ver servicios</a>
     </main>
@@ -32,22 +52,22 @@
     <section class="beneficios">
         
         <div>
-            <img src="paw.png" alt="Cuidado">
+            <i class="fa-solid fa-paw"></i>
             <p>Cuidado profesional</p>
         </div>
         
         <div>
-            <img src="shield.png" alt="Ambiente">
+            <i class="fa-solid fa-shield-halved"></i>
             <p>Ambiente seguro</p>
         </div>
         
         <div>
-            <img src="heart.png" alt="Mascotas">
+            <i class="fa-solid fa-heart"></i>
             <p>Mascotas felices</p>
         </div>
         
         <div>
-            <img src="check.png" alt="Atención">
+            <i class="fa-regular fa-clock"></i>
             <p>Atención puntual</p>
         </div>
 
