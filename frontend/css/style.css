@@ -1051,4 +1051,195 @@ body {
     .main{
         width: 100%;
     }
+
+    /* ... [Aquí está el código que dejó Ernesto] ... */
+
+    /* AQUI EMPEZAMOS A MODIFICAR TODO EL CONTENIDO */
+    .title span {
+        color: var(--color-negro);
+        line-height: 1.5rem;
+    }
+    .main {
+        width: 100%;
+    }
+
+    /* =======================================================
+       NUEVO CÓDIGO PARA: 2. SERVICIOS (WEB)
+       ======================================================= */
+
+    /* 1. Centrar los textos de presentación ("NUESTROS SERVICIOS" y "Todo para...") */
+    .main h2, .main h1, .main p {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .main h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    /* 2. Cambiar la lista de tarjetas de "Columna" a "Fila" (3 columnas) */
+    .lista-servicios {
+        display: flex;
+        flex-direction: row; /* Las pone una al lado de la otra */
+        justify-content: center;
+        gap: 30px; /* Separación amplia entre tarjetas */
+        margin-top: 40px;
+    }
+
+    /* 3. Transformar la tarjeta horizontal en vertical */
+    .tarjeta-servicio {
+        flex-direction: column; /* Apila foto, texto y botón hacia abajo */
+        align-items: center;
+        width: 30%; /* Para que quepan 3 tarjetas en el 100% del ancho */
+        padding: 0; /* Quitamos el padding viejo */
+        border-radius: 20px;
+        overflow: hidden; /* Para que la foto de arriba no se salga de las curvas */
+        position: relative; /* Importante para acomodar el ícono redondo */
+    }
+
+    /* 4. La foto ahora va arriba y ocupa todo el ancho de la tarjeta */
+    .tarjeta-servicio img {
+        width: 100%;
+        height: 200px;
+        border-radius: 20px 20px 0 0; /* Redondea solo las esquinas de arriba */
+        margin-right: 0;
+    }
+
+    /* 5. Acomodar la información del texto debajo de la foto */
+    .info-servicio {
+        padding: 40px 20px 20px 20px; /* Mucho padding arriba para hacerle hueco al ícono */
+        text-align: left;
+        width: 100%;
+    }
+    .info-servicio h4 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+    .info-servicio p {
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 20px;
+    }
+    .precio {
+        font-size: 20px;
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    /* 6. El botoncito redondo de flecha se transforma en un botón grande de "Seleccionar ->" */
+    .btn-flecha {
+        width: 90%;
+        border-radius: 10px;
+        background-color: var(--color-turquesa, #00796b);
+        color: white;
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+    .btn-flecha::before {
+        content: "Seleccionar "; /* Le agregamos el texto mágicamente con CSS */
+        font-weight: normal;
+    }
+
+    /* 7. Ocultar la barra de navegación inferior de celular en la PC */
+    .bottom-nav {
+        display: none;
+    }
+
+/* OJO: ¡No borres la llave de cierre del @media que está al final! */
+
+.icono-flotante {
+    position: absolute;
+    top: 170px; /* Lo baja hasta la línea de la foto */
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+/* =======================================================
+       NUEVO CÓDIGO PARA: 3. RESERVAR CITA (WEB)
+       ======================================================= */
+
+    /* 1. Dividimos la pantalla en 2 columnas: 250px para el menú izquierdo y el resto para el contenido */
+    main {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        grid-template-areas: 
+            "sidebar titulo"
+            "sidebar formulario";
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    /* 2. El Stepper se vuelve vertical y se va a la izquierda */
+    .stepper {
+        grid-area: sidebar;
+        flex-direction: column; /* Apila los pasos hacia abajo */
+        align-items: flex-start;
+        padding: 20px 0;
+    }
+    .step {
+        flex-direction: row; /* Círculo y texto uno al lado del otro */
+        gap: 15px;
+    }
+    .step span {
+        font-size: 15px; /* Texto un poco más grande en PC */
+    }
+    .linea {
+        width: 2px; /* La línea ahora es vertical */
+        height: 40px;
+        margin-left: 16px; /* Centra la línea debajo del círculo de 35px */
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    /* 3. Título y contenedor de las tarjetas a la derecha */
+    .titulo-seccion {
+        grid-area: titulo;
+        font-size: 24px;
+        margin-bottom: 0;
+    }
+    .form-reserva {
+        grid-area: formulario;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas exactas para las tarjetas */
+        gap: 20px;
+    }
+
+    /* 4. Transformar las tarjetas horizontales en cuadradas */
+    .tarjeta-opcion {
+        flex-direction: column; /* Apila el ícono y el texto hacia abajo */
+        text-align: center;
+        height: 220px;
+        justify-content: center;
+        padding: 20px;
+    }
+    .icono-servicio {
+        margin-right: 0;
+        margin-bottom: 15px;
+        font-size: 50px; /* Ícono más grande */
+    }
+    .check-icono {
+        top: 15px;
+        right: 15px;
+        font-size: 20px;
+    }
+
+    /* 5. Alinear el botón "Siguiente" abajo a la derecha */
+    .form-reserva a {
+        grid-column: 1 / -1; /* Obliga al enlace a ocupar todo el ancho disponible abajo */
+        display: flex;
+        justify-content: flex-end; /* Empuja el botón a la derecha */
+    }
+    .form-reserva .btn-principal {
+        width: auto; /* Quita el ancho del 100% que tenía en móvil */
+        padding: 12px 40px;
+        margin-top: 20px;
+    }
 }
