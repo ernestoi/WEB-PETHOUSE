@@ -1,1054 +1,1126 @@
 /* Reseteo básico para limpiar márgenes raros del navegador */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-:root{
-    --color-gris: #5e5e5e; 
-    --color-turquesa: #047e89;
-    --color-blanco: #ffff;
-    --color-negro: #000;
+:root {
+  --color-gris: #5e5e5e;
+  --color-turquesa: #047e89;
+  --color-blanco: #ffff;
+  --color-negro: #000;
+  --color-turquesa_claro: #19a8b5;
 }
-html{
-    font-size: 62.5%;
+html {
+  font-size: 62.5%;
 }
 body {
-    font-family: Arial, sans-serif;
-    padding: 20px; /* Un poco de espacio a los lados para que no pegue a los bordes del celular */
+  font-family: Arial, sans-serif;
+  padding: 20px; /* Un poco de espacio a los lados para que no pegue a los bordes del celular */
 }
 
 /* Ejemplo de cómo centrar y dar color al texto principal */
 .title {
-    color: #00796b; /* Un verde similar al del diseño */
-    font-size: 28px;
-    margin-bottom: 10px;
+  color: #00796b; /* Un verde similar al del diseño */
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
 /* Haces que la foto del perro no se salga de la pantalla del celular */
 main img {
-    width: 100%;
-    border-radius: 15px;
+  width: 100%;
+  border-radius: 15px;
 }
 
 /* Así estilizas el botón para que ocupe todo el ancho del cel */
 .btn-principal {
-    width: 100%;
-    background-color: #00796b;
-    color: white;
-    padding: 15px;
-    border-radius: 8px;
-    border: none;
-    margin-top: 15px;
+  width: 100%;
+  background-color: #00796b;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 15px;
 }
 
 /* --- NUEVOS ESTILOS PARA AGREGAR --- */
 
 /* 1. Acomodar el encabezado (Logo izquierda, Menú derecha) */
-.content-header{
-    display: flex; /* Esto pone los elementos en fila */
-    justify-content: space-between; /* Empuja uno a cada lado */
-    align-items: center; /* Los centra verticalmente */
-    margin-bottom: 25px; /* Espacio hacia abajo */
-    position: relative;
+.content-header {
+  display: flex; /* Esto pone los elementos en fila */
+  justify-content: space-between; /* Empuja uno a cada lado */
+  align-items: center; /* Los centra verticalmente */
+  margin-bottom: 25px; /* Espacio hacia abajo */
+  position: relative;
 }
-.content-header .list-menu{
-    display: none;
+.content-header .list-menu {
+  display: none;
 }
 
 /* Quitarle el borde feo al botón del menú */
 .menu-hamburguesa {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: none;
-    border: none;
-    font-size: 28px;
-    color: #00796b; /* Mismo verde de la marca */
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #00796b; /* Mismo verde de la marca */
 }
 
 /* 2. Estilo para el subtítulo "ESTÉTICA CANINA" */
 h2 {
-    font-size: 12px;
-    color: #7f8c8d; /* Un gris sutil */
-    letter-spacing: 1px;
-    margin-bottom: 5px;
+  font-size: 12px;
+  color: #7f8c8d; /* Un gris sutil */
+  letter-spacing: 1px;
+  margin-bottom: 5px;
 }
 
 /* 3. Darle estilo al texto pequeño debajo del título principal */
 p {
-    color: #555555;
-    font-size: 15px;
-    margin-bottom: 20px;
-    line-height: 1.5;
+  color: #555555;
+  font-size: 15px;
+  margin-bottom: 20px;
+  line-height: 1.5;
 }
 
 /* 4. Estilizar el botón "Ver servicios" (Fondo blanco, borde verde) */
 .btn-secundario {
-    width: 100%;
-    background-color: white;
-    color: #00796b;
-    padding: 15px;
-    border-radius: 8px;
-    border: 2px solid #00796b; /* Borde verde */
-    margin-top: 10px;
-    font-weight: bold;
+  width: 100%;
+  background-color: white;
+  color: #00796b;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid #00796b; /* Borde verde */
+  margin-top: 10px;
+  font-weight: bold;
 }
 
 /* Tamaño controlado para el logo */
 .logo {
-    width: 120px; /* Puedes subir o bajar este número según qué tan grande lo quieras */
-    height: auto;
+  width: 120px; /* Puedes subir o bajar este número según qué tan grande lo quieras */
+  height: auto;
 }
 
 /* --- ESTILOS PARA LA SECCIÓN DE BENEFICIOS (LOS 4 ÍCONOS DE ABAJO) --- */
 
 /* 1. El contenedor principal pone los 4 elementos en una sola fila */
 .beneficios {
-    display: flex;
-    justify-content: space-between; /* Los separa uniformemente */
-    text-align: center; /* Centra el texto y la imagen de cada uno */
-    margin-top: 30px; /* Un poco de espacio desde los botones de arriba */
+  display: flex;
+  justify-content: space-between; /* Los separa uniformemente */
+  text-align: center; /* Centra el texto y la imagen de cada uno */
+  margin-top: 30px; /* Un poco de espacio desde los botones de arriba */
 }
 
 /* 2. Cada cajita individual (icono + texto) */
 .beneficios div {
-    flex: 1; /* Hace que todos midan igual */
-    padding: 0 5px; /* Separación para que no se peguen las letras */
+  flex: 1; /* Hace que todos midan igual */
+  padding: 0 5px; /* Separación para que no se peguen las letras */
 }
 
 /* 3. ¡LA MAGIA PARA ENCOGER LA PATA GIGANTE! */
 .beneficios img {
-    width: 35px; /* Aquí controlas el tamaño del ícono */
-    height: auto;
-    margin-bottom: 8px; /* Espacio entre el ícono y su texto */
+  width: 35px; /* Aquí controlas el tamaño del ícono */
+  height: auto;
+  margin-bottom: 8px; /* Espacio entre el ícono y su texto */
 }
 
 /* 4. Hacemos la letra pequeña para que quepa bien en el celular */
 .beneficios p {
-    font-size: 10px;
-    color: #7f8c8d; /* Color gris suave */
-    line-height: 1.2;
-    margin-bottom: 0; /* Le quitamos el margen del otro 'p' que hicimos antes */
+  font-size: 10px;
+  color: #7f8c8d; /* Color gris suave */
+  line-height: 1.2;
+  margin-bottom: 0; /* Le quitamos el margen del otro 'p' que hicimos antes */
 }
-
-
-
-
 
 /* --- PANTALLA 2: SERVICIOS --- */
 
 /* Acomodar el encabezado de esta pantalla */
 .header-secundario {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
 }
 .header-secundario h3 {
-    color: #000;
-    margin: 0;
+  color: #000;
+  margin: 0;
 }
 .btn-volver {
-    text-decoration: none;
-    font-size: 24px;
-    color: #000;
+  text-decoration: none;
+  font-size: 24px;
+  color: #000;
 }
 
 /* Contenedor de toda la lista */
 .lista-servicios {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Espacio entre cada tarjeta */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espacio entre cada tarjeta */
 }
 
 /* La magia de cada tarjeta individual */
 .tarjeta-servicio {
-    display: flex;
-    align-items: center; /* Centra todo verticalmente */
-    background-color: #ffffff;
-    border-radius: 15px;
-    padding: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra elegante */
-    border: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center; /* Centra todo verticalmente */
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra elegante */
+  border: 1px solid #f0f0f0;
 }
 
 /* La imagen de la izquierda */
 .tarjeta-servicio img {
-    width: 75px;
-    height: 75px;
-    border-radius: 12px;
-    object-fit: cover; /* Para que la foto no se deforme */
-    margin-right: 15px;
-    margin-bottom: 0; /* Anula el margen del CSS anterior */
+  width: 75px;
+  height: 75px;
+  border-radius: 12px;
+  object-fit: cover; /* Para que la foto no se deforme */
+  margin-right: 15px;
+  margin-bottom: 0; /* Anula el margen del CSS anterior */
 }
 
 /* El texto de en medio */
 .info-servicio {
-    flex: 1; /* Esto hace que el texto empuje la flechita hacia la derecha */
+  flex: 1; /* Esto hace que el texto empuje la flechita hacia la derecha */
 }
 .info-servicio h4 {
-    font-size: 16px;
-    color: #000;
-    margin-bottom: 5px;
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 5px;
 }
 .info-servicio p {
-    font-size: 11px;
-    margin-bottom: 8px;
+  font-size: 11px;
+  margin-bottom: 8px;
 }
 .precio {
-    color: #00796b; /* El verde de PetHouse */
-    font-weight: bold;
-    font-size: 16px;
+  color: #00796b; /* El verde de PetHouse */
+  font-weight: bold;
+  font-size: 16px;
 }
 
 /* El botoncito redondo de la flecha a la derecha */
 .btn-flecha {
-    background: none;
-    border: 1px solid #dcdcdc;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    color: #00796b;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background: none;
+  border: 1px solid #dcdcdc;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  color: #00796b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* --- MENÚ DE NAVEGACIÓN INFERIOR (BOTTOM NAV) --- */
 
 /* 1. Un pequeño truco: le damos espacio al final de la página para que el menú no tape la última tarjeta */
 body {
-    padding-bottom: 70px; 
+  padding-bottom: 70px;
 }
 
 /* 2. Fijamos la barra al fondo */
 .bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: space-around; /* Reparte el espacio por igual entre los 5 botones */
-    padding: 10px 0;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.05); /* Le da una sombrita arriba para que resalte */
-    border-top: 1px solid #f0f0f0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-around; /* Reparte el espacio por igual entre los 5 botones */
+  padding: 10px 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05); /* Le da una sombrita arriba para que resalte */
+  border-top: 1px solid #f0f0f0;
 }
 
 /* 3. Estilo de cada botoncito */
 .nav-item {
-    display: flex;
-    flex-direction: column; /* Pone el ícono arriba y el texto abajo */
-    align-items: center;
-    text-decoration: none; /* Quita el subrayado feo de los enlaces */
-    color: #b0b0b0; /* Color gris para los que no están seleccionados */
+  display: flex;
+  flex-direction: column; /* Pone el ícono arriba y el texto abajo */
+  align-items: center;
+  text-decoration: none; /* Quita el subrayado feo de los enlaces */
+  color: #b0b0b0; /* Color gris para los que no están seleccionados */
 }
 
 /* Tamaño del ícono y texto */
 .nav-icon {
-    font-size: 22px;
-    margin-bottom: 4px;
+  font-size: 22px;
+  margin-bottom: 4px;
 }
 .nav-text {
-    font-size: 10px;
-    font-weight: bold;
+  font-size: 10px;
+  font-weight: bold;
 }
 
 /* 4. ¡El toque maestro! El estilo para el botón que está activo */
 .nav-item.activo {
-    color: #00796b; /* Se pinta del verde de PetHouse */
+  color: #00796b; /* Se pinta del verde de PetHouse */
 }
-
-
-
 
 /* --- PANTALLA 3: REGISTRO --- */
 
 /* Textos del encabezado centrados */
 .header-registro .btn-volver {
-    display: inline-block;
-    margin-bottom: 10px;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 .texto-encabezado {
-    text-align: center;
-    margin-bottom: 25px;
+  text-align: center;
+  margin-bottom: 25px;
 }
 .texto-encabezado h2 {
-    font-size: 22px;
-    color: #000;
-    margin-bottom: 8px;
+  font-size: 22px;
+  color: #000;
+  margin-bottom: 8px;
 }
 .texto-encabezado p {
-    font-size: 13px;
-    color: #7f8c8d;
-    margin-bottom: 0;
+  font-size: 13px;
+  color: #7f8c8d;
+  margin-bottom: 0;
 }
 
 /* Contenedor de la foto del perro centrado */
 .avatar-container {
-    position: relative;
-    width: max-content;
-    margin: 0 auto 30px auto; /* Lo centra horizontalmente */
+  position: relative;
+  width: max-content;
+  margin: 0 auto 30px auto; /* Lo centra horizontalmente */
 }
 
 /* Estilo para que la foto no sea redonda perfecta, sino un poco cuadrada (squircle) */
 .avatar-img {
-    width: 120px;
-    height: 100px;
-    /* Redondea las esquinas */
-    border-radius: 35px;
-    /* Si estás en un navegador muy moderno, esto lo hará ver como app de Apple */
-    corner-shape: squircle;
-    object-fit: cover;
+  width: 120px;
+  height: 100px;
+  /* Redondea las esquinas */
+  border-radius: 35px;
+  /* Si estás en un navegador muy moderno, esto lo hará ver como app de Apple */
+  corner-shape: squircle;
+  object-fit: cover;
 }
 
 /* El botoncito verde superpuesto en la esquina de la foto */
 .icono-camara {
-    position: absolute;
-    bottom: -5px;
-    right: -5px;
-    background-color: #00796b;
-    color: white;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid white;
-    font-size: 14px;
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  background-color: #00796b;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid white;
+  font-size: 14px;
 }
 
 /* Estilos de las cajas de texto (inputs) */
 .form-registro {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .input-group {
-    display: flex;
-    align-items: center;
-    border: 1px solid #e0e0e0;
-    border-radius: 30px; /* Bordes muy redondeados tipo píldora */
-    padding: 12px 18px;
-    margin-bottom: 15px;
-    background-color: #fcfcfc;
+  display: flex;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 30px; /* Bordes muy redondeados tipo píldora */
+  padding: 12px 18px;
+  margin-bottom: 15px;
+  background-color: #fcfcfc;
 }
 .input-icono {
-    margin-right: 12px;
-    font-size: 16px;
-    color: #555;
+  margin-right: 12px;
+  font-size: 16px;
+  color: #555;
 }
 .input-group input {
-    border: none;
-    background: transparent;
-    outline: none; /* Quita el borde azul feo al hacer clic */
-    flex: 1; /* Hace que el input ocupe el resto del espacio */
-    font-size: 14px;
-    font-family: inherit;
-    color: #333;
+  border: none;
+  background: transparent;
+  outline: none; /* Quita el borde azul feo al hacer clic */
+  flex: 1; /* Hace que el input ocupe el resto del espacio */
+  font-size: 14px;
+  font-family: inherit;
+  color: #333;
 }
 .input-group input::placeholder {
-    color: #a0a0a0; /* Color gris suave para el texto de relleno */
+  color: #a0a0a0; /* Color gris suave para el texto de relleno */
 }
 
 /* Texto del final (Iniciar sesión) */
 .texto-footer {
-    text-align: center;
-    margin-top: 25px;
-    font-size: 13px;
-    color: #7f8c8d;
+  text-align: center;
+  margin-top: 25px;
+  font-size: 13px;
+  color: #7f8c8d;
 }
 .texto-footer a {
-    color: #00796b;
-    font-weight: bold;
-    text-decoration: none;
+  color: #00796b;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 /* --- PANTALLA 4: INICIAR SESIÓN --- */
 
 /* Centrar el logo de arriba */
 .logo-login-container {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 .logo-login {
-    width: 140px; /* Ajusta este tamaño según tu imagen de logo */
-    height: auto;
+  width: 140px; /* Ajusta este tamaño según tu imagen de logo */
+  height: auto;
 }
 
 /* El ojito de la contraseña a la derecha */
 .icono-ojo {
-    color: #a0a0a0;
-    margin-left: 10px;
-    font-size: 16px;
-    cursor: pointer;
+  color: #a0a0a0;
+  margin-left: 10px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 /* Fila donde va el checkbox y el enlace de olvidar contraseña */
 .opciones-sesion {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-    font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 12px;
 }
 .recordarme {
-    display: flex;
-    align-items: center;
-    color: #555;
-    gap: 8px; /* Espacio entre el cuadrito y el texto */
-    font-weight: bold;
+  display: flex;
+  align-items: center;
+  color: #555;
+  gap: 8px; /* Espacio entre el cuadrito y el texto */
+  font-weight: bold;
 }
 .recordarme input[type="checkbox"] {
-    accent-color: #00796b; /* Pinta el cuadrito del color de la marca */
+  accent-color: #00796b; /* Pinta el cuadrito del color de la marca */
 }
 .link-olvido {
-    color: #00796b;
-    text-decoration: none;
-    font-weight: bold;
+  color: #00796b;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 /* El separador de "o continúa con" (Línea - Texto - Línea) */
 .divisor {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin: 25px 0;
-    color: #a0a0a0;
-    font-size: 13px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 25px 0;
+  color: #a0a0a0;
+  font-size: 13px;
 }
 .divisor::before,
 .divisor::after {
-    content: '';
-    flex: 1; /* Hacen que las líneas ocupen el espacio sobrante */
-    border-bottom: 1px solid #e0e0e0;
+  content: "";
+  flex: 1; /* Hacen que las líneas ocupen el espacio sobrante */
+  border-bottom: 1px solid #e0e0e0;
 }
 .divisor span {
-    padding: 0 15px; /* Espacio para que las líneas no toquen la letra */
+  padding: 0 15px; /* Espacio para que las líneas no toquen la letra */
 }
 
 /* Botón de WhatsApp */
 .btn-whatsapp {
-    width: 100%;
-    background-color: #25D366; /* El verde oficial de WhatsApp */
-    color: white;
-    padding: 15px;
-    border-radius: 30px;
-    border: none;
-    font-size: 15px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  width: 100%;
+  background-color: #25d366; /* El verde oficial de WhatsApp */
+  color: white;
+  padding: 15px;
+  border-radius: 30px;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 /* --- PANTALLA 5: RESERVAR CITA --- */
 
 /* Encabezado especial para centrar el título */
 .header-reserva {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
 }
 .titulo-header {
-    font-size: 18px;
-    color: #000;
-    margin: 0;
+  font-size: 18px;
+  color: #000;
+  margin: 0;
 }
 
 /* El Stepper (Barrita de progreso) */
 .stepper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 0 10px;
 }
 .step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
 }
 .circulo {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background-color: white;
-    border: 2px solid #e0e0e0;
-    color: #a0a0a0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    margin-bottom: 5px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid #e0e0e0;
+  color: #a0a0a0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 .step span {
-    font-size: 10px;
-    color: #a0a0a0;
+  font-size: 10px;
+  color: #a0a0a0;
 }
 .linea {
-    flex: 1;
-    height: 2px;
-    background-color: #e0e0e0;
-    margin-bottom: 15px; /* Sube la línea para que conecte los círculos */
+  flex: 1;
+  height: 2px;
+  background-color: #e0e0e0;
+  margin-bottom: 15px; /* Sube la línea para que conecte los círculos */
 }
 
 /* Paso Activo (Verde) */
 .step.activo .circulo {
-    background-color: #00796b;
-    border-color: #00796b;
-    color: white;
+  background-color: #00796b;
+  border-color: #00796b;
+  color: white;
 }
 .step.activo span {
-    color: #00796b;
-    font-weight: bold;
+  color: #00796b;
+  font-weight: bold;
 }
 
 /* Título de sección */
 .titulo-seccion {
-    font-size: 16px;
-    margin-bottom: 15px;
-    color: #000;
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #000;
 }
 
 /* Tarjetas seleccionables */
 .tarjeta-opcion {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    border-radius: 15px;
-    border: 2px solid #f0f0f0;
-    margin-bottom: 15px;
-    background-color: #ffffff;
-    cursor: pointer;
-    position: relative; /* Para poner el check en la esquina */
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px solid #f0f0f0;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  cursor: pointer;
+  position: relative; /* Para poner el check en la esquina */
 }
 /* Ocultamos el circulito feo nativo del radio button */
 .tarjeta-opcion input[type="radio"] {
-    display: none; 
+  display: none;
 }
 .icono-servicio {
-    font-size: 30px;
-    margin-right: 15px;
+  font-size: 30px;
+  margin-right: 15px;
 }
 .info-opcion h5 {
-    font-size: 14px;
-    margin-bottom: 5px;
-    color: #000;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #000;
 }
 .precio-opcion {
-    font-size: 14px;
-    font-weight: bold;
-    color: #00796b;
+  font-size: 14px;
+  font-weight: bold;
+  color: #00796b;
 }
 .check-icono {
-    display: none; /* Se oculta por defecto */
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 14px;
-    color: #00796b;
+  display: none; /* Se oculta por defecto */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 14px;
+  color: #00796b;
 }
 
 /* ESTILO CUANDO LA TARJETA ESTÁ ACTIVA (La que elegimos por defecto en el HTML) */
 .tarjeta-opcion.activa {
-    border-color: #00796b; /* Borde verde */
-    background-color: #f2fcfb; /* Fondecito verde súper claro */
+  border-color: #00796b; /* Borde verde */
+  background-color: #f2fcfb; /* Fondecito verde súper claro */
 }
 .tarjeta-opcion.activa .check-icono {
-    display: block; /* Muestra el check */
+  display: block; /* Muestra el check */
 }
 
 /* --- PANTALLA 6: FECHA Y HORA --- */
 
 /* Ajustes del Stepper para cuando ya pasamos el paso 1 */
 .step.completado .circulo {
-    border-color: #00796b;
-    color: #00796b;
+  border-color: #00796b;
+  color: #00796b;
 }
 .linea.linea-activa {
-    background-color: #00796b;
+  background-color: #00796b;
 }
 
 /* La tarjeta blanca del calendario */
 .calendario-card {
-    background-color: #ffffff;
-    border-radius: 15px;
-    padding: 20px 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    margin-bottom: 25px;
-    border: 1px solid #f0f0f0;
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 20px 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+  border: 1px solid #f0f0f0;
 }
 .calendario-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 .btn-mes {
-    background: none;
-    border: none;
-    color: #00796b;
-    font-size: 18px;
+  background: none;
+  border: none;
+  color: #00796b;
+  font-size: 18px;
 }
 
 /* Cuadrícula (Grid) del calendario */
 .dias-semana {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr); /* 7 columnas iguales */
-    text-align: center;
-    font-weight: bold;
-    font-size: 12px;
-    margin-bottom: 15px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columnas iguales */
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 15px;
 }
 .dias-numeros {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    text-align: center;
-    gap: 8px 0; /* Espacio vertical entre los números */
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  gap: 8px 0; /* Espacio vertical entre los números */
 }
 .dias-numeros span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 32px;
-    width: 32px;
-    margin: 0 auto;
-    font-size: 13px;
-    border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  width: 32px;
+  margin: 0 auto;
+  font-size: 13px;
+  border-radius: 50%;
 }
 
 /* Días especiales */
 .dia-seleccionado {
-    background-color: #00796b;
-    color: white;
-    font-weight: bold;
+  background-color: #00796b;
+  color: white;
+  font-weight: bold;
 }
 .dia-inactivo {
-    color: #dcdcdc; /* Gris muy clarito para los días del mes pasado */
+  color: #dcdcdc; /* Gris muy clarito para los días del mes pasado */
 }
 
 /* Cuadrícula (Grid) de las horas */
 .grid-horas {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
-    gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  gap: 10px;
 }
 .hora-btn {
-    background-color: #ffffff;
-    border: 1px solid #f0f0f0;
-    border-radius: 20px;
-    padding: 12px 0;
-    text-align: center;
-    font-size: 13px;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+  background-color: #ffffff;
+  border: 1px solid #f0f0f0;
+  border-radius: 20px;
+  padding: 12px 0;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
 }
 .hora-btn.activa {
-    background-color: #00796b;
-    color: white;
-    border-color: #00796b;
+  background-color: #00796b;
+  color: white;
+  border-color: #00796b;
 }
 
 /* --- PANTALLA 7: CONFIRMACIÓN DE CITA --- */
 
 /* Círculo gigante de éxito */
 .icono-exito-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 .icono-exito {
-    width: 80px;
-    height: 80px;
-    background-color: #dcf2ef; /* Verde muy clarito, casi agua */
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-    color: #00796b;
+  width: 80px;
+  height: 80px;
+  background-color: #dcf2ef; /* Verde muy clarito, casi agua */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: #00796b;
 }
 
 /* La tarjeta del resumen */
 .tarjeta-resumen {
-    background-color: #ffffff;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    margin-bottom: 25px;
-    border: 1px solid #f0f0f0;
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+  border: 1px solid #f0f0f0;
 }
 .tarjeta-resumen h4 {
-    font-size: 16px;
-    color: #000;
-    margin-bottom: 20px;
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 20px;
 }
 
 /* Cada línea de información del resumen */
 .fila-resumen {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    font-size: 13px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 13px;
 }
 .fila-resumen:last-child {
-    margin-bottom: 0; /* Quita el margen a la última fila para que no sobre espacio */
+  margin-bottom: 0; /* Quita el margen a la última fila para que no sobre espacio */
 }
 .icono-resumen {
-    font-size: 18px;
-    margin-right: 15px;
-    color: #00796b;
+  font-size: 18px;
+  margin-right: 15px;
+  color: #00796b;
 }
 .label-resumen {
-    width: 70px; /* Tamaño fijo para que los valores queden alineados rectos */
-    color: #a0a0a0;
+  width: 70px; /* Tamaño fijo para que los valores queden alineados rectos */
+  color: #a0a0a0;
 }
 .valor-resumen {
-    font-weight: bold;
-    color: #333;
-    flex: 1;
+  font-weight: bold;
+  color: #333;
+  flex: 1;
 }
 
 /* Ajustes a los botones finales */
 .btn-wa-confirmacion {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 15px; /* Separa este botón del de abajo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px; /* Separa este botón del de abajo */
 }
 .btn-volver-inicio {
-    display: block; /* Para que el enlace se comporte como botón ancho */
-    text-align: center;
-    text-decoration: none;
+  display: block; /* Para que el enlace se comporte como botón ancho */
+  text-align: center;
+  text-decoration: none;
 }
 
 /* --- PANTALLA 8: MIS CITAS --- */
 
 .header-citas {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 .titulo-grande {
-    font-size: 24px;
-    color: #000;
+  font-size: 24px;
+  color: #000;
 }
 .iconos-header {
-    color: #00796b;
-    font-size: 18px;
+  color: #00796b;
+  font-size: 18px;
 }
 
 /* Pestañas (Tabs) */
 .tabs-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 25px;
-    background-color: #f9f9f9;
-    border-radius: 30px;
-    padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  background-color: #f9f9f9;
+  border-radius: 30px;
+  padding: 5px;
 }
 .tab-btn {
-    flex: 1;
-    background: none;
-    border: none;
-    padding: 10px 0;
-    font-size: 13px;
-    color: #a0a0a0;
-    border-radius: 25px;
-    font-weight: bold;
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 10px 0;
+  font-size: 13px;
+  color: #a0a0a0;
+  border-radius: 25px;
+  font-weight: bold;
 }
 .tab-btn.activo {
-    background-color: #e0f2f1; /* Verde clarito */
-    color: #00796b;
+  background-color: #e0f2f1; /* Verde clarito */
+  color: #00796b;
 }
 
 /* Tarjeta de Cita */
 .tarjeta-cita {
-    background-color: #ffffff;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-    margin-bottom: 20px;
-    border: 1px solid #f0f0f0;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  margin-bottom: 20px;
+  border: 1px solid #f0f0f0;
 }
 
 /* Perfil de la mascota en la tarjeta */
 .cita-perfil {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 .avatar-container-pequeno {
-    position: relative;
-    margin-right: 15px;
+  position: relative;
+  margin-right: 15px;
 }
 .avatar-mascota {
-    width: 60px;
-    height: 60px;
-    border-radius: 20px;
-    corner-shape: squircle;
-    object-fit: cover;
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  corner-shape: squircle;
+  object-fit: cover;
 }
 .icono-patita {
-    position: absolute;
-    bottom: -5px;
-    left: -5px;
-    background-color: white;
-    color: #00796b;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: absolute;
+  bottom: -5px;
+  left: -5px;
+  background-color: white;
+  color: #00796b;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .cita-info-mascota h3 {
-    font-size: 18px;
-    margin-bottom: 3px;
-    color: #000;
+  font-size: 18px;
+  margin-bottom: 3px;
+  color: #000;
 }
 .cita-info-mascota p {
-    font-size: 12px;
-    color: #a0a0a0;
-    margin-bottom: 0;
+  font-size: 12px;
+  color: #a0a0a0;
+  margin-bottom: 0;
 }
 
 /* Lista de detalles (Fecha, Hora, etc.) */
 .cita-detalles {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 .cita-fila {
-    display: flex;
-    justify-content: space-between; /* Texto a la izq, valor a la der */
-    align-items: center;
-    margin-bottom: 12px;
-    font-size: 13px;
+  display: flex;
+  justify-content: space-between; /* Texto a la izq, valor a la der */
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 13px;
 }
 .cita-label {
-    color: #7f8c8d;
-    display: flex;
-    align-items: center;
+  color: #7f8c8d;
+  display: flex;
+  align-items: center;
 }
 .cita-valor {
-    font-weight: bold;
-    color: #333;
+  font-weight: bold;
+  color: #333;
 }
 
 /* Badge de Estado */
 .badge-estado {
-    background-color: #e0f2f1;
-    color: #00796b;
-    padding: 6px 15px;
-    border-radius: 15px;
-    font-size: 12px;
+  background-color: #e0f2f1;
+  color: #00796b;
+  padding: 6px 15px;
+  border-radius: 15px;
+  font-size: 12px;
 }
 
 /* Botones de acción inferiores */
 .cita-acciones {
-    display: flex;
-    gap: 15px; /* Separación entre botones */
+  display: flex;
+  gap: 15px; /* Separación entre botones */
 }
-.btn-fantasma, .btn-solido {
-    flex: 1; /* Mitad y mitad del ancho */
-    padding: 12px 0;
-    border-radius: 25px;
-    font-size: 13px;
-    font-weight: bold;
-    text-align: center;
+.btn-fantasma,
+.btn-solido {
+  flex: 1; /* Mitad y mitad del ancho */
+  padding: 12px 0;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
 }
 .btn-fantasma {
-    background-color: white;
-    color: #00796b;
-    border: 2px solid #f0f0f0;
+  background-color: white;
+  color: #00796b;
+  border: 2px solid #f0f0f0;
 }
 .btn-solido {
-    background-color: #00796b;
-    color: white;
-    border: none;
+  background-color: #00796b;
+  color: white;
+  border: none;
 }
 
 /* --- PANTALLA 9: MIS MASCOTAS --- */
 
 .header-mascotas {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
 }
 .btn-agregar {
-    background-color: #00796b;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: bold;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 /* Ajustes a la tarjeta base para esta vista */
 .tarjeta-mascota {
-    padding: 15px; /* Un poco menos de padding que la de citas */
+  padding: 15px; /* Un poco menos de padding que la de citas */
 }
 
 /* Distribución de la parte superior (Foto a la izq, Info a la der) */
 .mascota-superior {
-    display: flex;
-    margin-bottom: 15px;
+  display: flex;
+  margin-bottom: 15px;
 }
 
 /* Contenedor y Foto de Mascota un poco más grandes */
 .avatar-container-mediano {
-    position: relative;
-    margin-right: 15px;
-    width: 90px;
+  position: relative;
+  margin-right: 15px;
+  width: 90px;
 }
 .avatar-mascota-mediano {
-    width: 90px;
-    height: 100px;
-    border-radius: 20px;
-    corner-shape: squircle;
-    object-fit: cover;
+  width: 90px;
+  height: 100px;
+  border-radius: 20px;
+  corner-shape: squircle;
+  object-fit: cover;
 }
 .icono-patita-mediano {
-    position: absolute;
-    bottom: 5px;
-    left: -5px;
-    background-color: white;
-    color: #00796b;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: absolute;
+  bottom: 5px;
+  left: -5px;
+  background-color: white;
+  color: #00796b;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Información de la mascota */
 .info-mascota-detalle {
-    flex: 1; /* Ocupa el espacio restante a la derecha */
+  flex: 1; /* Ocupa el espacio restante a la derecha */
 }
 .nombre-y-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .nombre-y-menu h3 {
-    font-size: 18px;
-    color: #000;
-    margin: 0;
+  font-size: 18px;
+  color: #000;
+  margin: 0;
 }
 .btn-tres-puntos {
-    background: none;
-    border: none;
-    color: #00796b;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 0 5px;
+  background: none;
+  border: none;
+  color: #00796b;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0 5px;
 }
 .raza-texto {
-    font-size: 11px;
-    color: #a0a0a0;
-    margin-bottom: 10px;
+  font-size: 11px;
+  color: #a0a0a0;
+  margin-bottom: 10px;
 }
 
 /* Lista de características (Edad, sexo, etc.) */
 .caracteristicas-lista {
-    display: flex;
-    flex-direction: column;
-    gap: 6px; /* Espacio entre cada línea */
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Espacio entre cada línea */
 }
 .caracteristica-item {
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    color: #555;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #555;
 }
 .icono-carac {
-    color: #00796b;
-    margin-right: 8px;
-    font-size: 14px;
+  color: #00796b;
+  margin-right: 8px;
+  font-size: 14px;
 }
 
 /* Botón inferior "Ver historial" */
 .btn-historial {
-    width: 100%;
-    background-color: white;
-    color: #00796b;
-    border: 2px solid #00796b; /* Borde verde grueso */
-    padding: 12px;
-    border-radius: 25px;
-    font-size: 13px;
-    font-weight: bold;
+  width: 100%;
+  background-color: white;
+  color: #00796b;
+  border: 2px solid #00796b; /* Borde verde grueso */
+  padding: 12px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: bold;
 }
-@media(width > 750px){
-    .content-header{
-        width: 100%;
-        height: auto;
-        display: flex;
-        gap: 1rem;
-    }
-    .header{
-        width: 100%;
-        align-items: center;
-        justify-content: space-between;
-        display: flex;
-    }
-    .logo{
-        width: 5rem;
-    }
-    .content-header .list-menu{
-        display: flex;
-        list-style: none;
-        gap: 1.5rem;
-        color: var(--color-gris);
-        font-weight: 550;
-        align-items: center;
-    }
-    .menu-hamburguesa{
-        display: none;
-    }
-    .content-buttons{
-        margin-left: 4rem;
-        display: flex;
-        gap: 1rem;
-    }
-    .content-buttons a{
-        text-decoration: none;
-    }
-    .content-buttons .btn-iniciar{
-        color: var(--color-turquesa);
-        border: 1px solid var(--color-turquesa);
-        padding: .8rem 1.5rem;
-        border-radius: 1.5rem;
-    }
-    .content-buttons .btn-registrar{
-        color: var(--color-blanco);
-        border: 1px solid var(--color-turquesa);
-        padding: .8rem 1.5rem;
-        border-radius: 1.5rem;
-        background-color: var(--color-turquesa);
-    }
-    /* AQUI EMPEZAMOS A MODIFICAR TODO EL CONTENIDO*/
-    .title span{
-        color: var(--color-negro);
-        line-height: 1.5rem;
-    }
-    .main{
-        width: 100%;
-    }
+@media (width > 750px) {
+  .content-header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 1rem;
+  }
+  .header {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+  }
+  .logo {
+    width: 5rem;
+  }
+  .content-header .list-menu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    color: var(--color-gris);
+    font-weight: 550;
+    align-items: center;
+  }
+  .menu-hamburguesa {
+    display: none;
+  }
+  .content-buttons {
+    margin-left: 4rem;
+    display: flex;
+    gap: 1rem;
+  }
+  .content-buttons a {
+    text-decoration: none;
+  }
+  .content-buttons .btn-iniciar {
+    color: var(--color-turquesa);
+    border: 1px solid var(--color-turquesa);
+    padding: 0.8rem 1.5rem;
+    border-radius: 1.5rem;
+  }
+  .content-buttons .btn-registrar {
+    color: var(--color-blanco);
+    border: 1px solid var(--color-turquesa);
+    padding: 0.8rem 1.5rem;
+    border-radius: 1.5rem;
+    background-color: var(--color-turquesa);
+  }
+  /* AQUI EMPEZAMOS A MODIFICAR TODO EL CONTENIDO PRINCIPAL*/
+  .title span {
+    color: var(--color-negro);
+    line-height: 1.5rem;
+  }
+  main {
+    width: 100%;
+  }
+  .about-hero {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-bottom: 8rem;
+  }
+  .about-hero .about-hero_content {
+    width: 30%;
+    font-size: 1.8rem;
+  }
+  .about-hero_content .about-hero_title {
+    color: var(--color-turquesa_claro);
+    margin-bottom: 1.5rem;
+  }
+  .about-hero_content .other_color {
+    color: var(--color-negro);
+  }
+  .about-hero .about-hero_figure {
+    width: 50%;
+    text-align: right;
+  }
+  .about-hero_figure .about-hero_img {
+    width: 50%;
+  }
+  .content-btns {
+    width: 30%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    top: 35rem;
+    left: 11rem;
+  }
+  .content-btns .btn-principal {
+    width: 20rem;
+    height: 4rem;
+    text-align: center;
+    margin: 0;
+    border-radius: 2rem;
+    background-color: var(--color-turquesa);
+    font-size: 1.3rem;
+  }
+  .content-btns .btn-secundario {
+    width: 20rem;
+    height: 4rem;
+    text-align: center;
+    margin: 0;
+    border-radius: 2rem;
+    text-decoration: none;
+    border: 1px solid var(--color-turquesa);
+    color: var(--color-turquesa);
+    font-size: 1.3rem;
+  }
+  .beneficios{
+    width: 90%;
+    margin: 1.5rem auto 0 auto;
+  }
+  .beneficios .beneficios_item{
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .beneficios .beneficios_icon{
+    color: var(--color-turquesa_claro);
+    font-size: 3rem;
+  }
+  .beneficios_item .beneficios_text{
+    width: 8rem;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    text-align: left;
+    margin-left: 1rem;
+  }
 }
