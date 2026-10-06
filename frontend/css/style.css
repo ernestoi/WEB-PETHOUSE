@@ -1284,4 +1284,31 @@ body {
         width: auto;
         padding: 12px 40px;
     }
+/* =======================================================
+       CORRECCIÓN PARA: 7. CONFIRMACIÓN (WEB)
+       ======================================================= */
+       
+    /* 1. Obligamos a que sea una columna centrada y anulamos el Grid anterior */
+    main.main-confirmacion {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        max-width: 500px; /* Evita que crezca a lo loco */
+        margin: 60px auto; /* Lo centra en la pantalla */
+        gap: 0; /* Reseteamos espacios raros */
+    }
+
+    /* 2. Hacemos que la tarjeta ocupe el ancho del contenedor */
+    main.main-confirmacion .tarjeta-resumen {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    /* 3. Controlamos los botones rebeldes */
+    main.main-confirmacion .btn-wa-confirmacion,
+    main.main-confirmacion .btn-volver-inicio {
+        width: 100%;
+        height: auto; /* Evita que el botón se estire hacia abajo */
+        box-sizing: border-box;
+    }
 }
