@@ -1242,4 +1242,46 @@ body {
         padding: 12px 40px;
         margin-top: 20px;
     }
+
+    /* =======================================================
+       NUEVO CÓDIGO PARA: 4. FECHA Y HORA (WEB)
+       ======================================================= */
+       
+    /* 1. Usamos la misma cuadrícula de 2 columnas (250px para el menú) */
+    .main-escritorio {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 40px;
+        margin-top: 40px;
+    }
+
+    /* 2. Ponemos el Calendario y las Horas lado a lado */
+    .fila-escritorio {
+        display: flex;
+        flex-direction: row; /* Uno al lado del otro */
+        gap: 40px;
+        align-items: flex-start; /* Alinea los bloques por arriba */
+    }
+
+    .columna-calendario {
+        flex: 1.2; /* El calendario toma un poquito más de espacio */
+    }
+
+    .columna-horas {
+        flex: 1; /* Las horas toman el espacio restante */
+    }
+
+    /* 3. Ajustamos el botón para que se vaya a la esquina inferior derecha */
+    .boton-derecha {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 30px;
+        border-top: 1px solid #f0f0f0; /* Una línea sutil para separar el botón */
+        padding-top: 20px;
+    }
+    
+    .boton-derecha .btn-principal {
+        width: auto;
+        padding: 12px 40px;
+    }
 }

@@ -8,79 +8,95 @@
 </head>
 <body>
     <!-- Encabezado -->
-    <header class="header-reserva">
-        <a href="reservar.html" class="btn-volver">←</a>
-        <h3 class="titulo-header">Reservar cita</h3>
-        <button class="menu-hamburguesa">☰</button>
+     <header class="content-header">
+        <nav class="header">
+            <img src="../img/Logo.png" alt="Logo PetHouse" class="logo"> 
+            <ul class="list-menu">
+                <li>Inicio</li>
+                <li>Servicio</li>
+                <li>Reserva tu cita</li>
+                <li>Nosotros</li>
+                <li>Contacto</li>
+                <li>
+                    <div class="content-buttons">
+                        <a href="login.html" class="btn-iniciar">Iniciar Sesión</a>
+                        <a href="registro.html" class="btn-registrar">Registrarse</a>
+                    </div>
+                </li>
+            </ul>
+            <button class="menu-hamburguesa">☰</button>
+        </nav>
+    <!-- Asegúrate de poner el nombre exacto de tu imagen con su extensión (.png o .jpg) -->
     </header>
 
-    <main>
-        <!-- Barrita de progreso (Stepper) -->
+    <main class="main-escritorio">
+        <!-- Barrita de progreso (Stepper) a la izquierda -->
         <div class="stepper">
-            <!-- Paso 1 (Completado) -->
             <div class="step completado">
                 <div class="circulo">1</div>
                 <span>Servicio</span>
             </div>
-            
             <div class="linea linea-activa"></div>
-            
-            <!-- Paso 2 (Activo ahora) -->
             <div class="step activo">
                 <div class="circulo">2</div>
                 <span>Fecha y hora</span>
             </div>
-            
             <div class="linea"></div>
-            
-            <!-- Paso 3 (Pendiente) -->
             <div class="step">
                 <div class="circulo">3</div>
                 <span>Confirmación</span>
             </div>
         </div>
 
-        <!-- Sección del Calendario -->
-        <h4 class="titulo-seccion">Selecciona la fecha</h4>
-        
-        <div class="calendario-card">
-            <div class="calendario-header">
-                <button class="btn-mes">←</button>
-                <span class="mes-actual">Septiembre 2026</span>
-                <button class="btn-mes">→</button>
+        <!-- Todo el contenido de la derecha -->
+        <div class="contenido-derecha">
+            
+            <div class="fila-escritorio">
+                <!-- Columna Izquierda: Calendario -->
+                <div class="columna-calendario">
+                    <h4 class="titulo-seccion">Selecciona la fecha</h4>
+                    <div class="calendario-card">
+                        <div class="calendario-header">
+                            <button class="btn-mes">←</button>
+                            <span class="mes-actual">Septiembre 2026</span>
+                            <button class="btn-mes">→</button>
+                        </div>
+                        <div class="dias-semana">
+                            <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
+                        </div>
+                        <div class="dias-numeros">
+                            <span class="dia-inactivo">31</span>
+                            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+                            <span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+                            <span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span>
+                            <span>21</span><span>22</span><span class="dia-seleccionado">23</span><span>24</span><span>25</span><span>26</span><span>27</span>
+                            <span>28</span><span>29</span><span>30</span><span>1</span><span>2</span><span>3</span><span>4</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Horas -->
+                <div class="columna-horas">
+                    <h4 class="titulo-seccion">Selecciona la hora</h4>
+                    <div class="grid-horas">
+                        <div class="hora-btn">09:00</div>
+                        <div class="hora-btn activa">10:00</div>
+                        <div class="hora-btn">11:00</div>
+                        <div class="hora-btn">12:00</div>
+                        <div class="hora-btn">14:00</div>
+                        <div class="hora-btn">15:00</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón Siguiente alineado a la derecha -->
+            <div class="boton-derecha">
+                <a href="confirmacion.html" style="text-decoration: none;">
+                    <button type="button" class="btn-principal">Siguiente →</button>
+                </a>
             </div>
             
-            <!-- Días de la semana -->
-            <div class="dias-semana">
-                <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
-            </div>
-            
-            <!-- Números de los días -->
-            <div class="dias-numeros">
-                <span class="dia-inactivo">31</span>
-                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
-                <span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
-                <span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span>
-                <span>21</span><span>22</span><span class="dia-seleccionado">23</span><span>24</span><span>25</span><span>26</span><span>27</span>
-                <span>28</span><span>29</span><span>30</span><span>1</span><span>2</span><span>3</span><span>4</span>
-            </div>
         </div>
-
-        <!-- Sección de las Horas -->
-        <h4 class="titulo-seccion">Selecciona la hora</h4>
-        <div class="grid-horas">
-            <div class="hora-btn">09:00</div>
-            <div class="hora-btn activa">10:00</div>
-            <div class="hora-btn">11:00</div>
-            <div class="hora-btn">12:00</div>
-            <div class="hora-btn">14:00</div>
-            <div class="hora-btn">15:00</div>
-        </div>
-
-        <!-- Reemplaza el enlace que pusiste antes por este: -->
-    <a href="confirmacion.html" style="text-decoration: none; display: block;">
-        <button type="button" class="btn-principal" style="margin-top: 30px;">Siguiente →</button>
-    </a>
     </main>
 </body>
 </html>
