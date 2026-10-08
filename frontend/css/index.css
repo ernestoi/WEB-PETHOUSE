@@ -86,8 +86,8 @@ main {
 .about-hero_subtitle {
   color: var(--color-gris);
   font-size: 1.2rem;
-  letter-spacing: .15rem;
-  margin-bottom: .8rem;
+  letter-spacing: 0.15rem;
+  margin-bottom: 0.8rem;
 }
 
 .about-hero_title {
@@ -154,7 +154,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .6rem;
+  gap: 0.6rem;
   cursor: pointer;
 }
 
@@ -174,7 +174,7 @@ main {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-items: start;
-  gap: .5rem;
+  gap: 0.5rem;
   padding: 3rem 1.5rem 2rem;
 }
 
@@ -190,7 +190,7 @@ main {
 .beneficios_icon {
   color: var(--color-turquesa_claro);
   font-size: 2rem;
-  margin-bottom: .6rem;
+  margin-bottom: 0.6rem;
 }
 
 .beneficios_text {
@@ -208,194 +208,224 @@ main {
    ========================================================= */
 
 @media (width > 750px) {
+  .content-header {
+    width: 90%;
+    height: auto;
+    display: flex;
+    gap: 1rem;
+    margin: 0 auto;
+  }
 
-    .content-header {
-        width: 90%;
-        height: auto;
-        display: flex;
-        gap: 1rem;
-        margin: 0 auto;
-    }
+  .header {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+  }
 
-    .header {
-        width: 100%;
-        align-items: center;
-        justify-content: space-between;
-        display: flex;
-    }
+  .logo {
+    width: 5rem;
+  }
 
-    .logo {
-        width: 5rem;
-    }
+  .content-header .list-menu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    color: var(--color-gris);
+    font-weight: 550;
+    align-items: center;
+  }
+  .list-menu a{
+    text-decoration: none;
+    color: var(--color-gris);
+    transition: all ease-in-out 0.3s;
+  }
 
-    .content-header .list-menu {
-        display: flex;
-        list-style: none;
-        gap: 1.5rem;
-        color: var(--color-gris);
-        font-weight: 550;
-        align-items: center;
-    }
+  .menu-hamburguesa {
+    display: none;
+  }
 
-    .menu-hamburguesa {
-        display: none;
-    }
+  .content-buttons {
+    margin-left: 4rem;
+    display: flex;
+    gap: 1rem;
+  }
 
-    .content-buttons {
-        margin-left: 4rem;
-        display: flex;
-        gap: 1rem;
-    }
+  .content-buttons a {
+    text-decoration: none;
+  }
 
-    .content-buttons a {
-        text-decoration: none;
-    }
+  .content-buttons .btn-iniciar {
+    color: var(--color-turquesa);
+    border: 1px solid var(--color-turquesa);
+    padding: 0.8rem 1.5rem;
+    border-radius: 1.5rem;
+    transition: all ease-in 0.3s;
+  }
 
-    .content-buttons .btn-iniciar {
-        color: var(--color-turquesa);
-        border: 1px solid var(--color-turquesa);
-        padding: .8rem 1.5rem;
-        border-radius: 1.5rem;
-    }
+  .content-buttons .btn-registrar {
+    color: var(--color-blanco);
+    border: 1px solid var(--color-turquesa);
+    padding: 0.8rem 1.5rem;
+    border-radius: 1.5rem;
+    background-color: var(--color-turquesa);
+  }
 
-    .content-buttons .btn-registrar {
-        color: var(--color-blanco);
-        border: 1px solid var(--color-turquesa);
-        padding: .8rem 1.5rem;
-        border-radius: 1.5rem;
-        background-color: var(--color-turquesa);
-    }
-
-    /* =========================
+  /* =========================
        CONTENIDO PRINCIPAL
        ========================= */
 
-    main {
-        width: 90%;
-        margin: 0 auto;
-    }
-    .about-hero {
+  main {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .about-hero {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    }
+  }
 
-    .about-hero .about-hero_content {
-        width: 30%;
-        font-size: 1.8rem;
-        text-align: left;
-        padding-left: 4rem;
-    }
+  .about-hero .about-hero_content {
+    width: 30%;
+    font-size: 1.8rem;
+    text-align: left;
+    padding-left: 4rem;
+  }
 
-    .about-hero_content .about-hero_title {
-        color: var(--color-turquesa_claro);
-        margin-bottom: 1.5rem;
-    }
+  .about-hero_content .about-hero_title {
+    color: var(--color-turquesa_claro);
+    margin-bottom: 1.5rem;
+  }
 
-    .about-hero_content .other_color {
-        color: var(--color-negro);
-    }
+  .about-hero_content .other_color {
+    color: var(--color-negro);
+  }
 
-    .about-hero .about-hero_figure {
-        width: 60%;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-    }
+  .about-hero .about-hero_figure {
+    width: 60%;
+    margin: 0;
+    text-align: center;
+  }
 
-    .about-hero_figure .about-hero_img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+  .about-hero_figure .about-hero_img {
+    width: 100%;
+    height: auto;
+    transform: scale(1.3);
+    
+  }
 
-    /* =========================
+  /* =========================
        BOTONES
        ========================= */
 
-    .content-btns {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 1.5rem;
-        padding-left: 9%;
-        margin-top: -4rem;
-        margin-bottom: 5rem;
-    }
+  .content-btns {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    padding-left: 9%;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+  }
 
-    .content-btns .btn-principal {
-        width: 20rem;
-        height: 4rem;
-        text-align: center;
-        margin: 0;
-        border-radius: 2rem;
-        background-color: var(--color-turquesa);
-        color: var(--color-blanco);
-        font-size: 1.3rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: .5rem;
-    }
+  .content-btns .btn-principal {
+    width: 20rem;
+    height: 4rem;
+    text-align: center;
+    margin: 0;
+    border-radius: 2rem;
+    background-color: var(--color-turquesa);
+    color: var(--color-blanco);
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
 
-    .content-btns .btn-secundario {
-        width: 20rem;
-        height: 4rem;
-        text-align: center;
-        margin: 0;
-        border-radius: 2rem;
-        text-decoration: none;
-        border: 1px solid var(--color-turquesa);
-        color: var(--color-turquesa);
-        font-size: 1.3rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .content-btns .btn-secundario {
+    width: 20rem;
+    height: 4rem;
+    text-align: center;
+    margin: 0;
+    border-radius: 2rem;
+    text-decoration: none;
+    border: 1px solid var(--color-turquesa);
+    color: var(--color-turquesa);
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease-in-out 0.3s;
+  }
+  /* BOTONES HOVER DEL CONTENIDO PRINCIPAL*/
+  .content-btns .btn-principal:hover {
+    background-color: var(--color-turquesa_claro);
+    border: 1px solid var(--color-turquesa_claro);
+    
+  }
+  .content-btns .btn-secundario:hover{
+    background-color: var(--color-turquesa);
+    color: var(--color-blanco);
+    
+  }
+  /*BOTONES INICIAR, REGISTRAR SESION HOVER*/
+  .content-buttons .btn-iniciar:hover{
+    background-color: var(--color-turquesa);
+    color: var(--color-blanco);
+  }
+  .content-buttons .btn-registrar:hover{
+    background-color: var(--color-turquesa_claro);
+    border: 1px solid var(--color-turquesa_claro);
+    color: var(--color-blanco);
+  }
+  /* BOTONES PARA LAS PESTAÑAS*/
+  .list-menu a:hover{
+    color: var(--color-turquesa);
+  }
 
-    /* =========================
+  /* =========================
        BENEFICIOS
        ========================= */
 
-    .beneficios {
-        width: 90%;
-        margin: 1.5rem auto 0 auto;
-        display: flex;
-        padding: 0 6rem;
-        justify-content: center;
-        gap: 12rem;
-        align-items: center;
-    }
+  .beneficios {
+    width: 90%;
+    margin: 1.5rem auto 0 auto;
+    display: flex;
+    padding: 0 6rem;
+    justify-content: center;
+    gap: 12rem;
+    align-items: center;
+  }
 
-    .beneficios_item {
-        width: 15%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-    }
+  .beneficios_item {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
 
-    .beneficios_icon {
-        color: var(--color-turquesa_claro);
-        font-size: 3rem;
-        margin-bottom: 0;
-        transform: translateY(2px);
-    }
+  .beneficios_icon {
+    color: var(--color-turquesa_claro);
+    font-size: 3rem;
+    margin-bottom: 0;
+    transform: translateY(2px);
+  }
 
-    .beneficios_text {
-        width: 8rem;
-        font-size: 1.5rem;
-        line-height: 1.2;
-        text-align: left;
-        margin-left: 1rem;
-    }
- 
+  .beneficios_text {
+    width: 8rem;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    text-align: left;
+    margin-left: 1rem;
+  }
 }
 
-@media (min-width: 753px) and (max-width: 1200px){
-  .about-hero{
+@media (min-width: 753px) and (max-width: 1200px) {
+  .about-hero {
     margin-bottom: 3rem;
   }
 }

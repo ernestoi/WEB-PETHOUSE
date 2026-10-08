@@ -1,51 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log In</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
 
-    <link rel="stylesheet" href="../css/login.css">
-
-
-</head>
-<body>
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body>
     <!-- Encabezado solo con la flecha -->
-    <header class="header-registro">
-        <a href="index.html" class="btn-volver">←</a>
+    <header class="header-btn_return">
+      <a href="index.html" class="btn-volver"
+        ><i class="fa-solid fa-circle-arrow-left"></i>Regresar</a>
     </header>
 
-    <main>
-        <!-- Logo central -->
-        <div class="logo-login-container">
-            <img src="../img/logo.jpeg" alt="Logo PetHouse" class="logo-login">
-        </div>
+    <main class="login-hero">
+      <!-- Logo central -->
+      <div class="login-hero_logo">
+        <img src="../img/logo.jpeg" alt="Logo PetHouse" class="logo-login" />
+      </div>
 
-        <!-- Textos -->
-        <div class="texto-encabezado">
+      <div class="login_form">
+        <div class="login_info-section">
+          <!-- Textos -->
+          <div class="texto-encabezado">
             <h2>Inicia sesión</h2>
-            <p>Ingresa a tu cuenta para gestionar<br>tus citas.</p>
-        </div>
+            <p>Ingresa a tu cuenta para gestionar tus citas.</p>
+          </div>
 
-        <!-- Formulario -->
-        <form class="form-registro">
+          <!-- Formulario -->
+          <form class="form-registro">
             <div class="input-group">
-                <span class="input-icono">✉️</span>
-                <input type="email" placeholder="Correo electrónico">
+              <span class="input-icono"
+                ><i class="fa-solid fa-envelope"></i
+              ></span>
+              <input type="email" placeholder="Correo electrónico" />
             </div>
-            
+
             <div class="input-group">
-                <span class="input-icono">🔒</span>
-                <input type="password" placeholder="Contraseña">
-                <span class="icono-ojo">👁️</span> <!-- El ojito nuevo -->
+              <span class="input-icono"><i class="fa-solid fa-lock"></i></span>
+              <input type="password" placeholder="Contraseña" />
+              <span class="icono-ojo"><i class="fa-solid fa-eye"></i></span>
+              <!-- El ojito nuevo -->
             </div>
 
             <!-- Fila de Recordarme y Olvidaste contraseña -->
             <div class="opciones-sesion">
-                <label class="recordarme">
-                    <input type="checkbox"> Recordarme
-                </label>
-                <a href="#" class="link-olvido">¿Olvidaste tu contraseña?</a>
+              <label class="recordarme">
+                <input type="checkbox" /> Recordarme
+              </label>
+              <a href="#" class="link-olvido">¿Olvidaste tu contraseña?</a>
             </div>
 
             <!-- Botón principal -->
@@ -53,19 +61,27 @@
 
             <!-- Divisor con líneas -->
             <div class="divisor">
-                <span>o continúa con</span>
+              <span>o continúa con</span>
             </div>
 
             <!-- Botón de WhatsApp -->
             <button type="button" class="btn-whatsapp">
-                <span class="icono-wa">💬</span> Iniciar con WhatsApp
+              <span class="icono-wa"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></span>
+              Iniciar con WhatsApp
             </button>
-        </form>
+          </form>
 
-        <!-- Pie de página que te lleva al registro -->
-        <p class="texto-footer">
+          <!-- Pie de página que te lleva al registro -->
+          <p class="texto-footer">
             ¿No tienes una cuenta? <a href="registro.html">Regístrate</a>
-        </p>
+          </p>
+        </div>
+        <div class="login_img-section">
+            <figure class="login_img"><img src="../img/login_img.png" alt="Imagen del login"></figure>
+        </div>
+      </div>
     </main>
-</body>
+  </body>
 </html>
