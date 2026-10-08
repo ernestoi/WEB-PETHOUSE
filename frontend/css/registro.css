@@ -1,0 +1,101 @@
+/* --- PANTALLA 3: REGISTRO --- */
+
+/* Textos del encabezado centrados */
+.header-registro .btn-volver {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.texto-encabezado {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.texto-encabezado h2 {
+  font-size: 22px;
+  color: #000;
+  margin-bottom: 8px;
+}
+.texto-encabezado p {
+  font-size: 13px;
+  color: #7f8c8d;
+  margin-bottom: 0;
+}
+
+/* Contenedor de la foto del perro centrado */
+.avatar-container {
+  position: relative;
+  width: max-content;
+  margin: 0 auto 30px auto; /* Lo centra horizontalmente */
+}
+
+/* Estilo para que la foto no sea redonda perfecta, sino un poco cuadrada (squircle) */
+.avatar-img {
+  width: 120px;
+  height: 100px;
+  /* Redondea las esquinas */
+  border-radius: 35px;
+  /* Si estás en un navegador muy moderno, esto lo hará ver como app de Apple */
+  corner-shape: squircle;
+  object-fit: cover;
+}
+
+/* El botoncito verde superpuesto en la esquina de la foto */
+.icono-camara {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  background-color: #00796b;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid white;
+  font-size: 14px;
+}
+
+/* Estilos de las cajas de texto (inputs) */
+.form-registro {
+  display: flex;
+  flex-direction: column;
+}
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 30px; /* Bordes muy redondeados tipo píldora */
+  padding: 12px 18px;
+  margin-bottom: 15px;
+  background-color: #fcfcfc;
+}
+.input-icono {
+  margin-right: 12px;
+  font-size: 16px;
+  color: #555;
+}
+.input-group input {
+  border: none;
+  background: transparent;
+  outline: none; /* Quita el borde azul feo al hacer clic */
+  flex: 1; /* Hace que el input ocupe el resto del espacio */
+  font-size: 14px;
+  font-family: inherit;
+  color: #333;
+}
+.input-group input::placeholder {
+  color: #a0a0a0; /* Color gris suave para el texto de relleno */
+}
+
+/* Texto del final (Iniciar sesión) */
+.texto-footer {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 13px;
+  color: #7f8c8d;
+}
+.texto-footer a {
+  color: #00796b;
+  font-weight: bold;
+  text-decoration: none;
+}
