@@ -4,17 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <!-- Encabezado solo con la flecha -->
-    <header class="header-registro">
-        <a href="fecha-hora.html" class="btn-volver">←</a>
+    <header class="content-header">
+        <nav class="header">
+            <img src="../img/Logo.png" alt="Logo PetHouse" class="logo"> 
+            <ul class="list-menu">
+                <li>Inicio</li>
+                <li>Servicio</li>
+                <li>Reserva tu cita</li>
+                <li>Nosotros</li>
+                <li>Contacto</li>
+                <li>
+                    <div class="content-buttons">
+                        <a href="login.html" class="btn-iniciar">Iniciar Sesión</a>
+                        <a href="registro.html" class="btn-registrar">Registrarse</a>
+                    </div>
+                </li>
+            </ul>
+            <button class="menu-hamburguesa">☰</button>
+        </nav>
+    <!-- Asegúrate de poner el nombre exacto de tu imagen con su extensión (.png o .jpg) -->
     </header>
 
-    <main>
+    <main class="main-confirmacion">
+    <!-- Tu ícono de éxito gigante -->
+    <div class="icono-exito-container">
+        <!-- ... -->
+
         <!-- Ícono de éxito gigante -->
-        <div class="icono-exito-container">
             <div class="icono-exito">✔️</div>
         </div>
 
@@ -66,6 +86,7 @@
         
         <!-- Reutilizamos la clase del botón secundario que hicimos al principio -->
         <a href="index.html" class="btn-secundario btn-volver-inicio">Volver al inicio</a>
-    </main>
+
+       
 </body>
 </html>
