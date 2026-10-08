@@ -201,6 +201,7 @@ main {
   line-height: 1.2;
   text-align: center;
 }
+
 /* =========================================================
    ESCRITORIO
    Se conserva la adaptación que ya hiciste.
@@ -333,7 +334,6 @@ main {
         background-color: var(--color-turquesa);
         color: var(--color-blanco);
         font-size: 1.3rem;
-
         display: flex;
         align-items: center;
         justify-content: center;
@@ -350,7 +350,6 @@ main {
         border: 1px solid var(--color-turquesa);
         color: var(--color-turquesa);
         font-size: 1.3rem;
-
         display: flex;
         align-items: center;
         justify-content: center;
@@ -370,23 +369,33 @@ main {
         align-items: center;
     }
 
-    .beneficios .beneficios_item {
+    .beneficios_item {
         width: 15%;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: row;
     }
 
-    .beneficios .beneficios_icon {
+    .beneficios_icon {
         color: var(--color-turquesa_claro);
         font-size: 3rem;
+        margin-bottom: 0;
+        transform: translateY(2px);
     }
 
-    .beneficios_item .beneficios_text {
+    .beneficios_text {
         width: 8rem;
         font-size: 1.5rem;
         line-height: 1.2;
         text-align: left;
         margin-left: 1rem;
     }
+ 
+}
+
+@media (min-width: 753px) and (max-width: 1200px){
+  .about-hero{
+    margin-bottom: 3rem;
+  }
 }
