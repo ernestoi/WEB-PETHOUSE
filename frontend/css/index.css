@@ -1,0 +1,392 @@
+/* =========================================================
+   Pet's House - Inicio
+   Mobile First
+   ========================================================= */
+
+/* ---------- Variables y reset ---------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-gris: #5e5e5e;
+  --color-turquesa: #047e89;
+  --color-blanco: #ffff;
+  --color-negro: #000;
+  --color-turquesa_claro: #19a8b5;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--color-negro);
+  min-height: 100vh;
+}
+/* =========================================================
+   MOBILE FIRST
+   ========================================================= */
+
+/* ---------- Header ---------- */
+
+.content-header {
+  width: 100%;
+  padding: 1.5rem 2rem;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 6rem;
+  height: auto;
+}
+
+.content-header .list-menu {
+  display: none;
+}
+
+.menu-hamburguesa {
+  display: block;
+  background: transparent;
+  border: 0;
+  color: var(--color-turquesa);
+  font-size: 2.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+/* ---------- Hero ---------- */
+
+main {
+  width: 100%;
+}
+
+.about-hero {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem 0;
+}
+
+.about-hero_content {
+  width: 100%;
+  order: 1;
+}
+
+.about-hero_subtitle {
+  color: var(--color-gris);
+  font-size: 1.2rem;
+  letter-spacing: .15rem;
+  margin-bottom: .8rem;
+}
+
+.about-hero_title {
+  width: 100%;
+  color: var(--color-turquesa_claro);
+  font-size: 3.8rem;
+  line-height: 1.05;
+  margin-bottom: 1.8rem;
+}
+
+.about-hero_content .other_color {
+  color: var(--color-negro);
+}
+
+.about-hero_content p {
+  width: 100%;
+  color: var(--color-gris);
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+/* ---------- Imagen ---------- */
+
+.about-hero_figure {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 2;
+  margin: 2rem 0 0;
+}
+
+.about-hero_img {
+  width: 80%;
+  max-width: 32rem;
+  height: auto;
+}
+/* ---------- Botones ---------- */
+
+.content-btns {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 2rem 2rem 0;
+}
+
+.content-btns .btn-principal,
+.content-btns .btn-secundario {
+  width: 100%;
+  max-width: 30rem;
+  min-height: 4.8rem;
+  border-radius: 2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.content-btns .btn-principal {
+  border: 1px solid var(--color-turquesa);
+  background-color: var(--color-turquesa);
+  color: var(--color-blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  cursor: pointer;
+}
+
+.content-btns .btn-secundario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: 1px solid var(--color-turquesa);
+  background-color: var(--color-blanco);
+  color: var(--color-turquesa);
+}
+/* ---------- Beneficios ---------- */
+
+.beneficios {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: start;
+  gap: .5rem;
+  padding: 3rem 1.5rem 2rem;
+}
+
+.beneficios_item {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.beneficios_icon {
+  color: var(--color-turquesa_claro);
+  font-size: 2rem;
+  margin-bottom: .6rem;
+}
+
+.beneficios_text {
+  width: 100%;
+  max-width: 7rem;
+  color: var(--color-gris);
+  font-size: 1rem;
+  line-height: 1.2;
+  text-align: center;
+}
+/* =========================================================
+   ESCRITORIO
+   Se conserva la adaptación que ya hiciste.
+   ========================================================= */
+
+@media (width > 750px) {
+
+    .content-header {
+        width: 90%;
+        height: auto;
+        display: flex;
+        gap: 1rem;
+        margin: 0 auto;
+    }
+
+    .header {
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+    }
+
+    .logo {
+        width: 5rem;
+    }
+
+    .content-header .list-menu {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+        color: var(--color-gris);
+        font-weight: 550;
+        align-items: center;
+    }
+
+    .menu-hamburguesa {
+        display: none;
+    }
+
+    .content-buttons {
+        margin-left: 4rem;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .content-buttons a {
+        text-decoration: none;
+    }
+
+    .content-buttons .btn-iniciar {
+        color: var(--color-turquesa);
+        border: 1px solid var(--color-turquesa);
+        padding: .8rem 1.5rem;
+        border-radius: 1.5rem;
+    }
+
+    .content-buttons .btn-registrar {
+        color: var(--color-blanco);
+        border: 1px solid var(--color-turquesa);
+        padding: .8rem 1.5rem;
+        border-radius: 1.5rem;
+        background-color: var(--color-turquesa);
+    }
+
+    /* =========================
+       CONTENIDO PRINCIPAL
+       ========================= */
+
+    main {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .about-hero {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    }
+
+    .about-hero .about-hero_content {
+        width: 30%;
+        font-size: 1.8rem;
+        text-align: left;
+        padding-left: 4rem;
+    }
+
+    .about-hero_content .about-hero_title {
+        color: var(--color-turquesa_claro);
+        margin-bottom: 1.5rem;
+    }
+
+    .about-hero_content .other_color {
+        color: var(--color-negro);
+    }
+
+    .about-hero .about-hero_figure {
+        width: 60%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .about-hero_figure .about-hero_img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* =========================
+       BOTONES
+       ========================= */
+
+    .content-btns {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
+        padding-left: 9%;
+        margin-top: -4rem;
+        margin-bottom: 5rem;
+    }
+
+    .content-btns .btn-principal {
+        width: 20rem;
+        height: 4rem;
+        text-align: center;
+        margin: 0;
+        border-radius: 2rem;
+        background-color: var(--color-turquesa);
+        color: var(--color-blanco);
+        font-size: 1.3rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .5rem;
+    }
+
+    .content-btns .btn-secundario {
+        width: 20rem;
+        height: 4rem;
+        text-align: center;
+        margin: 0;
+        border-radius: 2rem;
+        text-decoration: none;
+        border: 1px solid var(--color-turquesa);
+        color: var(--color-turquesa);
+        font-size: 1.3rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* =========================
+       BENEFICIOS
+       ========================= */
+
+    .beneficios {
+        width: 90%;
+        margin: 1.5rem auto 0 auto;
+        display: flex;
+        padding: 0 6rem;
+        justify-content: center;
+        gap: 12rem;
+        align-items: center;
+    }
+
+    .beneficios .beneficios_item {
+        width: 15%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .beneficios .beneficios_icon {
+        color: var(--color-turquesa_claro);
+        font-size: 3rem;
+    }
+
+    .beneficios_item .beneficios_text {
+        width: 8rem;
+        font-size: 1.5rem;
+        line-height: 1.2;
+        text-align: left;
+        margin-left: 1rem;
+    }
+}
