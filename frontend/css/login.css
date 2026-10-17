@@ -96,6 +96,8 @@ body {
   border-radius: 1.5rem;
   padding: 1.5rem;
   font-weight: 600;
+  text-decoration: none;
+  text-align: center;
 }
 .btn-whatsapp {
   transition: all ease-in-out 0.4s;
@@ -276,6 +278,8 @@ body {
     border-radius: 1.5rem;
     padding: 1.5rem;
     font-weight: 600;
+    text-decoration: none;
+    text-align: center;
   }
   .btn-whatsapp {
     transition: all ease-in-out 0.4s;

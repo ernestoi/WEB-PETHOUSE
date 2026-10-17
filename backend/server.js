@@ -1,3 +1,12 @@
+/*
+Los códigos HTTP más comunes:
+200 → Todo correcto
+201 → Creado correctamente
+400 → Error del cliente
+404 → No encontrado
+500 → Error interno del servidor
+*/
+
 // importar express
 const express = require("express");
 
