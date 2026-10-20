@@ -207,6 +207,64 @@ main {
   line-height: 1.2;
   text-align: center;
 }
+/*GALERÍA DE IMAGENES*/
+  main .galery{
+    width: 100%;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .galery .galery_title{
+    color:var(--color-marino_oscuro);
+  }
+  .galery .galery_description{
+    color: var(--color-gris);
+    margin-bottom: 1.5rem;
+  }
+  .galery_container{
+    width: 92%;
+    gap: 1rem;
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 15rem;
+    grid-template-areas: 
+    "i1 i2" 
+    "i3 i3" 
+    "i4 i5" 
+    "i6 i6"
+    "i7 i8"; 
+  }
+  .galery_container .i1{
+    grid-area: i1;
+  }
+  .galery_container .i3{
+    grid-area: i2;
+  }
+  .galery_container .i2{
+    grid-area: i3;
+  } 
+  .galery_container .i6{
+    grid-area: i4;
+  }
+  .galery_container .i5{
+    grid-area: i5;
+  }
+  .galery_container .i4{
+    grid-area: i6;
+  }
+  .galery_container .i7{
+    grid-area: i7;
+  }
+  .galery_container .i9{
+    grid-area: i8;
+  }
+  .galery_item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: .5rem;
+  }
+
 /*
 ++++++++++++++++++++++
 ++++ ESTE ES EL FOOTER
@@ -507,7 +565,7 @@ footer h2,h3,h4{
 
   .beneficios {
     width: 90%;
-    margin: 1.5rem auto 0 auto;
+    margin: 1.5rem auto 3rem auto;
     display: flex;
     padding: 0 6rem;
     justify-content: center;
@@ -538,6 +596,58 @@ footer h2,h3,h4{
     margin-left: 1rem;
   }
 
+  /*GALERÍA DE IMAGENES*/
+  main .galery{
+    width: 100%;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  .galery .galery_title{
+    color:var(--color-marino_oscuro);
+  }
+  .galery .galery_description{
+    color: var(--color-gris);
+    margin-bottom: 4rem;
+  }
+  .galery_container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows:20rem;
+    grid-template-areas: 
+    "i1 i1 i2 i2" 
+    "i1 i1 i3 i3" 
+    "i4 i4 i5 i5"
+    "i6 i6 i5 i5"
+    "i7 i7  . i8 "
+    "i7 i7  . i8 "
+   ; 
+  }
+  .galery_container .i1{
+    grid-area: i1;
+  }
+  .galery_container .i3{
+    grid-area: i2;
+  }
+  .galery_container .i2{
+    grid-area: i3;
+  } 
+  .galery_container .i4{
+    grid-area: i4;
+  }
+  .galery_container .i5{
+    grid-area: i5;
+  }
+  .galery_container .i7{
+    grid-area: i6;
+  }
+  .galery_container .i8{
+    grid-area: i7;
+  }
+  .galery_container .i6{
+    grid-area: i8;
+  }
+  
+  
   /* FOOTER O PIE DE PAGINA PARA VERSION PC*/
   .footer{
     display: grid;
