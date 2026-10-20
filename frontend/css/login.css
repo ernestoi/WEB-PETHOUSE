@@ -12,6 +12,7 @@
   --color-negro: #000;
   --color-turquesa_claro: #19a8b5;
   --color-verde_claro: #1cb057;
+  --color-marino_oscuro: #063846;
 }
 html {
   font-size: 62.5%;
@@ -20,6 +21,7 @@ body {
   font-family: Arial, sans-serif;
   padding: 20px; /* Un poco de espacio a los lados para que no pegue a los bordes del celular */
   height: 100vh;
+  
 }
 /* --- PANTALLA 4: INICIAR SESIÓN --- */
 .header-btn_return {
