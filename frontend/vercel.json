@@ -5,7 +5,7 @@
       "destination": "/cliente/index.html"
     },
     {
-      "source": "/login",
+      "source": "/login.html",
       "destination": "/cliente/login.html"
     }
   ]
