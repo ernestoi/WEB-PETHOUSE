@@ -7,6 +7,14 @@
     {
       "source": "/login.html",
       "destination": "/cliente/login.html"
+    },
+    {
+      "source": "/registro.html",
+      "destination": "/cliente/registro.html"
+    }, 
+    {
+      "source": "/index.html",
+      "destination": "/cliente/index.html"
     }
   ]
 }
