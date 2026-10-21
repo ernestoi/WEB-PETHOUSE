@@ -232,7 +232,6 @@ main {
     "i3 i3" 
     "i4 i5" 
     "i6 i6"
-    "i7 i8"; 
   }
   .galery_container .i1{
     grid-area: i1;
@@ -252,12 +251,7 @@ main {
   .galery_container .i4{
     grid-area: i6;
   }
-  .galery_container .i7{
-    grid-area: i7;
-  }
-  .galery_container .i9{
-    grid-area: i8;
-  }
+  
   .galery_item img{
     width: 100%;
     height: 100%;
@@ -618,8 +612,6 @@ footer h2,h3,h4{
     "i1 i1 i3 i3" 
     "i4 i4 i5 i5"
     "i6 i6 i5 i5"
-    "i7 i7  . i8 "
-    "i7 i7  . i8 "
    ; 
   }
   .galery_container .i1{
@@ -637,15 +629,10 @@ footer h2,h3,h4{
   .galery_container .i5{
     grid-area: i5;
   }
-  .galery_container .i7{
+  .galery_container .i6{
     grid-area: i6;
   }
-  .galery_container .i8{
-    grid-area: i7;
-  }
-  .galery_container .i6{
-    grid-area: i8;
-  }
+  
   .galery_item{
     
     border-radius: 1rem;

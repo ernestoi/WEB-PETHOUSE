@@ -15,6 +15,10 @@
     {
       "source": "/index.html",
       "destination": "/cliente/index.html"
+    },
+    {
+      "source": "/perfil_cliente.html",
+      "destination": "/cliente/perfil_cliente.html"
     }
   ]
 }
