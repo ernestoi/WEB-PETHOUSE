@@ -19,6 +19,14 @@
     {
       "source": "/perfil_cliente.html",
       "destination": "/cliente/perfil_cliente.html"
+    },
+    {
+      "source": "/nosotros.html",
+      "destination": "/cliente/nosotros.html"
+    },
+    {
+      "source": "/contacto.html",
+      "destination": "/cliente/contacto.html"
     }
   ]
 }
