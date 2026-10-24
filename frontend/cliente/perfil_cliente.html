@@ -9,61 +9,377 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
     />
     <link rel="stylesheet" href="../css/perfil_cliente.css" />
+    <link rel="stylesheet" href="/frontend/css/mis_mascotas.css" />
   </head>
   <body>
-    <!-- Header Info-->
-    <header class="content-header_perfil">
-      <div class="header-title_perfil">
-        <div class="content-btn_arrow">
-          <i class="fa-solid fa-circle-arrow-left"></i> Regresar
+    <!--- -------------------------------------- -->
+    <!-- SECCION: VISTA DEL PERFIL_CLIENTE-->
+    <!--- -------------------------------------- -->
+    <section class="vista_perfil-cliente">
+      <!-- Header Info-->
+      <header class="content-header_perfil">
+        <div class="header-title_perfil">
+          <div class="content-btn_arrow">
+            <i class="fa-solid fa-circle-arrow-left"></i> Regresar
+          </div>
+          <div class="content-title_user">
+            <h1 class="title_user">Mi Perfil</h1>
+          </div>
         </div>
-        <div class="content-title_user">
-          <h1 class="title_user">Mi Perfil</h1>
+        <div class="content-info_user">
+          <div class="cont-img">
+            <img src="../img/index.png" alt="Imagen del perfil del usuario." />
+            <span><i class="fa-solid fa-camera"></i></span>
+          </div>
+          <div class="cont-info">
+            <h2 class="name_user">Juan Peréz</h2>
+            <p class="email_user">isaiascoca123@gmail.com</p>
+            <p class="phone_user">0978926124</p>
+          </div>
         </div>
-      </div>
-      <div class="content-info_user">
-        <div class="cont-img">
-          <img src="../img/index.png" alt="Imagen del perfil del usuario." />
-          <span><i class="fa-solid fa-camera"></i></span>
-        </div>
-        <div class="cont-info">
-          <h2 class="name_user">Juan Peréz</h2>
-          <p class="email_user">isaiascoca123@gmail.com</p>
-          <p class="phone_user">0978926124</p>
-        </div>
-      </div>
-    </header>
+      </header>
 
-    <!-- CONTENIDO DE LAS OPCIONES-->
-    <main class="content-options_user">
-      <div class="personal-information user">
-        <p><i class="fa-regular fa-user"></i> Mis Datos <i class="fa-solid fa-chevron-right"></i></p>
-      </div>
-      <div class="my-pets user">
-        <p><i class="fa-solid fa-dog"></i> Mis Mascotas <i class="fa-solid fa-chevron-right"></i></p>
-      </div>
-      <div class="cita user">
-        <p><i class="fa-regular fa-calendar-check"></i> Mis Citas <i class="fa-solid fa-chevron-right"></i></p>
-      </div>
-      <div class="notification_active user">
-        <p><i class="fa-solid fa-bell"></i> Activar la notificación</p>
-        <label class="switch">
-          <input type="checkbox" />
-          <span class="slider"></span>
-        </label>
-      </div>
-      <div class="help user">
-        <p><i class="fa-regular fa-circle-question"></i> Ayuda <i class="fa-solid fa-chevron-right"></i></p>
-      </div>
-      <div class="close_sesion user">
-        <p><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión <i class="fa-solid fa-chevron-right"></i></p>
-      </div>
-    </main>
+      <!-- CONTENIDO DE LAS OPCIONES-->
+      <main class="content-options_user">
+        <div class="personal-information user">
+          <a href="#"
+            ><i class="fa-regular fa-user"></i> Mis Datos
+            <i class="fa-solid fa-chevron-right"></i
+          ></a>
+        </div>
+        <div class="my-pets user">
+          <button class="btn_ver-mascotas" type="button">
+            <i class="fa-solid fa-dog"></i> Mis Mascotas
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="cita user">
+          <a
+            ><i class="fa-regular fa-calendar-check"></i> Mis Citas
+            <i class="fa-solid fa-chevron-right"></i
+          ></a>
+        </div>
+        <div class="notification_active user">
+          <p><i class="fa-solid fa-bell"></i> Activar la notificación</p>
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="help user">
+          <p>
+            <i class="fa-regular fa-circle-question"></i> Ayuda
+            <i class="fa-solid fa-chevron-right"></i>
+          </p>
+        </div>
+        <div class="close_sesion user">
+          <p>
+            <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+            <i class="fa-solid fa-chevron-right"></i>
+          </p>
+        </div>
+      </main>
+    </section>
 
+    <!--- -------------------------------------- -->
+    <!-- SECCION: VISTA DEL PERFIL MIS_MASCOTAS-->
+    <!--- -------------------------------------- -->
+    <section class="vista_mis-mascotas" hidden>
+      <!-- Encabezado de Mis Mascotas -->
+      <header class="header-mascotas">
+        <h2 class="titulo-grande">Mis mascotas</h2>
+        <!-- Botón de agregar mascota -->
+        <button class="btn-agregar">+ Agregar mascota</button>
+      </header>
+
+      <main class="container-principal">
+        <!-- Lista de Tarjetas de Mascotas -->
+        <div class="lista-mascotas_container">
+          <!-- TARJETA 1: Max -->
+          <div class="tarjeta-mascota">
+            <!-- Parte superior: Foto, Info y Menú de opciones -->
+            <div class="mascota-superior">
+              <!-- Foto con patita (Reusamos la clase pero haremos la foto más grande en CSS) -->
+              <div class="avatar-container-mediano">
+                <img
+                  src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=200"
+                  class="avatar-mascota-mediano"
+                  alt="Max"
+                />
+                <span class="icono-patita-mediano"
+                  ><i class="fa-solid fa-paw"></i
+                ></span>
+              </div>
+
+              <!-- Información de la mascota -->
+              <div class="info-mascota-detalle">
+                <div class="nombre-y-menu">
+                  <h3>Max</h3>
+                  <button class="btn-tres-puntos">⋮</button>
+                </div>
+                <p class="raza-texto">Golden Retriever</p>
+
+                <!-- Lista de características -->
+                <div class="caracteristicas-lista">
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-hourglass-end"></i
+                    ></span>
+                    <span>3 años</span>
+                  </div>
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-mars"></i
+                    ></span>
+                    <span>Macho</span>
+                  </div>
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-ruler-vertical"></i
+                    ></span>
+                    <span>Tamaño: Grande</span>
+                  </div>
+                  <!-- Botón de acción inferior -->
+                  <button class="btn-historial">Ver historial</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TARJETA 2: Luna -->
+          <div class="tarjeta-mascota">
+            <div class="mascota-superior">
+              <div class="avatar-container-mediano">
+                <img
+                  src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=200"
+                  class="avatar-mascota-mediano"
+                  alt="Luna"
+                />
+                <span class="icono-patita-mediano"
+                  ><i class="fa-solid fa-paw"></i
+                ></span>
+              </div>
+              <div class="info-mascota-detalle">
+                <div class="nombre-y-menu">
+                  <h3>Luna</h3>
+                  <button class="btn-tres-puntos">⋮</button>
+                </div>
+                <p class="raza-texto">Poodle</p>
+
+                <div class="caracteristicas-lista">
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-hourglass-end"></i
+                    ></span>
+                    <span>2 años</span>
+                  </div>
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-mars-stroke"></i
+                    ></span>
+                    <span>Hembra</span>
+                  </div>
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-ruler-vertical"></i
+                    ></span>
+                    <span>Tamaño: Pequeño</span>
+                  </div>
+                  <button class="btn-historial">Ver historial</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TARJETA 3: Luna -->
+          <div class="tarjeta-mascota">
+            <div class="mascota-superior">
+              <div class="avatar-container-mediano">
+                <img
+                  src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=200"
+                  class="avatar-mascota-mediano"
+                  alt="Luna"
+                />
+                <span class="icono-patita-mediano"
+                  ><i class="fa-solid fa-paw"></i
+                ></span>
+              </div>
+              <div class="info-mascota-detalle">
+                <div class="nombre-y-menu">
+                  <h3>Luna</h3>
+                  <button class="btn-tres-puntos">⋮</button>
+                </div>
+                <p class="raza-texto">Poodle</p>
+
+                <div class="caracteristicas-lista">
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-hourglass-end"></i
+                    ></span>
+                    <span>2 años</span>
+                  </div>
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-mars-stroke"></i
+                    ></span>
+                    <span>Hembra</span>
+                  </div>
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-ruler-vertical"></i
+                    ></span>
+                    <span>Tamaño: Pequeño</span>
+                  </div>
+                  <button class="btn-historial">Ver historial</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TARJETA 4: Luna -->
+          <div class="tarjeta-mascota">
+            <div class="mascota-superior">
+              <div class="avatar-container-mediano">
+                <img
+                  src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=200"
+                  class="avatar-mascota-mediano"
+                  alt="Luna"
+                />
+                <span class="icono-patita-mediano"
+                  ><i class="fa-solid fa-paw"></i
+                ></span>
+              </div>
+              <div class="info-mascota-detalle">
+                <div class="nombre-y-menu">
+                  <h3>Luna</h3>
+                  <button class="btn-tres-puntos">⋮</button>
+                </div>
+                <p class="raza-texto">Poodle</p>
+
+                <div class="caracteristicas-lista">
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-hourglass-end"></i
+                    ></span>
+                    <span>2 años</span>
+                  </div>
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-mars-stroke"></i
+                    ></span>
+                    <span>Hembra</span>
+                  </div>
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-ruler-vertical"></i
+                    ></span>
+                    <span>Tamaño: Pequeño</span>
+                  </div>
+                  <button class="btn-historial">Ver historial</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TARJETA 5: Luna -->
+          <div class="tarjeta-mascota">
+            <div class="mascota-superior">
+              <div class="avatar-container-mediano">
+                <img
+                  src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=200"
+                  class="avatar-mascota-mediano"
+                  alt="Luna"
+                />
+                <span class="icono-patita-mediano"
+                  ><i class="fa-solid fa-paw"></i
+                ></span>
+              </div>
+              <div class="info-mascota-detalle">
+                <div class="nombre-y-menu">
+                  <h3>Luna</h3>
+                  <button class="btn-tres-puntos">⋮</button>
+                </div>
+                <p class="raza-texto">Poodle</p>
+
+                <div class="caracteristicas-lista">
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-hourglass-end"></i
+                    ></span>
+                    <span>2 años</span>
+                  </div>
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-mars-stroke"></i
+                    ></span>
+                    <span>Hembra</span>
+                  </div>
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-ruler-vertical"></i
+                    ></span>
+                    <span>Tamaño: Pequeño</span>
+                  </div>
+                  <button class="btn-historial">Ver historial</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TARJETA 6: Luna -->
+          <div class="tarjeta-mascota">
+            <div class="mascota-superior">
+              <div class="avatar-container-mediano">
+                <img
+                  src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=200"
+                  class="avatar-mascota-mediano"
+                  alt="Luna"
+                />
+                <span class="icono-patita-mediano"
+                  ><i class="fa-solid fa-paw"></i
+                ></span>
+              </div>
+              <div class="info-mascota-detalle">
+                <div class="nombre-y-menu">
+                  <h3>Luna</h3>
+                  <button class="btn-tres-puntos">⋮</button>
+                </div>
+                <p class="raza-texto">Poodle</p>
+
+                <div class="caracteristicas-lista">
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-hourglass-end"></i
+                    ></span>
+                    <span>2 años</span>
+                  </div>
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-mars-stroke"></i
+                    ></span>
+                    <span>Hembra</span>
+                  </div>
+                  <div class="caracteristica-item">
+                    <span class="icono-carac"
+                      ><i class="fa-solid fa-ruler-vertical"></i
+                    ></span>
+                    <span>Tamaño: Pequeño</span>
+                  </div>
+                  <button class="btn-historial">Ver historial</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <!--- -------------------------------------- -->
     <!-- MENU DE LOS BOTONES DE NAVEGACION-->
+    <!--- -------------------------------------- -->
     <nav class="content-menu">
       <div class="cont_btn-home btn">
-        <a href="#">
+        <a href="index.html">
           <i class="fa-regular fa-house"></i>
           <p>Inicio</p>
         </a>
@@ -90,9 +406,11 @@
         <a href="#">
           <i class="fa-solid fa-user"></i>
           <p>Mi perfil</p>
-          
         </a>
       </div>
     </nav>
+
+    <script src="../js/perfil_cliente.js"></script>
+    <script src="/frontend/js/mis_mascotas.js"></script>
   </body>
 </html>

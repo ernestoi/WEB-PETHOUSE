@@ -1,0 +1,198 @@
+/* =========================================================
+   Pet's House - Inicio
+   Mobile First
+   ========================================================= */
+
+/* ---------- Variables y reset ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-gris: #5e5e5e;
+  --color-gris_claro: #b1aeae;
+  --color-gris_mas_claro: #eff6f9;
+  --color-turquesa: #047e89;
+  --color-blanco: #ffff;
+  --color-negro: #000;
+  --color-turquesa_claro: #19a8b5;
+  --color-turquesa_mas_claro: #91eff8;
+  --color-rojo: #c7330e;
+  --color-rojo_claro: #f8e5e0;
+  --color-celeste_claro: #d6ecef;
+  --color-rojo_claro: #f6bfb1;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  color: var(--color-negro);
+  min-height: 100vh;
+  font-size: 1.6rem;
+  background-color: var(--color-gris_mas_claro);
+}
+/* --- PANTALLA 9: MIS MASCOTAS --- */
+
+.header-mascotas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 5rem auto 5rem auto;
+}
+.header-mascotas .titulo-grande{
+  font-size: 2rem;
+}
+
+.btn-agregar {
+  background-color: var(--color-turquesa);
+  color: var(--color-blanco);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 1rem;
+  font-size: 13px;
+  font-weight: bold;
+}
+.container-principal{
+    width: 90%;
+    margin: 0  auto 0 auto;
+}
+.lista-mascotas_container{
+    width: 100%;  
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+/* Ajustes a la tarjeta base para esta vista */
+.tarjeta-mascota {
+  padding: 15px; /* Un poco menos de padding que la de citas */
+  border-radius: 1rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  font-size: 1.6rem;
+  background-color: var(--color-blanco);
+}
+
+/* Distribución de la parte superior (Foto a la izq, Info a la der) */
+.mascota-superior {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+/* Contenedor y Foto de Mascota un poco más grandes */
+.avatar-container-mediano {
+  position: relative;
+  margin-right: 15px;
+  width: 90px;
+}
+.avatar-mascota-mediano {
+  width: 90px;
+  height: 100px;
+  border-radius: 20px;
+  corner-shape: squircle;
+  object-fit: cover;
+}
+.icono-patita-mediano {
+  position: absolute;
+  top: 8.5rem;
+  left: 0px;
+  background-color: white;
+  color: var(--color-turquesa);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Información de la mascota */
+.info-mascota-detalle {
+  flex: 1; /* Ocupa el espacio restante a la derecha */
+  font-size: 1.6rem;
+}
+.nombre-y-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nombre-y-menu h3 {
+  font-size: 18px;
+  color: #000;
+  margin: 0;
+}
+.btn-tres-puntos {
+  background: none;
+  border: none;
+  color: #00796b;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0 5px;
+}
+.raza-texto {
+  font-size: 11px;
+  color: #a0a0a0;
+  margin-bottom: 10px;
+}
+
+/* Lista de características (Edad, sexo, etc.) */
+.caracteristicas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Espacio entre cada línea */
+}
+.caracteristica-item {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #555;
+}
+.icono-carac {
+  color: #00796b;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+/* Botón inferior "Ver historial" */
+.btn-historial {
+  width: 100%;
+  background-color: white;
+  color: var(--color-turquesa);
+  border: 2px solid var(--color-turquesa); /* Borde verde grueso */
+  padding: 12px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: bold;
+  transition: all .3s ease;
+}
+.btn-historial.active{
+  background-color: var(--color-turquesa);
+  border-color: var(--color-turquesa);
+  color: var(--color-blanco);
+}
+
+/*VERSION ESCRITORIO*/
+@media (width > 750px) {
+  .lista-mascotas_container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .tarjeta-mascota{
+    width: 40%;
+  }
+  .header-mascotas .btn-agregar{
+      padding:1.5rem 2rem;
+    }
+}
