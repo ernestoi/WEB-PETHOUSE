@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contáctame</title>
+    <link rel="stylesheet" href="../css/contactanos.css">
+  </head>
+  <body>
+    <!-- 1. El encabezado: Logo y el menú de rayitas -->
+    <header class="content-header">
+        <nav class="header">
+            <img src="../img/Logo.png" alt="Logo PetHouse" class="logo"> 
+            <ul class="list-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicio</a></li>
+                <li><a href="#">Reserva tu cita</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li>
+                    <div class="content-buttons">
+                        <a href="login.html" class="btn-iniciar">Iniciar Sesión</a>
+                        <a href="registro.html" class="btn-registrar">Registrarse</a>
+                    </div>
+                </li>
+            </ul>
+            <button class="menu_hamburguesa"
+                aria-label="Abrir menú"
+                aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+
+    <!-- Asegúrate de poner el nombre exacto de tu imagen con su extensión (.png o .jpg) -->
+    </header>
+    
+    <main class="contenido_principal">
+        <section class="header_container">
+      <h1 class="title_header">Contáctanos</h1>
+      <p class="details_header">
+        Estamos para ayudarte a cuidar de tu mascota.
+      </p>
+    </section>
+      <section class="contacto">
+        <!-- Bloque izquierdo -->
+        <div class="contacto-info">
+          <h2>Hablemos de tu mascota.</h2>
+          <p>
+            Cuéntanos qué necesitas y te ayudaremos a encontrar la mejor opción.
+          </p>
+
+          <div class="contacto-acciones">
+            <a href="#">WhatsApp</a>
+            <a href="#">Enviar correo</a>
+          </div>
+
+          <img src="../img/contacto.png" alt="Perro y gato" />
+        </div>
+
+        <!-- Bloque derecho -->
+        <div class="contacto-formulario">
+          <h2>Envíanos un mensaje</h2>
+
+          <form>
+            <input type="text" placeholder="Nombre completo" required />
+            <input type="email" placeholder="Correo electrónico" required />
+
+            <select required>
+              <option value="">Motivo de consulta</option>
+              <option value="servicios">Consulta sobre servicios</option>
+              <option value="citas">Consulta sobre citas</option>
+              <option value="otro">Otro</option>
+            </select>
+
+            <textarea placeholder="Escribe tu mensaje..." required></textarea>
+
+            <button type="submit">Enviar mensaje</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script src="../js/main.js"></script>
+  </body>
+</html>

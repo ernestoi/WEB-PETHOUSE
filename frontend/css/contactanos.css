@@ -1,0 +1,521 @@
+
+/* =========================================================
+   PET'S HOUSE - CONTACTO
+   Mobile First
+   ========================================================= */
+
+/* ---------- Variables ---------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --contacto-fondo: #0B252B;
+  --contacto-panel: #12343B;
+  --contacto-blanco: #F5F5F2;
+  --contacto-turquesa: #27D3C3;
+  --contacto-gris: #A8B6B8;
+  --contacto-borde: #365157;
+  /* COLORES DE LA WEB NORMAL*/
+    --color-gris: #5e5e5e;
+  --color-turquesa: #047e89;
+  --color-blanco: #ffff;
+  --color-negro: #000;
+  --color-turquesa_claro: #19a8b5;
+  --color-gris_mas_claro: #eff6f9;
+  --color-marino_oscuro: #063846;
+  --color-blanco_oscuro: #D5E5E8;
+}
+
+/* ---------- Configuración general ---------- */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 1.6rem;
+  background-color: var(--color-blanco_oscuro);
+  min-height: 100dvh;
+}
+
+/* ---------- Sección de contacto ---------- */
+.header_container{
+   text-align: center;
+}
+.content-header {
+  width: 100%;
+  padding: 2rem 2rem;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.1s ease;
+  
+}
+
+.logo {
+  width: 6rem;
+  height: auto;
+}
+.list-menu{
+  display: none;
+}
+
+
+
+/* Contenedor del icono (ajusta el tamaño aquí) */
+/* Botón hamburguesa */
+.menu_hamburguesa {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Las tres líneas */
+.menu_hamburguesa span {
+    width: 2.5rem;
+    height: 0.3rem;
+    background-color: var(--color-turquesa);
+    border-radius: 1rem;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Primera línea */
+.menu_hamburguesa.activo span:nth-child(1) {
+    transform: translateY(0.9rem) rotate(45deg);
+}
+
+/* Segunda línea */
+.menu_hamburguesa.activo span:nth-child(2) {
+    opacity: 0;
+}
+
+/* Tercera línea */
+.menu_hamburguesa.activo span:nth-child(3) {
+    transform: translateY(-0.9rem) rotate(-45deg);
+}
+
+/* Menú oculto inicialmente */
+.menu_movil {
+    display: none;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Menú visible */
+.menu_movil.menu-visible {
+    display: flex;
+}
+.menu_hamburguesa.activo span{
+  background-color: var(--color-blanco);
+}
+.content-header.open_menu {
+  height: 100dvh;
+  width: 100%;
+  background-color: var(--color-marino_oscuro);
+  color: var(--color-blanco);
+  z-index: 1000;
+  position: fixed;
+}
+.content-header.open_menu .menu_hamburguesa{
+  position: absolute;
+  top: 1.5rem;
+  right: .3rem;
+}
+.content-header.open_menu .header {
+  height: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: var(--color-marino_oscuro);
+  color: var(--color-blanco);
+  position: relative;
+}
+.content-header.open_menu .list-menu{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: flex-start;
+  margin-top: 5rem;
+
+}
+.content-header.open_menu .list-menu a{
+  color: var(--color-blanco);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  display: block;
+  transition: all .4s ease;
+}
+.content-header.open_menu .list-menu a:hover{
+  color: var(--color-turquesa_claro);
+}
+.content-header.open_menu .content-buttons{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+
+.contacto {
+  width: 90%;
+  max-width: 1200px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ---------- Información de contacto ---------- */
+
+.contacto-info {
+  background-color: var(--contacto-fondo);
+  color: var(--contacto-blanco);
+  padding: 2.5rem 2rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow: hidden;
+}
+
+.contacto-info h2 {
+  font-size: 2.8rem;
+  line-height: 1.2;
+  margin: 0;
+  max-width: 40rem;
+}
+
+.contacto-info p {
+  color: var(--contacto-gris);
+  line-height: 1.7;
+  font-size: 1.5rem;
+  margin: 0;
+  max-width: 42rem;
+}
+
+/* ---------- Botones de contacto ---------- */
+
+.contacto-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contacto-acciones a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1.2rem 1.6rem;
+  border: 1px solid var(--color-turquesa);
+  border-radius: 1rem;
+  color: var(--color-turquesa);
+  transition: background-color 0.25s ease,
+              color 0.25s ease;
+}
+
+.contacto-acciones a:first-child {
+  background-color: var(--color-turquesa);
+  color: var(--color-blanco);
+}
+
+.contacto-acciones a:hover {
+  background-color: var(--color-turquesa_claro);
+  color: var(--color-blanco);
+}
+
+/* ---------- Imagen de mascotas ---------- */
+
+.contacto-info img {
+  display: block;
+  width: 100%;
+  max-width: 42rem;
+  height: auto;
+  object-fit: contain;
+  align-self: center;
+  margin-top: 0.5rem;
+  border-radius: 1rem;
+}
+
+/* ---------- Formulario ---------- */
+
+.contacto-formulario {
+  background-color: var(--contacto-blanco);
+  color: var(--contacto-fondo);
+  padding: 2.5rem 2rem;
+  border-radius: 2rem;
+  box-shadow: 0 0.8rem 2.5rem rgba(0, 0, 0, 0.08);
+}
+
+.contacto-formulario h2 {
+  font-size: 2.4rem;
+  line-height: 1.3;
+  margin: 0 0 2rem;
+}
+
+/* ---------- Distribución de campos ---------- */
+.contacto-formulario form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.contacto-formulario input,
+.contacto-formulario select,
+.contacto-formulario textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 1.4rem;
+  border: 1px solid #D7DEDE;
+  border-radius: 1.2rem;
+  background-color: #FFFFFF;
+  color: var(--contacto-fondo);
+  font-family: inherit;
+  font-size: 1.4rem;
+  outline: none;
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.contacto-formulario input,
+.contacto-formulario select {
+  min-height: 4.8rem;
+}
+
+.contacto-formulario textarea {
+  min-height: 14rem;
+  resize: vertical;
+}
+
+.contacto-formulario input::placeholder,
+.contacto-formulario textarea::placeholder {
+  color: #69797B;
+}
+
+.contacto-formulario input:focus,
+.contacto-formulario select:focus,
+.contacto-formulario textarea:focus {
+  border-color: var(--contacto-turquesa);
+  box-shadow: 0 0 0 0.3rem rgba(39, 211, 195, 0.15);
+}
+
+/* ---------- Botón enviar ---------- */
+
+.contacto-formulario button {
+  width: 100%;
+  min-height: 4.8rem;
+  padding: 1.3rem 1.6rem;
+  border: none;
+  border-radius: 1.2rem;
+  background-color: var(--contacto-fondo);
+  color: var(--contacto-blanco);
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease,
+              color 0.25s ease;
+}
+
+.contacto-formulario button:hover {
+  background-color: var(--color-turquesa);
+  color: var(--color-blanco);
+}
+
+/* =========================================================
+   ESCRITORIO
+   ========================================================= */
+
+@media (width > 750px) {
+
+  .contacto {
+    width: 88%;
+    max-width: 1200px;
+    margin: 5rem auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;
+    gap: 2rem;
+  }
+
+  /* Información */
+
+  .contacto-info {
+    padding: 4rem 3.5rem 2rem;
+    border-radius: 2rem;
+    justify-content: space-between;
+    min-width: 0;
+  }
+
+  .contacto-info h2 {
+    font-size: clamp(3rem, 3vw, 4.2rem);
+  }
+
+  .contacto-info p {
+    font-size: 1.6rem;
+  }
+
+  .contacto-info img {
+    width: 100%;
+    max-width: 45rem;
+    margin-top: auto;
+  }
+
+  /* Formulario */
+
+  .contacto-formulario {
+    padding: 3.5rem;
+    border-radius: 2rem;
+    min-width: 0;
+  }
+
+  .contacto-formulario h2 {
+    font-size: 3rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .contacto-formulario form {
+    gap: 1.6rem;
+  }
+
+  .contacto-formulario input,
+  .contacto-formulario select,
+  .contacto-formulario textarea {
+    font-size: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .contacto-formulario textarea {
+    min-height: 16rem;
+  }
+
+  .contacto-formulario button {
+    font-size: 1.6rem;
+  }
+}
+
+/* ---------- Pantallas pequeñas ---------- */
+
+@media (width <= 360px) {
+
+  .contacto {
+    width: 94%;
+  }
+
+  .contacto-info,
+  .contacto-formulario {
+    padding: 2rem 1.5rem;
+  }
+
+  .contacto-info h2 {
+    font-size: 2.4rem;
+  }
+
+  .contacto-acciones a {
+    flex: 1 1 100%;
+  }
+}
+
+/* ---------- Accesibilidad ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .contacto-acciones a,
+  .contacto-formulario input,
+  .contacto-formulario select,
+  .contacto-formulario textarea,
+  .contacto-formulario button {
+    transition: none;
+  }
+}
+@media (width > 750px) {
+  .content-header {
+    width: 90%;
+    height: auto;
+    display: flex;
+    gap: 1rem;
+    margin: 0 auto;
+   
+  }
+
+  .header {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+  }
+
+  .logo {
+    width: 5rem;
+  }
+
+  .content-header .list-menu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    color: var(--color-gris);
+    font-weight: 550;
+    align-items: center;
+  }
+  .list-menu a{
+    text-decoration: none;
+    color: var(--color-gris);
+    transition: all ease-in-out 0.3s;
+  }
+
+  .menu_hamburguesa {
+    display: none;
+  }
+
+  .content-buttons {
+    margin-left: 4rem;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .content-buttons a {
+    text-decoration: none;
+  }
+
+  .content-buttons .btn-iniciar {
+    color: var(--color-turquesa);
+    border: 1px solid var(--color-turquesa);
+    padding: 0.8rem 1.5rem;
+    border-radius: 1.5rem;
+    transition: all ease-in 0.3s;
+  }
+
+  .content-buttons .btn-registrar {
+    color: var(--color-blanco);
+    border: 1px solid var(--color-turquesa);
+    padding: 0.8rem 1.5rem;
+    border-radius: 1.5rem;
+    background-color: var(--color-turquesa);
+  }
+}

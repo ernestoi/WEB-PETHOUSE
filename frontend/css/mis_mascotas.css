@@ -62,7 +62,7 @@ body {
 }
 .container-principal{
     width: 90%;
-    margin: 0  auto 0 auto;
+    margin: 0  auto 5rem auto;
 }
 .lista-mascotas_container{
     width: 100%;  
@@ -190,7 +190,8 @@ body {
     gap: 2rem;
   }
   .tarjeta-mascota{
-    width: 40%;
+    flex: 1 1 34rem;
+    min-width: 0;
   }
   .header-mascotas .btn-agregar{
       padding:1.5rem 2rem;
