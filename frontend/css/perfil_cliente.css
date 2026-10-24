@@ -367,18 +367,22 @@ body {
   .content-options_user .user:nth-child(6) {
     grid-column: 1/-1;
   }
+  
   .content-options_user .user:nth-child(6):hover {
     color: var(--color-rojo);
     border: 1px solid var(--color-rojo_claro);
     background-color: var(--color-rojo_claro);
   }
+
   .content-options_user .close_sesion p .fa-chevron-right {
     color: var(--color-rojo);
   }
+
   .content-options_user .user p {
     display: flex;
     align-items: center;
   }
+
   .content-options_user .user p .fa-user,
   .fa-dog,
   .fa-calendar-check,
