@@ -1,89 +1,162 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-    <!-- Encabezado con flecha de regresar -->
-    <header class="header-secundario">
-        <a href="index.html" class="btn-volver">←</a>
-        <h3>Servicios</h3>
-        <button class="menu-hamburguesa">☰</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicios</title>
+    <!-- Etiqueta para el logo de la pestaña -->
+    <link rel="icon" type="image/x-icon" href="../img/icon-logo.png" />
+    <link rel="stylesheet" href="../css/servicios.css" />
+  </head>
+  <body>
+    <!-- 1. El encabezado: Logo y el menú de rayitas -->
+    <header class="content-header">
+      <nav class="header">
+        <img src="../img/Logo.png" alt="Logo PetHouse" class="logo" />
+        <ul class="list-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicio</a></li>
+          <li><a href="#">Reserva tu cita</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li>
+            <div class="content-buttons">
+              <a href="login.html" class="btn-iniciar">Iniciar Sesión</a>
+              <a href="registro.html" class="btn-registrar">Registrarse</a>
+            </div>
+          </li>
+        </ul>
+        <button
+          class="menu_hamburguesa"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+      <!-- Asegúrate de poner el nombre exacto de tu imagen con su extensión (.png o .jpg) -->
     </header>
 
     <!-- Lista de tarjetas de servicios -->
-    <main class="lista-servicios">
-        
-        <!-- Tarjeta 1: Baño canino -->
-        <div class="tarjeta-servicio">
-            <!-- Si no tienes la foto, usamos una de internet por ahora -->
-            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=200" alt="Baño">
-            <div class="icono-flotante">🛁</div>
-            <div class="info-servicio">
-                <h4>Baño canino</h4>
-                <p>Limpieza profunda y cuidado del pelaje.</p>
-                <span class="precio">$15</span>
-            </div>
-            <button class="btn-flecha">➔</button>
+    <main class="lista-servicios_container">
+      <h2 class="title-services">Nuestros Servicios</h2>
+      <!-- Tarjeta 1: Baño canino -->
+      <div class="tarjeta-servicio">
+        <div class="img_container">
+          <img
+            src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=200"
+            alt="Baño"
+          />
         </div>
-
-        <!-- Tarjeta 2: Corte canino -->
-        <div class="tarjeta-servicio">
-            <img src="https://images.unsplash.com/photo-1596733430284-f7437764b1a9?w=200" alt="Corte">
-            <div class="icono-flotante">✂️</div>
-            <div class="info-servicio">
-                <h4>Corte canino</h4>
-                <p>Estilo según la raza y preferencia.</p>
-                <span class="precio">$20</span>
-            </div>
-            <button class="btn-flecha">➔</button>
+        <!-- <div class="icono-flotante">🛁</div>-->
+        <div class="info-servicio">
+          <h4>Baño Medicado</h4>
+          <p>Limpieza profunda y cuidado del pelaje.</p>
+          <span class="precio">--</span>
+          <div class="btn_container">
+            <button class="btn-details" type="button">Ver más</button>
+          </div>
         </div>
+      </div>
 
-        <!-- Tarjeta 3: Baño + Corte -->
-        <div class="tarjeta-servicio">
-            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=200" alt="Baño y Corte">
-             <div class="icono-flotante">🛁✂️</div>
-            <div class="info-servicio">
-                <h4>Baño + Corte</h4>
-                <p>Servicio completo de estética canina.</p>
-                <span class="precio">$30</span>
-            </div>
-            <button class="btn-flecha">➔</button>
+      <!-- Tarjeta 2: Corte canino -->
+      <div class="tarjeta-servicio">
+        <!-- <div class="icono-flotante">🛁</div>-->
+        <div class="info-servicio">
+          <h4>Corte de uñas</h4>
+          <p>Limpieza profunda y cuidado del pelaje.</p>
+          <span class="precio">--</span>
+          <div class="btn_container">
+            <button class="btn-details" type="button">Ver más</button>
+          </div>
         </div>
+        <div class="img_container">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNXDhi_REw6aZOHOmCETVZ1wwjR_YNt_qtfKC0-wZJCg&s=10"
+            alt="Baño"
+          />
+        </div>
+      </div>
 
+      <!-- Tarjeta 3: Baño + Corte -->
+      <div class="tarjeta-servicio">
+        <div class="img_container">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoYTu3h39IMvK-LLw2afetD9T6uN_0-UTbFoQ7W5Bhmw&s=10"
+            alt="Colorimetría canina"
+          />
+        </div>
+        <!-- <div class="icono-flotante">🛁</div>-->
+        <div class="info-servicio">
+          <h4>Colorimetría</h4>
+          <p>Limpieza profunda y cuidado del pelaje.</p>
+          <span class="precio">--</span>
+          <div class="btn_container">
+            <button class="btn-details" type="button">Ver más</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 4: Corte canino -->
+      <div class="tarjeta-servicio">
+        <!-- <div class="icono-flotante">🛁</div>-->
+        <div class="info-servicio">
+          <h4>Corte Bajo</h4>
+          <p>Limpieza profunda y cuidado del pelaje.</p>
+          <span class="precio">--</span>
+          <div class="btn_container">
+            <button class="btn-details" type="button">Ver más</button>
+          </div>
+        </div>
+        <div class="img_container">
+          <img
+            src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=200"
+            alt="Baño"
+          />
+        </div>
+      </div>
+
+      <!-- Tarjeta 5: Baño + Corte -->
+      <div class="tarjeta-servicio">
+        <div class="img_container">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY9s_nlOPYn8VyJcyrVmMd21SEl0dZpFNCiUHrLtpKDA&s=10"
+            alt="Corte modelo canino"
+          />
+        </div>
+        <!-- <div class="icono-flotante">🛁</div>-->
+        <div class="info-servicio">
+          <h4>Corte Modelo</h4>
+          <p>Limpieza profunda y cuidado del pelaje.</p>
+          <span class="precio">--</span>
+          <div class="btn_container">
+            <button class="btn-details" type="button">Ver más</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 4: Corte canino -->
+      <div class="tarjeta-servicio">
+        <!-- <div class="icono-flotante">🛁</div>-->
+        <div class="info-servicio">
+          <h4>Transporte puerta a puerta</h4>
+          <p>Limpieza profunda y cuidado del pelaje.</p>
+          <span class="precio">--</span>
+          <div class="btn_container">
+            <button class="btn-details" type="button">Ver más</button>
+          </div>
+        </div>
+        <div class="img_container">
+          <img
+            src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=200"
+            alt="Baño"
+          />
+        </div>
+      </div>
     </main>
 
-    <!-- Menú de navegación inferior -->
-    <nav class="bottom-nav">
-        <a href="index.html" class="nav-item">
-            <span class="nav-icon">🏠</span> 
-            <span class="nav-text">Inicio</span>
-        </a>
-        
-        <!-- A este le ponemos la clase "activo" porque es la pantalla actual -->
-        <a href="servicios.html" class="nav-item activo">
-            <span class="nav-icon">🐾</span>
-            <span class="nav-text">Servicios</span>
-        </a>
-        
-        <a href="reservar.html" class="nav-item">
-            <span class="nav-icon">📅</span>
-            <span class="nav-text">Reservar</span>
-        </a>
-        
-        <a href="mis-citas.html" class="nav-item">
-            <span class="nav-icon">📋</span>
-            <span class="nav-text">Mis citas</span>
-        </a>
-        
-        <!-- Cambiaste el "#" por "registro.html" -->
-        <a href="registro.html" class="nav-item">
-            <span class="nav-icon">👤</span>
-            <span class="nav-text">Perfil</span>
-        </a>
-    </nav>
-</body>
+    <script src="../js/main.js"></script>
+  </body>
 </html>

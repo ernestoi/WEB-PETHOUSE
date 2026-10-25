@@ -27,6 +27,10 @@
     {
       "source": "/contacto.html",
       "destination": "/cliente/contacto.html"
+    },
+    {
+      "source": "/servicios.html",
+      "destination": "/cliente/servicios.html"
     }
   ]
 }
