@@ -1,9 +1,11 @@
-// ESTE ARCHIVO SIRVE PARA MANEJAR LAS DIRECCIONES DE NUESTRA API
-// CREO RUTAS Y LUEGO EXPORTO LAS RUTAS
 const express = require("express");
+const router = express.Router();
 
-const router = express.Router(); // creo el objeto para almacenar las rutas.
+const clienteController = require(
+  "../controllers/cliente.controller.js"
+);
 
-router.get("/cliente/", crearCliente);
+router.get("/api/prueba-db", clienteController.probarConexion);
+router.post("/api/login", clienteController.iniciarSesion);
 
-module.exports = router; // exportar las rutas, para poder usar en otros archivos
+module.exports = router;
