@@ -33,17 +33,17 @@
           </div>
 
           <!-- Formulario -->
-          <form class="form-registro">
+          <form id="form-login" class="form-registro" method="post">
             <div class="input-group">
               <span class="input-icono"
                 ><i class="fa-solid fa-envelope"></i
               ></span>
-              <input type="email" placeholder="Correo electrónico" />
+              <input id="email" name="email" type="email" placeholder="Correo electrónico" required/>
             </div>
 
             <div class="input-group">
               <span class="input-icono"><i class="fa-solid fa-lock"></i></span>
-              <input type="password" placeholder="Contraseña" />
+              <input id="password" type="password" placeholder="Contraseña" name="password" required/>
               <span class="icono-ojo"><i class="fa-solid fa-eye"></i></span>
               <!-- El ojito nuevo -->
             </div>
@@ -57,7 +57,7 @@
             </div>
 
             <!-- Botón principal -->
-            <a href="perfil_cliente.html" class="btn-principal">Iniciar sesión</a>
+            <button class="btn-principal" type="submit">Iniciar sesión</button>
 
             <!-- Divisor con líneas -->
             <div class="divisor">
@@ -83,5 +83,6 @@
         </div>
       </div>
     </main>
+    <script src="../js/login.js"></script>
   </body>
 </html>

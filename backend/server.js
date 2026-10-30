@@ -9,12 +9,19 @@ Los códigos HTTP más comunes:
 
 // importar express
 const express = require("express");
+//
+const cors = require("cors");
 
 // importar las rutas de la web
 const webRoutes = require("./routes/routes.js");
 
 // creamos la app
 const app = express(); // ejecutamos express || el servidor
+
+// Esto permite que la página de Live Server lea las respuestas del backend hasta mientras.
+app.use(cors({
+    origin: "http://127.0.0.1:5500"
+}));
 
 // middleware -> para poder leer el formato json
 app.use(express.json());

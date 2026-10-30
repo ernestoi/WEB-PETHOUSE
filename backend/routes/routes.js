@@ -8,4 +8,5 @@ const clienteController = require(
 router.get("/api/prueba-db", clienteController.probarConexion);
 router.post("/api/login", clienteController.iniciarSesion);
 
+
 module.exports = router;

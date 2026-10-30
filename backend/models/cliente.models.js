@@ -8,7 +8,7 @@ async function probarConexion() {
   return resultado.rows[0];
 }
 
-function buscarCliente(email, alTerminar){
+function buscarCliente(email, contraseña, alTerminar){
   pool.query("SELECT * FROM cliente WHERE email=$1",[email], (error, respuesta) =>{
     if (error){
       console.log("Fallo la consulta.");
@@ -17,12 +17,12 @@ function buscarCliente(email, alTerminar){
     }
     if(respuesta){
       console.log("La consulta se realizó con éxito");
-      const cliente = respuesta.rows[0];
-      //console.log("Cantidad de clientes encontrados:", respuesta.rows.length);
-      console.log("Se econtró algún cliente?",cliente !== undefined);
-      alTerminar(null, cliente);
+      const clienteEncontrado = respuesta.rows[0];
+      
+      console.log("Se econtró algún cliente?",clienteEncontrado !== undefined);
+      alTerminar(null, clienteEncontrado);
     }
-  })
+  });
 }
 
 module.exports = { probarConexion, buscarCliente };
