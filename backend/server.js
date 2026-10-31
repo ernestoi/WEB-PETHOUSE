@@ -1,35 +1,21 @@
-/*
-Los códigos HTTP más comunes:
-200 → Todo correcto
-201 → Creado correctamente
-400 → Error del cliente
-404 → No encontrado
-500 → Error interno del servidor
-*/
+require('dotenv').config();
 
-// importar express
-const express = require("express");
-//
-const cors = require("cors");
+if (!process.env.JWT_SECRET || process.env.JWT_SECRET.length < 32) {
+    console.error('JWT_SECRET no está definido o es demasiado corto');
+    process.exit(1);
+}
 
-// importar las rutas de la web
-const webRoutes = require("./routes/routes.js");
+const app = require('./src/app');
+const pool = require('./src/config/db');
 
-// creamos la app
-const app = express(); // ejecutamos express || el servidor
+const PORT = process.env.PORT || 3000;
 
-// Esto permite que la página de Live Server lea las respuestas del backend hasta mientras.
-app.use(cors({
-    origin: "http://127.0.0.1:5500"
-}));
-
-// middleware -> para poder leer el formato json
-app.use(express.json());
-
-//utilizamos las rutas
-app.use(webRoutes);
-
-//encendemos el servidor
-app.listen(3000, ()=>{
-    console.log("El servidor está activo en el puerto 3000.");
-});
+pool.query('SELECT 1')
+    .then(() => {
+        console.log('Conectado a la base de datos');
+        app.listen(PORT, () => console.log(`Servidor en http://localhost:${PORT}`));
+    })
+    .catch((error) => {
+        console.error('Error al conectar a la base de datos:', error.message);
+        process.exit(1);
+    });
