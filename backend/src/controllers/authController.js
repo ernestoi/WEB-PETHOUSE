@@ -8,7 +8,7 @@ const PHONE_REGEX = /^09\d{8}$/;
 const PASSWORD_MIN_LENGTH = 5;
 const PASSWORD_MAX_LENGTH = 128;
 
-// ---------- Validation ----------
+// ---------- Validacion ----------
 
 function ensureObject(body) {
     if (!body || typeof body !== 'object' || Array.isArray(body)) {
@@ -57,7 +57,7 @@ function validateRegistration(body) {
     };
 }
 
-// ---------- Helpers ----------
+// ---------- Utiles ----------
 
 async function authenticate(user, password) {
     if (!user || !(await verifyPassword(user.passwordHash, password))) {
@@ -73,7 +73,7 @@ function buildSession(user, type, role) {
     };
 }
 
-// ---------- Actions ----------
+// ---------- Acciones ----------
 
 async function registerClient(req, res) {
     const data = validateRegistration(req.body);
