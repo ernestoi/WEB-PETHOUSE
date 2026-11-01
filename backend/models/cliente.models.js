@@ -17,9 +17,11 @@ function buscarCliente(email, contraseña, alTerminar){
     }
     if(respuesta){
       console.log("La consulta se realizó con éxito");
+      // Guardamos todos los datos en clienteEncontrado
       const clienteEncontrado = respuesta.rows[0];
       
       console.log("Se econtró algún cliente?",clienteEncontrado !== undefined);
+      //devolvemos el objeto limpio sin la contraseña
       alTerminar(null, clienteEncontrado);
     }
   });

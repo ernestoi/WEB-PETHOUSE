@@ -9,16 +9,16 @@ const input_password = document.getElementById("password");
 
 // lógica
 formulario.addEventListener("submit", (event) => {
-    event.preventDefault();
-    console.log("formulario detectado");
-    const correo = email.value;
-    const contraseña = input_password.value;
+  event.preventDefault();
+  console.log("formulario detectado");
+  const correo = email.value;
+  const contraseña = input_password.value;
 
-    // El objeto con los datos del login
-    const datosLogin = {
-        email: correo,
-        password: contraseña 
-    };
+  // El objeto con los datos del login
+  const datosLogin = {
+    email: correo,
+    password: contraseña,
+  };
 
     // Preparamos los datos en formato JSON para enviar al backend mediante fetch
     const cuerpo = JSON.stringify(datosLogin);
@@ -30,18 +30,16 @@ formulario.addEventListener("submit", (event) => {
         // Los datos ya tratados
         body: cuerpo
     })
-    .then(respuesta => {
-        if(respuesta.status === 200){
-            window.location.href="perfil_cliente.html";
-            return respuesta.json({
-                mensaje: "Acceso exitoso.."
-            });
-        }
-        return respuesta.json();//limpiamos el paquete de datos
-    })
-    .then(datosLimpios => {
-        if(datosLimpios && datosLimpios.mensaje){
-            alert(datosLimpios.mensaje)
-        }
+    .then((datosLimpios) => { //ya abierto, recibe lo que retorna respuesta .then, el contenido listo
+      if (datosLimpios.exito) { // exito=true: fue exitoso
+        //guardamos los datos en el navegador
+        localStorage.setItem("nombre", datosLimpios.nombre);
+        localStorage.setItem("correo", datosLimpios.correo);
+        localStorage.setItem("celular", datosLimpios.celular);
+        alert(datosLimpios.mensaje); // mostramos el saludo y
+        window.location.href = "perfil_cliente.html";// se envia al perfil
+      } else{
+        alert(datosLimpios.mensaje || "Error al iniciar sesión");
+      }
     });
 });
