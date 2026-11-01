@@ -8,8 +8,8 @@ const crypto = require("node:crypto");
 
 const webRoutes = require("./routes/routes.js");
 
-const app = express();
-
+//const app = express();
+/*
 app.use(session({
   secret: "pethouse_clave_secreta_2026",
   resave: false,
@@ -33,7 +33,7 @@ app.use(webRoutes);
 app.listen(3000, () => {
   console.log("El servidor está activo en el puerto 3000.");
 });
-/*
+*/
 //=======
 if (!process.env.JWT_SECRET || process.env.JWT_SECRET.length < 32) {
     console.error('JWT_SECRET no está definido o es demasiado corto');
@@ -55,4 +55,3 @@ pool.query('SELECT 1')
         process.exit(1);
     });
 //>>>>>>> 163b3d60a49a001d4f7ea053b1ad2de0afef9d37
-*/
