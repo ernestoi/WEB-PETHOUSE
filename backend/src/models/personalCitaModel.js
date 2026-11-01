@@ -31,14 +31,23 @@ async function findById(id) {
     return rows[0] || null;
 }
 
-async function changeStatus(id, adminId) {
-    return withTransaction(async (db) => {
-        const {rows} = await db.query(
-            `SELECT estado FROM cita WHERE id_cita = $1 FOR UPDATE`,[id]
-        );
-        if (rows.length === 0) {
-            return "NOT FOUND";
-        }
-
-    })
+async function changeStatus(id, adminId, { estado, observacion_profesional }) {
+    const { rowCount } = await pool.query(
+        `WITH previous AS (
+       SELECT estado FROM cita WHERE id_cita = $1
+     ),
+     updated AS (
+       UPDATE cita
+       SET estado = $2,
+           observacion_profesional = COALESCE($3, observacion_profesional),
+           id_profesional = $4
+       WHERE id_cita = $1
+       RETURNING id_cita
+     )
+     INSERT INTO cita_historial_estado (id_cita, estado_anterior, estado_nuevo, origen, id_admin)
+     SELECT updated.id_cita, previous.estado, $2, 'admin', $4
+     FROM updated, previous`,
+        [id, estado, observacion_profesional, adminId]
+    );
+    return rowCount > 0;
 }

@@ -1,7 +1,3 @@
-//const { json } = require("node:stream/consumers");
-
-console.log("login.js con exito");
-
 // referenciar el html
 const formulario = document.getElementById("form-login");
 const email = document.getElementById("email");
@@ -10,7 +6,6 @@ const input_password = document.getElementById("password");
 // lógica
 formulario.addEventListener("submit", (event) => {
     event.preventDefault();
-    console.log("formulario detectado");
     const correo = email.value;
     const contraseña = input_password.value;
 
@@ -31,7 +26,10 @@ formulario.addEventListener("submit", (event) => {
         body: cuerpo
     })
     .then(respuesta => {
+        console.log(respuesta);
+        return;
         if(respuesta.status === 200){
+
             window.location.href="perfil_cliente.html";
             return respuesta.json({
                 mensaje: "Acceso exitoso.."
@@ -40,6 +38,7 @@ formulario.addEventListener("submit", (event) => {
         return respuesta.json();//limpiamos el paquete de datos
     })
     .then(datosLimpios => {
+
         if(datosLimpios && datosLimpios.mensaje){
             alert(datosLimpios.mensaje)
         }
