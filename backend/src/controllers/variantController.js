@@ -1,6 +1,6 @@
 const Variant = require('../models/variantModel');
 const AppError = require('../utils/AppError');
-const { parseId } = require('../utils/validation');
+
 
 function getVariantData(body) {
     const { serviceId, species, size, hairType, price, durationMinutes } = body ?? {};

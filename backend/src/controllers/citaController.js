@@ -1,6 +1,5 @@
 const cita = require('../models/citaModel');
 const AppError = require('../utils/AppError');
-const { parseId } = require('../utils/validation');
 
 function getCitaData(body) {
     const { petId, variantId, startAt, extraIds = [], notes } = body ?? {};

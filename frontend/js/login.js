@@ -22,7 +22,7 @@ formulario.addEventListener("submit", (event) => {
 
     // Preparamos los datos en formato JSON para enviar al backend mediante fetch
     const cuerpo = JSON.stringify(datosLogin);
-    fetch("http://localhost:3000/api/login", {
+    fetch("http://localhost:3000/api/auth/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json" //Le avisamos al servidor que le enviamos archivo JSON

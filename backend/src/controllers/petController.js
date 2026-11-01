@@ -1,6 +1,6 @@
 const Pet = require('../models/petModel');
 const AppError = require('../utils/AppError');
-const { parseId } = require('../utils/validation');
+
 
 function getPetData(body) {
     const { name, species, breed, birthDate, size, hairType } = body ?? {};
