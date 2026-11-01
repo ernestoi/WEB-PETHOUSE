@@ -29,7 +29,7 @@ function iniciarSesion(req, res) {
   clienteModel.buscarCliente(
     emailRecibido,
     passwordRecibido,
-    (error, datosCliente) => {
+    (error, datosCliente) => { //datosCliente recibe los parámetros de info_cliente del modelo cliente.
       // caso 1: error en la DB
       if (error) {
         return res.status(500).json({
@@ -52,13 +52,26 @@ function iniciarSesion(req, res) {
             mensaje: "Credenciales incorrectas.."
           });
         }
-
         if(coinciden === true){ // Contraseña correcta
+          const id_cliente = datosCliente.id_cliente;
+          //guardamos el inicio de sesión en id_cliente
+          req.session.id_cliente = id_cliente;
+          console.log("Contraseña correcta, guardando inicio de sesión...")
+          console.log({id: datosCliente.id_cliente,
+            nombre: datosCliente.nombre,
+            correo: datosCliente.email,
+            celular: datosCliente.celular})
           return res.status(200).json({
-            mensaje: "Contraseña correcta.."
+            exito: true,// Enviamos al front para saber que tuvo éxito el envío
+            mensaje: "Bienvenido: " + datosCliente.nombre,
+            id: datosCliente.id_cliente,
+            nombre: datosCliente.nombre,
+            correo: datosCliente.email,
+            celular: datosCliente.celular
           });
         } else{
           return res.status(401).json({
+            exito: false,
             mensaje: "La contraseña es incorrecta"
           });
         }
@@ -66,6 +79,17 @@ function iniciarSesion(req, res) {
     },
   );
 }
+
+//FUNCION PARA TRAER LA INFORMACIÓN DEL CLIENTE
+
+
+
+
+
+
+
+
+
 
 module.exports = { probarConexion, iniciarSesion };
 // fel123@gmail.com cliente 1 - $2b$10$o8v7U0M0Y/x83m2gXU7k9un6D78b9A1C2vW9u3M4N5O6P7Q8R9S2T = clave123
