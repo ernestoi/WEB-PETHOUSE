@@ -1,0 +1,711 @@
+/* =========================================================
+   Pet's House - Inicio
+   Mobile First
+   ========================================================= */
+
+/* ---------- Variables y reset ---------- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-gris: #5e5e5e;
+  --color-gris_claro: #b1aeae;
+  --color-gris_mas_claro: #eff6f9;
+  --color-turquesa: #047e89;
+  --color-blanco: #ffff;
+  --color-negro: #000;
+  --color-turquesa_claro: #19a8b5;
+  --color-turquesa_mas_claro: #91eff8;
+  --color-rojo: #c7330e;
+  --color-rojo_claro: #f8e5e0;
+  --color-celeste_claro: #d6ecef;
+  --color-rojo_claro: #f6bfb1;
+  --turquesa: #008b95;
+  --oscuro: #006b73;
+  --claro: #e8f7f7;
+  --borde: #deebec;
+  --texto: #243638;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  color: var(--color-negro);
+  min-height: 100vh;
+  font-size: 1.6rem;
+}
+.vista_agendar_cita,
+.vista_agendar_cita * {
+  box-sizing: border-box;
+}
+
+.vista_agendar_cita {
+  --color-principal: #008995;
+  --color-principal-oscuro: #006b75;
+  --color-suave: #eaf8f9;
+  --color-texto: #20353a;
+  --color-secundario: #64777b;
+  --color-borde: #dce9eb;
+
+  width: 100%;
+  min-width: 0;
+  padding: 24px 16px 110px;
+  color: var(--color-texto);
+  font-family: inherit;
+}
+
+/* Evita que otros estilos anulen hidden */
+.vista_agendar_cita[hidden],
+.vista_agendar_cita [hidden] {
+  display: none !important;
+}
+
+.vista_agendar_cita h1,
+.vista_agendar_cita h2,
+.vista_agendar_cita h3,
+.vista_agendar_cita p {
+  margin-top: 0;
+}
+
+.vista_agendar_cita h1 {
+  margin-bottom: 6px;
+  font-size: 26px;
+}
+
+.vista_agendar_cita h2 {
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.vista_agendar_cita h3 {
+  margin-bottom: 14px;
+  font-size: 17px;
+}
+
+.vista_agendar_cita .descripcion {
+  margin-bottom: 24px;
+  color: var(--color-secundario);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ========================================
+   CABECERA
+======================================== */
+
+.vista_agendar_cita .cabecera {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.vista_agendar_cita .marca {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 15px;
+  background: var(--color-suave);
+  color: var(--color-principal);
+  font-size: 25px;
+}
+
+.vista_agendar_cita .cabecera p {
+  margin-bottom: 0;
+  color: var(--color-secundario);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ========================================
+   NÚMEROS Y LÍNEA DE LOS PASOS
+======================================== */
+
+.vista_agendar_cita .pasos {
+  display: flex;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto 30px;
+  padding: 0;
+  list-style: none;
+}
+
+.vista_agendar_cita .paso {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  padding: 0 3px;
+  color: var(--color-secundario);
+  font-size: 11px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Línea entre un círculo y el siguiente */
+.vista_agendar_cita .paso:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: calc(50% + 18px);
+  width: calc(100% - 36px);
+  height: 2px;
+  background: var(--color-borde);
+}
+
+.vista_agendar_cita .numero {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--color-borde);
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--color-secundario);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Paso que se está llenando */
+.vista_agendar_cita .paso.activo {
+  color: var(--color-principal);
+  font-weight: 600;
+}
+
+.vista_agendar_cita .paso.activo .numero {
+  border-color: var(--color-principal);
+  background: var(--color-suave);
+  color: var(--color-principal);
+  box-shadow: 0 0 0 4px #00899512;
+}
+
+/* Paso terminado */
+.vista_agendar_cita .paso.completo {
+  color: var(--color-principal);
+  font-weight: 600;
+}
+
+.vista_agendar_cita .paso.completo .numero {
+  border-color: var(--color-principal);
+  background: var(--color-principal);
+  color: #ffffff;
+}
+
+.vista_agendar_cita .paso.completo::after {
+  background: var(--color-principal);
+}
+
+/* ========================================
+   TARJETA QUE CONTIENE CADA PASO
+======================================== */
+
+.vista_agendar_cita .contenido-paso,
+.vista_agendar_cita .confirmacion {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 18px;
+  border: 1px solid #e7eff0;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 28px #20353a05;
+}
+
+/* ========================================
+   GRUPOS DE OPCIONES
+======================================== */
+
+.vista_agendar_cita fieldset {
+  min-width: 0;
+  margin: 0 0 24px;
+  padding: 0;
+  border: none;
+}
+
+.vista_agendar_cita legend {
+  margin-bottom: 14px;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.vista_agendar_cita input,
+.vista_agendar_cita button {
+  font: inherit;
+}
+
+.vista_agendar_cita input[type="radio"],
+.vista_agendar_cita input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 19px;
+  height: 19px;
+  margin: 0;
+  accent-color: var(--color-principal);
+  cursor: pointer;
+}
+
+.vista_agendar_cita .opcion-mascota,
+.vista_agendar_cita .opcion-servicio,
+.vista_agendar_cita .opcion-adicional {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 18px 14px;
+  border: 1px solid var(--color-borde);
+  border-radius: 14px;
+  background: #ffffff;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s,
+    box-shadow 0.2s;
+}
+
+/* Colorea la tarjeta cuando se selecciona su input */
+.vista_agendar_cita .opcion-mascota:has(input:checked),
+.vista_agendar_cita .opcion-servicio:has(input:checked),
+.vista_agendar_cita .opcion-adicional:has(input:checked) {
+  border-color: var(--color-principal);
+  background: var(--color-suave);
+  box-shadow: 0 0 0 1px var(--color-principal);
+}
+
+/* ========================================
+   MASCOTAS
+======================================== */
+
+.vista_agendar_cita .foto-mascota-reserva {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.vista_agendar_cita .datos-mascota-reserva {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.vista_agendar_cita .datos-mascota-reserva strong {
+  font-size: 17px;
+}
+
+.vista_agendar_cita .datos-mascota-reserva span {
+  color: var(--color-secundario);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.vista_agendar_cita .mascota-elegida {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 13px 16px;
+  border-radius: 10px;
+  background: var(--color-suave);
+  color: var(--color-principal-oscuro);
+  font-size: 14px;
+}
+
+/* ========================================
+   SERVICIOS Y ADICIONALES
+======================================== */
+
+.vista_agendar_cita .opcion-servicio > i {
+  flex-shrink: 0;
+  color: var(--color-principal);
+  font-size: 23px;
+}
+
+.vista_agendar_cita .datos-servicio {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.vista_agendar_cita .datos-servicio strong {
+  font-size: 15px;
+}
+
+.vista_agendar_cita .datos-servicio span {
+  color: var(--color-secundario);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.vista_agendar_cita .precio-servicio,
+.vista_agendar_cita .precio-adicional {
+  flex-shrink: 0;
+  margin-left: auto;
+  color: var(--color-principal-oscuro);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.vista_agendar_cita #bloqueAdicionales {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-borde);
+}
+
+.vista_agendar_cita .opcion-adicional {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ========================================
+   FECHA Y HORARIOS
+======================================== */
+
+.vista_agendar_cita .campo {
+  margin-bottom: 28px;
+}
+
+.vista_agendar_cita .etiqueta {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.vista_agendar_cita input[type="date"] {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 50px;
+  padding: 12px 14px;
+  border: 1px solid var(--color-borde);
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--color-texto);
+  font-size: 16px;
+  color-scheme: light;
+}
+
+.vista_agendar_cita .ayuda {
+  color: var(--color-secundario);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.vista_agendar_cita .horarios {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+/* Para los botones de hora que crearemos con JavaScript */
+.vista_agendar_cita .horarios button {
+  min-height: 44px;
+  padding: 10px 6px;
+  border: 1px solid var(--color-borde);
+  border-radius: 24px;
+  background: #ffffff;
+  color: var(--color-texto);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.vista_agendar_cita .horarios button.seleccionada,
+.vista_agendar_cita .horarios button[aria-pressed="true"] {
+  border-color: var(--color-principal);
+  background: var(--color-principal);
+  color: #ffffff;
+}
+
+/* ========================================
+   RESUMEN Y TOTAL
+======================================== */
+
+.vista_agendar_cita .resumen {
+  margin-bottom: 24px;
+  padding: 20px 16px;
+  border: 1px solid var(--color-borde);
+  border-radius: 14px;
+  background: #f8fbfc;
+}
+
+.vista_agendar_cita .detalle-reserva {
+  margin: 0 0 24px;
+}
+
+.vista_agendar_cita .fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--color-borde);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.vista_agendar_cita .fila dt {
+  flex: 1;
+  color: var(--color-secundario);
+}
+
+.vista_agendar_cita .fila dd {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.vista_agendar_cita #revisionAdicionales,
+.vista_agendar_cita #confirmacionAdicionales {
+  margin: 0 0 20px;
+  padding-left: 20px;
+  color: var(--color-secundario);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.vista_agendar_cita .total-reserva {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 12px;
+  background: var(--color-suave);
+  color: var(--color-principal-oscuro);
+  font-weight: 600;
+}
+
+.vista_agendar_cita .total-reserva strong {
+  font-size: 23px;
+}
+
+/* ========================================
+   BOTONES
+======================================== */
+
+.vista_agendar_cita .acciones-paso {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.vista_agendar_cita .boton {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 13px 20px;
+  border: 1px solid var(--color-principal);
+  border-radius: 11px;
+  background: var(--color-principal);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.vista_agendar_cita .acciones-paso .boton {
+  flex: 1;
+}
+
+.vista_agendar_cita .boton.secundario {
+  background: #ffffff;
+  color: var(--color-principal);
+}
+
+.vista_agendar_cita button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Enfoque visible al navegar con teclado */
+.vista_agendar_cita button:focus-visible,
+.vista_agendar_cita a:focus-visible,
+.vista_agendar_cita input:focus-visible {
+  outline: 3px solid #43bcc7;
+  outline-offset: 4px;
+}
+
+/* ========================================
+   CONFIRMACIÓN FINAL
+======================================== */
+
+.vista_agendar_cita .confirmacion {
+  max-width: 620px;
+}
+
+.vista_agendar_cita .encabezado-confirmacion {
+  margin-bottom: 26px;
+  text-align: center;
+}
+
+.vista_agendar_cita .check {
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #d8f2ef;
+  color: var(--color-principal);
+  font-size: 34px;
+}
+
+.vista_agendar_cita .acciones-confirmacion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vista_agendar_cita #btnConfirmacionWhatsapp {
+  border-color: #087f5b;
+  background: #087f5b;
+}
+
+.vista_agendar_cita .aviso {
+  padding: 14px;
+  border-radius: 10px;
+  background: #fff6e6;
+  color: #805600;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.vista_agendar_cita #errorReserva {
+  background: #fff0ef;
+  color: #b42318;
+}
+
+/* ========================================
+   EFECTOS PARA DISPOSITIVOS CON MOUSE
+======================================== */
+
+@media (hover: hover) {
+  .vista_agendar_cita .opcion-mascota:hover,
+  .vista_agendar_cita .opcion-servicio:hover,
+  .vista_agendar_cita .opcion-adicional:hover {
+    border-color: var(--color-principal);
+  }
+
+  .vista_agendar_cita .boton:not(:disabled):hover {
+    background: var(--color-principal-oscuro);
+    color: #ffffff;
+  }
+
+  .vista_agendar_cita .boton.secundario:hover {
+    background: var(--color-suave);
+    color: var(--color-principal-oscuro);
+  }
+
+  .vista_agendar_cita .horarios button:not(:disabled):hover {
+    border-color: var(--color-principal);
+  }
+
+  .vista_agendar_cita #btnConfirmacionWhatsapp:not(:disabled):hover {
+    background: #066649;
+  }
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (min-width: 600px) {
+  .vista_agendar_cita {
+    padding: 32px 28px 110px;
+  }
+
+  .vista_agendar_cita .contenido-paso,
+  .vista_agendar_cita .confirmacion {
+    padding: 32px;
+  }
+
+  .vista_agendar_cita h1 {
+    font-size: 30px;
+  }
+
+  .vista_agendar_cita .paso {
+    font-size: 13px;
+  }
+
+  .vista_agendar_cita .foto-mascota-reserva {
+    width: 76px;
+    height: 76px;
+  }
+
+  .vista_agendar_cita .opcion-mascota,
+  .vista_agendar_cita .opcion-servicio,
+  .vista_agendar_cita .opcion-adicional {
+    padding: 20px;
+  }
+
+  .vista_agendar_cita .horarios {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .vista_agendar_cita .acciones-paso {
+    justify-content: flex-end;
+  }
+
+  .vista_agendar_cita .acciones-paso .boton {
+    flex: initial;
+    min-width: 160px;
+  }
+
+  .vista_agendar_cita input[type="date"] {
+    max-width: 380px;
+  }
+}
+
+/* ========================================
+   COMPUTADORA CON MENÚ LATERAL
+======================================== */
+
+@media (min-width>750px) {
+  .vista_agendar_cita {
+    /* Espacio estimado para tu menú lateral */
+    margin-left: 280px;
+    width: calc(100% - 280px);
+    padding: 40px 40px 60px;
+  }
+
+  .vista_agendar_cita .cabecera {
+    max-width: 960px;
+    margin: 0 auto 36px;
+  }
+
+  .vista_agendar_cita .pasos {
+    margin-bottom: 36px;
+  }
+}

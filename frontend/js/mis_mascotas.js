@@ -13,6 +13,7 @@ btn_historial.forEach((btn) => {
   });
 });
 
+
 console.log(btn_historial);
 
 
