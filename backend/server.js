@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-<<<<<<< HEAD
+///<<<<<<< HEAD
 const express = require("express");
 const cors = require("cors");
 const session = require("express-session");// inicio de sesión
@@ -33,7 +33,8 @@ app.use(webRoutes);
 app.listen(3000, () => {
   console.log("El servidor está activo en el puerto 3000.");
 });
-=======
+/*
+//=======
 if (!process.env.JWT_SECRET || process.env.JWT_SECRET.length < 32) {
     console.error('JWT_SECRET no está definido o es demasiado corto');
     process.exit(1);
@@ -53,4 +54,5 @@ pool.query('SELECT 1')
         console.error('Error al conectar a la base de datos:', error.message);
         process.exit(1);
     });
->>>>>>> 163b3d60a49a001d4f7ea053b1ad2de0afef9d37
+//>>>>>>> 163b3d60a49a001d4f7ea053b1ad2de0afef9d37
+*/
