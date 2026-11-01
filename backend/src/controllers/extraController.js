@@ -1,6 +1,6 @@
 const Extra = require('../models/extraModel');
 const AppError = require('../utils/AppError');
-const { parseId } = require('../utils/validation');
+//const { parseId } = require('../utils/validation');
 
 function getExtraData(body) {
     const { name, description, price, durationMinutes } = body ?? {};
