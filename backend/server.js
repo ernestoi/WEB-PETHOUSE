@@ -1,12 +1,6 @@
-/*
-Los códigos HTTP más comunes:
-200 → Todo correcto
-201 → Creado correctamente
-400 → Error del cliente
-404 → No encontrado
-500 → Error interno del servidor
-*/
+require('dotenv').config();
 
+<<<<<<< HEAD
 const express = require("express");
 const cors = require("cors");
 const session = require("express-session");// inicio de sesión
@@ -39,3 +33,24 @@ app.use(webRoutes);
 app.listen(3000, () => {
   console.log("El servidor está activo en el puerto 3000.");
 });
+=======
+if (!process.env.JWT_SECRET || process.env.JWT_SECRET.length < 32) {
+    console.error('JWT_SECRET no está definido o es demasiado corto');
+    process.exit(1);
+}
+
+const app = require('./src/app');
+const pool = require('./src/config/db');
+
+const PORT = process.env.PORT || 3000;
+
+pool.query('SELECT 1')
+    .then(() => {
+        console.log('Conectado a la base de datos');
+        app.listen(PORT, () => console.log(`Servidor en http://localhost:${PORT}`));
+    })
+    .catch((error) => {
+        console.error('Error al conectar a la base de datos:', error.message);
+        process.exit(1);
+    });
+>>>>>>> 163b3d60a49a001d4f7ea053b1ad2de0afef9d37

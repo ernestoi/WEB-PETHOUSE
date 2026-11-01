@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="../css/perfil_cliente.css" />
     <link rel="stylesheet" href="../css/mis_mascotas.css" />
+    <link rel="stylesheet" href="../css/agendar_cita.css" />
   </head>
   <body>
     <!--- -------------------------------------- -->
@@ -32,9 +33,9 @@
             <span><i class="fa-solid fa-camera"></i></span>
           </div>
           <div class="cont-info">
-            <h2 class="name_user">Juan Peréz</h2>
-            <p class="email_user">isaiascoca123@gmail.com</p>
-            <p class="phone_user">0978926124</p>
+            <h2 class="name_user"></h2>
+            <p class="email_user"></p>
+            <p class="phone_user"></p>
           </div>
         </div>
       </header>
@@ -374,6 +375,414 @@
       </main>
     </section>
 
+    <!----------------------------------------------------->
+    <!--- AQUÍ VAMOS A USAR LO QUE ES LA VISTA RESERVAR CITA -->
+    <!----------------------------------------------------->
+    <!-- =========================================
+     VISTA: RESERVAR CITA
+========================================= -->
+    <section class="vista_agendar_cita" hidden>
+      <header class="cabecera">
+        <span class="marca" aria-hidden="true">
+          <i class="fa-solid fa-paw"></i>
+        </span>
+
+        <div>
+          <h1>Reservar cita</h1>
+          <p>Un momento de cuidado para tu mascota</p>
+        </div>
+      </header>
+
+      <!-- INDICADOR DE LOS CUATRO PASOS -->
+      <ol class="pasos" aria-label="Pasos de la reserva">
+        <li class="paso activo" id="indicadorMascota" aria-current="step">
+          <span class="numero">1</span>
+          <span>Mascota</span>
+        </li>
+
+        <li class="paso" id="indicadorServicios">
+          <span class="numero">2</span>
+          <span>Servicios</span>
+        </li>
+
+        <li class="paso" id="indicadorHorario">
+          <span class="numero">3</span>
+          <span>Fecha y hora</span>
+        </li>
+
+        <li class="paso" id="indicadorConfirmacion">
+          <span class="numero">4</span>
+          <span>Confirmar</span>
+        </li>
+      </ol>
+
+      <!-- =========================================
+       PASO 1: SELECCIONAR MASCOTA
+  ========================================= -->
+      <div id="reservaMascota" class="contenido-paso">
+        <h2>¿Para quién reservamos?</h2>
+        <p class="descripcion">Selecciona una de tus mascotas registradas.</p>
+
+        <fieldset class="seleccion-mascotas">
+          <legend>Mis mascotas</legend>
+
+          <!-- Ejemplo: luego estas tarjetas vendrán de la DB -->
+          <label class="opcion-mascota">
+            <input type="radio" name="mascotaReserva" value="1" />
+
+            <img src="../img/index.png" alt="" class="foto-mascota-reserva" />
+
+            <span class="datos-mascota-reserva">
+              <strong>Max</strong>
+              <span>Grande · Pelo corto</span>
+              <span>3 años</span>
+            </span>
+          </label>
+
+          <label class="opcion-mascota">
+            <input type="radio" name="mascotaReserva" value="2" />
+
+            <img src="../img/index.png" alt="" class="foto-mascota-reserva" />
+
+            <span class="datos-mascota-reserva">
+              <strong>Luna</strong>
+              <span>Pequeño · Pelo largo</span>
+              <span>2 años</span>
+            </span>
+          </label>
+        </fieldset>
+
+        <!-- Mostrar si el cliente todavía no tiene mascotas -->
+        <p id="reservaSinMascotas" class="aviso" hidden>
+          Registra una mascota en Mis mascotas para reservar una cita.
+        </p>
+
+        <div class="acciones-paso">
+          <button type="button" class="boton" id="btnMascotaSiguiente" data-destino="reservaServicios" disabled>
+            Siguiente
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- =========================================
+       PASO 2: SERVICIOS Y ADICIONALES
+  ========================================= -->
+      <div id="reservaServicios" class="contenido-paso" hidden>
+        <h2>Selecciona el servicio</h2>
+        <p class="descripcion">
+          Estas opciones corresponden al tamaño y pelaje de tu mascota.
+        </p>
+
+        <p class="mascota-elegida">
+          <i class="fa-solid fa-paw" aria-hidden="true"></i>
+          Mascota:
+          <strong id="nombreMascotaElegida">Por seleccionar</strong>
+        </p>
+
+        <fieldset id="serviciosDisponibles" class="seleccion-servicios">
+          <legend>Servicio principal</legend>
+
+          <!--
+        Ejemplo para una mascota grande de pelo corto.
+        Después mostraremos solo las variantes que devuelva la DB.
+        Los valores 4 y 12 corresponden a las variantes de tu tabla.
+      -->
+          <label class="opcion-servicio">
+            <input type="radio" name="servicioReserva" value="4" />
+
+            <i class="fa-solid fa-bath" aria-hidden="true"></i>
+
+            <span class="datos-servicio">
+              <strong>Baño</strong>
+              <span>Grande · Pelo corto</span>
+            </span>
+
+            <strong class="precio-servicio">$35.00</strong>
+          </label>
+
+          <label class="opcion-servicio">
+            <input type="radio" name="servicioReserva" value="12" />
+
+            <i class="fa-solid fa-scissors" aria-hidden="true"></i>
+
+            <span class="datos-servicio">
+              <strong>Corte bajo</strong>
+              <span>Grande · Cualquier tipo de pelo</span>
+            </span>
+
+            <strong class="precio-servicio">$40.00</strong>
+          </label>
+        </fieldset>
+
+        <!-- Se muestra después de elegir el servicio principal -->
+        <div id="bloqueAdicionales" hidden>
+          <h3>¿Deseas agregar algo más?</h3>
+          <p class="descripcion">
+            Puedes seleccionar varios adicionales o continuar sin ellos.
+          </p>
+
+          <fieldset id="serviciosAdicionales" class="seleccion-adicionales">
+            <legend>Adicionales opcionales</legend>
+
+            <!-- Nombres de ejemplo. Precios pendientes de cargar desde la DB. -->
+            <label class="opcion-adicional">
+              <input
+                type="checkbox"
+                name="adicionalReserva"
+                value="corte-unas"
+              />
+              <span>Corte de uñas</span>
+              <span class="precio-adicional">—</span>
+            </label>
+
+            <label class="opcion-adicional">
+              <input
+                type="checkbox"
+                name="adicionalReserva"
+                value="pintado-unas"
+              />
+              <span>Pintado de uñas</span>
+              <span class="precio-adicional">—</span>
+            </label>
+
+            <label class="opcion-adicional">
+              <input
+                type="checkbox"
+                name="adicionalReserva"
+                value="colorimetria-orejas"
+              />
+              <span>Colorimetría: dos orejas</span>
+              <span class="precio-adicional">—</span>
+            </label>
+
+            <label class="opcion-adicional">
+              <input
+                type="checkbox"
+                name="adicionalReserva"
+                value="colorimetria-patas"
+              />
+              <span>Colorimetría: dos patas</span>
+              <span class="precio-adicional">—</span>
+            </label>
+          </fieldset>
+        </div>
+
+        <div class="total-reserva" aria-live="polite">
+          <span>Total</span>
+          <strong id="totalServicios">$0.00</strong>
+        </div>
+
+        <div class="acciones-paso">
+          <button
+            type="button"
+            class="boton secundario"
+            id="btnServiciosAnterior"
+          >
+            Anterior
+          </button>
+
+          <button
+            type="button"
+            class="boton"
+            id="btnServiciosSiguiente"
+            disabled
+          >
+            Siguiente
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- =========================================
+       PASO 3: FECHA Y HORA
+  ========================================= -->
+      <div id="reservaHorario" class="contenido-paso" hidden>
+        <h2>Selecciona fecha y hora</h2>
+        <p class="descripcion">
+          Elige una fecha para consultar los horarios disponibles.
+        </p>
+
+        <div class="campo">
+          <label class="etiqueta" for="fechaCita"> Selecciona la fecha </label>
+
+          <input type="date" id="fechaCita" name="fechaCita" />
+        </div>
+
+        <fieldset class="seleccion-horarios">
+          <legend>Selecciona la hora</legend>
+
+          <p id="mensajeHorarios" class="ayuda" role="status">
+            Primero selecciona una fecha.
+          </p>
+
+          <div id="horariosDisponibles" class="horarios">
+            <!--
+          JavaScript insertará aquí las horas libres.
+          Horarios previstos: 09:00, 10:30, 12:00...
+        -->
+          </div>
+        </fieldset>
+
+        <div class="acciones-paso">
+          <button
+            type="button"
+            class="boton secundario"
+            id="btnHorarioAnterior"
+          >
+            Anterior
+          </button>
+
+          <button type="button" class="boton" id="btnHorarioSiguiente" disabled>
+            Revisar reserva
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- =========================================
+       PASO 4: REVISAR Y CONFIRMAR
+  ========================================= -->
+      <div id="reservaRevision" class="contenido-paso" hidden>
+        <h2>Revisa tu reserva</h2>
+        <p class="descripcion">
+          Comprueba los datos antes de confirmar tu cita.
+        </p>
+
+        <div class="resumen">
+          <h3>Resumen de la reserva</h3>
+
+          <dl class="detalle-reserva">
+            <div class="fila">
+              <dt>Mascota</dt>
+              <dd id="revisionMascota">—</dd>
+            </div>
+
+            <div class="fila">
+              <dt>Servicio principal</dt>
+              <dd id="revisionServicio">—</dd>
+            </div>
+
+            <div class="fila">
+              <dt>Precio del servicio</dt>
+              <dd id="revisionPrecioServicio">—</dd>
+            </div>
+
+            <div class="fila">
+              <dt>Fecha</dt>
+              <dd id="revisionFecha">—</dd>
+            </div>
+
+            <div class="fila">
+              <dt>Hora</dt>
+              <dd id="revisionHora">—</dd>
+            </div>
+          </dl>
+
+          <h3>Servicios adicionales</h3>
+
+          <ul id="revisionAdicionales">
+            <li>Sin adicionales</li>
+          </ul>
+
+          <div class="total-reserva">
+            <span>Total</span>
+            <strong id="revisionTotal">$0.00</strong>
+          </div>
+        </div>
+
+        <!-- Para mostrar problemas de disponibilidad o de guardado -->
+        <p id="errorReserva" class="aviso" role="alert" hidden></p>
+
+        <div class="acciones-paso">
+          <button
+            type="button"
+            class="boton secundario"
+            id="btnRevisionAnterior"
+          >
+            Anterior
+          </button>
+
+          <button type="button" class="boton" id="btnConfirmarCita">
+            Confirmar cita
+          </button>
+        </div>
+      </div>
+
+      <!-- =========================================
+       RESULTADO: CITA GUARDADA CORRECTAMENTE
+       No es un quinto paso.
+  ========================================= -->
+      <div id="reservaResultado" class="confirmacion" hidden>
+        <div class="encabezado-confirmacion">
+          <div class="check" aria-hidden="true">
+            <i class="fa-solid fa-check"></i>
+          </div>
+
+          <h2 id="tituloCitaConfirmada" tabindex="-1">¡Cita confirmada!</h2>
+
+          <p class="descripcion">Tu reserva se ha registrado correctamente.</p>
+        </div>
+
+        <div class="resumen">
+          <h3>Detalles de tu cita</h3>
+
+          <dl class="detalle-reserva">
+            <div class="fila">
+              <dt>Mascota</dt>
+              <dd id="confirmacionMascota">—</dd>
+            </div>
+
+            <div class="fila">
+              <dt>Servicio principal</dt>
+              <dd id="confirmacionServicio">—</dd>
+            </div>
+
+            <div class="fila">
+              <dt>Precio del servicio</dt>
+              <dd id="confirmacionPrecioServicio">—</dd>
+            </div>
+
+            <div class="fila">
+              <dt>Fecha</dt>
+              <dd id="confirmacionFecha">—</dd>
+            </div>
+
+            <div class="fila">
+              <dt>Hora</dt>
+              <dd id="confirmacionHora">—</dd>
+            </div>
+          </dl>
+
+          <h3>Servicios adicionales</h3>
+
+          <ul id="confirmacionAdicionales">
+            <li>Sin adicionales</li>
+          </ul>
+
+          <div class="total-reserva">
+            <span>Total</span>
+            <strong id="confirmacionTotal">—</strong>
+          </div>
+        </div>
+
+        <div class="acciones-confirmacion">
+          <!-- Se habilitará cuando conectemos el envío de WhatsApp -->
+          <button
+            type="button"
+            class="boton"
+            id="btnConfirmacionWhatsapp"
+            disabled
+          >
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            Recibir confirmación por WhatsApp
+          </button>
+
+          <a href="index.html" class="boton secundario"> Volver al inicio </a>
+        </div>
+      </div>
+    </section>
+
     <!--- -------------------------------------- -->
     <!-- MENU DE LOS BOTONES DE NAVEGACION-->
     <!--- -------------------------------------- -->
@@ -412,5 +821,6 @@
 
     <script src="../js/perfil_cliente.js"></script>
     <script src="/frontend/js/mis_mascotas.js"></script>
+    <script src="/frontend/js/registrar_cita.js"></script>
   </body>
 </html>
