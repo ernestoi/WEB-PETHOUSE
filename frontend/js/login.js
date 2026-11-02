@@ -1,6 +1,3 @@
-//const { json } = require("node:stream/consumers");
-
-console.log("login.js con exito");
 
 // referenciar el html
 const formulario = document.getElementById("form-login");
@@ -21,6 +18,7 @@ formulario.addEventListener("submit", (event) => {
 
     // Preparamos los datos en formato JSON para enviar al backend mediante fetch
     const cuerpo = JSON.stringify(datosLogin);
+    console.log(cuerpo);
     fetch("http://localhost:3000/api/auth/login", {
         method: "POST",
         headers: {
@@ -39,6 +37,8 @@ formulario.addEventListener("submit", (event) => {
         return respuesta.json();//limpiamos el paquete de datos
     })
     .then(datosLimpios => {
+        console.log(datosLimpios);
+        return;
         if(datosLimpios && datosLimpios.mensaje){
             alert(datosLimpios.mensaje)
         }

@@ -3,7 +3,7 @@ require('dotenv').config();
 ///<<<<<<< HEAD
 const express = require("express");
 const cors = require("cors");
-const session = require("express-session");// inicio de sesión
+
 const crypto = require("node:crypto");
 
 const webRoutes = require("./routes/routes.js");
