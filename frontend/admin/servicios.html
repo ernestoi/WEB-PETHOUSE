@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios — Pet's House</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="../css/vista_admin/common.css">
+  <link rel="stylesheet" href="../css/vista_admin/servicios.css">
+</head>
+<body>
+
+  <nav class="nav-principal">
+    <ul class="nav-lista">
+      <li><a href="index.html" class="nav-enlace" id="nav-dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+      <li><a href="servicios.html" class="nav-enlace activo" id="nav-servicios"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+      <li><a href="clientes.html" class="nav-enlace" id="nav-clientes"><i class="fas fa-users"></i> Clientes</a></li>
+      <li><a href="citas.html" class="nav-enlace" id="nav-citas"><i class="fas fa-calendar-alt"></i> Citas</a></li>
+      <li><a href="perfil.html" class="nav-enlace" id="nav-perfil"><i class="fas fa-user-circle"></i> Perfil</a></li>
+    </ul>
+  </nav>
+
+  <main class="contenedor">
+    <header class="encabezado">
+      <h1 class="encabezado__titulo" id="titulo-pagina">Gestión de Servicios</h1>
+      <p class="encabezado__subtitulo">Administra los servicios de la estética</p>
+    </header>
+
+    <!-- Formulario -->
+    <section class="form-seccion">
+      <h2 class="form-seccion__titulo" id="titulo-formulario">Nuevo Servicio</h2>
+      <form class="form" id="form-servicio">
+        <input type="hidden" id="servicio-id">
+        
+        <div class="form__grupo">
+          <label for="servicio-nombre" class="form__label">Nombre del servicio</label>
+          <input type="text" id="servicio-nombre" class="form__input" placeholder="Ej: Baño completo" required>
+        </div>
+
+        <div class="form__grupo">
+          <label for="servicio-descripcion" class="form__label">Descripción</label>
+          <textarea id="servicio-descripcion" class="form__textarea" rows="3" placeholder="Breve descripción del servicio"></textarea>
+        </div>
+
+        <div class="form__fila">
+          <div class="form__grupo">
+            <label for="servicio-precio" class="form__label">Precio ($)</label>
+            <input type="number" step="0.01" id="servicio-precio" class="form__input" placeholder="0.00" required>
+          </div>
+          <div class="form__grupo">
+            <label for="servicio-tipo" class="form__label">Tipo</label>
+            <select id="servicio-tipo" class="form__select">
+              <option value="principal">Principal</option>
+              <option value="adicional">Adicional</option>
+            </select>
+          </div>
+          <div class="form__grupo">
+            <label for="servicio-estado" class="form__label">Estado</label>
+            <select id="servicio-estado" class="form__select">
+              <option value="activo">Activo</option>
+              <option value="inactivo">Inactivo</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form__botones">
+          <button type="reset" class="btn" id="btn-cancelar" style="background: var(--fondo-alt); color: var(--texto);">Cancelar</button>
+          <button type="submit" class="btn btn--primario" id="btn-guardar">Guardar Servicio</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- SERVICIOS PRINCIPALES -->
+    <section class="lista-seccion">
+      <h2 class="lista-seccion__titulo">Servicios Disponibles</h2>
+      <div class="tabla-contenedor">
+        <table class="tabla" id="tabla-servicios">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Precio</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpo-servicios">
+            <tr data-id="1" data-tipo="principal">
+              <td>Baño Completo</td>
+              <td>Champú, acondicionador y secado</td>
+              <td>$ 15.00</td>
+              <td><span class="etiqueta estado--activo">Activo</span></td>
+              <td>
+                <button class="accion accion--editar" data-id="1"><i class="fas fa-pen"></i></button>
+                <button class="accion accion--eliminar" data-id="1"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <tr data-id="2" data-tipo="principal">
+              <td>Corte de Pelo</td>
+              <td>Corte estilizado según raza</td>
+              <td>$ 20.00</td>
+              <td><span class="etiqueta estado--activo">Activo</span></td>
+              <td>
+                <button class="accion accion--editar" data-id="2"><i class="fas fa-pen"></i></button>
+                <button class="accion accion--eliminar" data-id="2"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <tr data-id="3" data-tipo="principal">
+              <td>Baño + Corte</td>
+              <td>Servicio completo</td>
+              <td>$ 35.00</td>
+              <td><span class="etiqueta estado--activo">Activo</span></td>
+              <td>
+                <button class="accion accion--editar" data-id="3"><i class="fas fa-pen"></i></button>
+                <button class="accion accion--eliminar" data-id="3"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SERVICIOS ADICIONALES ✨ NUEVA SECCIÓN -->
+    <section class="lista-seccion">
+      <h2 class="lista-seccion__titulo">Servicios Adicionales</h2>
+      <div class="tabla-contenedor">
+        <table class="tabla" id="tabla-adicionales">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Precio</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpo-adicionales">
+            <tr data-id="4" data-tipo="adicional">
+              <td>Cepillado dental</td>
+              <td>Limpieza de dientes y encías</td>
+              <td>$ 8.00</td>
+              <td><span class="etiqueta estado--activo">Activo</span></td>
+              <td>
+                <button class="accion accion--editar" data-id="4"><i class="fas fa-pen"></i></button>
+                <button class="accion accion--eliminar" data-id="4"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <tr data-id="5" data-tipo="adicional">
+              <td>Corte de uñas</td>
+              <td>Recorte y limado de uñas</td>
+              <td>$ 5.00</td>
+              <td><span class="etiqueta estado--activo">Activo</span></td>
+              <td>
+                <button class="accion accion--editar" data-id="5"><i class="fas fa-pen"></i></button>
+                <button class="accion accion--eliminar" data-id="5"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <tr data-id="6" data-tipo="adicional">
+              <td>Limpieza de oídos</td>
+              <td>Limpieza y desinfección</td>
+              <td>$ 6.00</td>
+              <td><span class="etiqueta estado--activo">Activo</span></td>
+              <td>
+                <button class="accion accion--editar" data-id="6"><i class="fas fa-pen"></i></button>
+                <button class="accion accion--eliminar" data-id="6"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <tr data-id="7" data-tipo="adicional">
+              <td>Desparasitación externa</td>
+              <td>Gotas antipulgas y garrapatas</td>
+              <td>$ 12.00</td>
+              <td><span class="etiqueta estado--activo">Activo</span></td>
+              <td>
+                <button class="accion accion--editar" data-id="7"><i class="fas fa-pen"></i></button>
+                <button class="accion accion--eliminar" data-id="7"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <tr data-id="8" data-tipo="adicional">
+              <td>Perfumado especial</td>
+              <td>Loción y fragancia extra</td>
+              <td>$ 7.00</td>
+              <td><span class="etiqueta estado--activo">Activo</span></td>
+              <td>
+                <button class="accion accion--editar" data-id="8"><i class="fas fa-pen"></i></button>
+                <button class="accion accion--eliminar" data-id="8"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+           <!-- 📊 REPORTES Y DESCARGAS — Con filtros de periodo ✨ -->
+    <section class="lista-seccion">
+      <h2 class="lista-seccion__titulo">
+        <i class="fas fa-file-export"></i> Reportes y Descargas
+      </h2>
+      
+      <div class="filtros-reporte" id="filtros-reporte">
+        <div class="filtros-fila">
+          <div class="form__grupo">
+            <label for="filtro-periodo" class="form__label">Periodo del Reporte</label>
+            <select id="filtro-periodo" class="form__select">
+              <option value="todo">Todo el historial</option>
+              <option value="mensual" selected>Mensual</option>
+              <option value="anual">Anual</option>
+              <option value="personalizado">Rango de fechas</option>
+            </select>
+          </div>
+
+          <div class="form__grupo" id="grupo-mes">
+            <label for="filtro-mes" class="form__label">Mes</label>
+            <select id="filtro-mes" class="form__select">
+              <option value="10">Octubre 2026</option>
+              <option value="9">Septiembre 2026</option>
+              <option value="8">Agosto 2026</option>
+              <option value="7">Julio 2026</option>
+              <option value="6">Junio 2026</option>
+              <option value="5">Mayo 2026</option>
+              <option value="4">Abril 2026</option>
+              <option value="3">Marzo 2026</option>
+              <option value="2">Febrero 2026</option>
+              <option value="1">Enero 2026</option>
+            </select>
+          </div>
+
+          <div class="form__grupo" id="grupo-anio" style="display: none;">
+            <label for="filtro-anio" class="form__label">Año</label>
+            <select id="filtro-anio" class="form__select">
+              <option value="2026" selected>2026</option>
+              <option value="2025">2025</option>
+            </select>
+          </div>
+
+          <div class="form__grupo" id="grupo-fechas" style="display: none;">
+            <label class="form__label">Rango de Fechas</label>
+            <div style="display: flex; gap: 0.8rem;">
+              <input type="date" id="fecha-desde" class="form__input" style="flex: 1;">
+              <input type="date" id="fecha-hasta" class="form__input" style="flex: 1;">
+            </div>
+          </div>
+          
+          <div class="form__grupo">
+            <label for="filtro-tipo-servicio" class="form__label">Tipo de Servicio</label>
+            <select id="filtro-tipo-servicio" class="form__select">
+              <option value="todos">Todos</option>
+              <option value="principal">Principales</option>
+              <option value="adicional">Adicionales</option>
+            </select>
+          </div>
+          
+          <div class="form__grupo">
+            <label for="filtro-formato" class="form__label">Formato</label>
+            <select id="filtro-formato" class="form__select">
+              <option value="pdf">PDF</option>
+              <option value="excel">Excel</option>
+              <option value="csv">CSV</option>
+            </select>
+          </div>
+          
+          <div class="form__grupo">
+            <label class="form__label">&nbsp;</label>
+            <button class="btn btn--primario" id="btn-descargar" style="white-space: nowrap;">
+              <i class="fas fa-download"></i> Generar
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Resumen del reporte -->
+      <div class="resumen-reporte" id="resumen-reporte">
+        <div class="resumen-grid">
+          <div class="resumen-item">
+            <p class="resumen-etiqueta">Periodo</p>
+            <p class="resumen-valor" id="periodo-mostrado">Octubre 2026</p>
+          </div>
+          <div class="resumen-item">
+            <p class="resumen-etiqueta">Servicios realizados</p>
+            <p class="resumen-valor" id="cantidad-servicios">42</p>
+          </div>
+          <div class="resumen-item">
+            <p class="resumen-etiqueta">Ingresos del periodo</p>
+            <p class="resumen-valor resumen-valor--destacado" id="ingresos-periodo">$ 1,245.00</p>
+          </div>
+        </div>
+        <p class="resumen-filtro" id="filtro-aplicado">Servicios: Todos | Estado: Todos</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+  <!-- <script>
+    // Script para mostrar/ocultar filtros según el periodo seleccionado
+    const filtroPeriodo = document.getElementById('filtro-periodo');
+    const grupoMes = document.getElementById('grupo-mes');
+    const grupoAnio = document.getElementById('grupo-anio');
+    const grupoFechas = document.getElementById('grupo-fechas');
+    const periodoMostrado = document.getElementById('periodo-mostrado');
+
+    if (filtroPeriodo) {
+      filtroPeriodo.addEventListener('change', function() {
+        const valor = this.value;
+        grupoMes.style.display = 'none';
+        grupoAnio.style.display = 'none';
+        grupoFechas.style.display = 'none';
+
+        if (valor === 'mensual') {
+          grupoMes.style.display = 'block';
+          periodoMostrado.textContent = 'Octubre 2026';
+        } else if (valor === 'anual') {
+          grupoAnio.style.display = 'block';
+          periodoMostrado.textContent = 'Año 2026';
+        } else if (valor === 'personalizado') {
+          grupoFechas.style.display = 'block';
+          periodoMostrado.textContent = 'Rango personalizado';
+        } else {
+          periodoMostrado.textContent = 'Todo el historial';
+        }
+      });
+  } -->
+  </script>
+</body>
+</html>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

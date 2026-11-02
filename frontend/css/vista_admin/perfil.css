@@ -1,0 +1,130 @@
+.perfil-seccion {
+  margin-bottom: 3rem;
+}
+
+.perfil-tarjeta {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  padding: 3rem 2rem;
+  box-shadow: var(--sombra);
+  text-align: center;
+}
+
+.perfil-avatar {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primario), #818CF8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 4rem;
+  margin: 0 auto 1.5rem;
+}
+
+.perfil-nombre {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.perfil-correo {
+  font-size: 1.4rem;
+  color: var(--texto-claro);
+  margin: 0.5rem 0;
+}
+
+.perfil-rol {
+  display: inline-block;
+  background: #EEF2FF;
+  color: var(--primario);
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  border-radius: 2rem;
+  margin-top: 0.5rem;
+}
+
+.datos-seccion,
+.contraseña-seccion {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  padding: 2rem;
+  box-shadow: var(--sombra);
+  margin-bottom: 2rem;
+}
+
+.datos-titulo {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--texto);
+}
+
+.perfil-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-fila {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .form-fila {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.form-label {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--texto);
+}
+
+.form-input {
+  padding: 1.2rem 1.5rem;
+  border: 1px solid var(--borde);
+  border-radius: 0.8rem;
+  font-size: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  background: var(--fondo);
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primario);
+}
+
+.form-botones {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.sesion-seccion {
+  margin-top: 2rem;
+}
+
+.sesion-seccion .btn {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .sesion-seccion .btn {
+    width: auto;
+  }
+}

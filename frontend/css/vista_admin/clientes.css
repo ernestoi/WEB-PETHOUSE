@@ -1,0 +1,128 @@
+.buscador-seccion {
+  margin-bottom: 2.5rem;
+}
+
+.buscador {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.buscador__icono {
+  position: absolute;
+  left: 1.5rem;
+  color: var(--texto-claro);
+  font-size: 1.5rem;
+}
+
+.buscador__input {
+  width: 100%;
+  padding: 1.4rem 1.5rem 1.4rem 4.5rem;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  font-size: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  background: var(--blanco);
+  box-shadow: var(--sombra);
+  transition: border-color 0.2s;
+}
+
+.buscador__input:focus {
+  outline: none;
+  border-color: var(--primario);
+}
+
+.clientes-seccion {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.lista-clientes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tarjeta-cliente {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  padding: 2rem;
+  box-shadow: var(--sombra);
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta-cliente:hover {
+  transform: translateY(-0.2rem);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.tarjeta-cliente__avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primario), #818CF8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2.2rem;
+  flex-shrink: 0;
+}
+
+.tarjeta-cliente__info {
+  flex: 1;
+}
+
+.tarjeta-cliente__nombre {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: var(--texto);
+}
+
+.tarjeta-cliente__dato {
+  font-size: 1.3rem;
+  color: var(--texto-claro);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.tarjeta-cliente__mascotas {
+  font-size: 1.2rem;
+  color: var(--primario);
+  margin-top: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.tarjeta-cliente__acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.accion--ver {
+  color: var(--secundario);
+}
+
+.accion--ver:hover {
+  background: #ECFDF5;
+}
+
+@media (min-width: 768px) {
+  .lista-clientes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(38rem, 1fr));
+  }
+
+  .tarjeta-cliente {
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil — Pet's House</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="../css/vista_admin/common.css">
+  <link rel="stylesheet" href="../css/vista_admin/perfil.css">
+</head>
+<body>
+
+  <nav class="nav-principal">
+    <ul class="nav-lista">
+      <li><a href="index.html" class="nav-enlace" id="nav-dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+      <li><a href="servicios.html" class="nav-enlace" id="nav-servicios"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+      <li><a href="clientes.html" class="nav-enlace" id="nav-clientes"><i class="fas fa-users"></i> Clientes</a></li>
+      <li><a href="citas.html" class="nav-enlace" id="nav-citas"><i class="fas fa-calendar-alt"></i> Citas</a></li>
+      <li><a href="perfil.html" class="nav-enlace activo" id="nav-perfil"><i class="fas fa-user-circle"></i> Perfil</a></li>
+    </ul>
+  </nav>
+
+  <main class="contenedor">
+    <header class="encabezado">
+      <h1 class="encabezado__titulo" id="titulo-pagina">Mi Perfil</h1>
+      <p class="encabezado__subtitulo">Datos de la cuenta de Administrador</p>
+    </header>
+
+    <!-- Tarjeta de perfil -->
+    <section class="perfil-seccion">
+      <div class="perfil-tarjeta">
+        <div class="perfil-avatar">
+          <i class="fas fa-user-shield"></i>
+        </div>
+        <div class="perfil-nombre" id="admin-nombre">Administrador</div>
+        <div class="perfil-correo" id="admin-correo">admin@petshouse.com</div>
+        <span class="perfil-rol">Propietario / Administrador</span>
+      </div>
+    </section>
+
+    <!-- Datos del perfil -->
+    <section class="datos-seccion">
+      <h2 class="datos-titulo">Información Personal</h2>
+      <form class="perfil-form" id="form-perfil">
+        <div class="form-fila">
+          <div class="form-grupo">
+            <label for="input-nombre" class="form-label">Nombre Completo</label>
+            <input type="text" id="input-nombre" class="form-input" value="Administrador" required>
+          </div>
+          <div class="form-grupo">
+            <label for="input-telefono" class="form-label">Teléfono</label>
+            <input type="tel" id="input-telefono" class="form-input" placeholder="09XX XXX XXX">
+          </div>
+        </div>
+
+        <div class="form-grupo">
+          <label for="input-correo" class="form-label">Correo Electrónico</label>
+          <input type="email" id="input-correo" class="form-input" value="admin@petshouse.com" required>
+        </div>
+
+        <div class="form-grupo">
+          <label for="input-direccion" class="form-label">Dirección / Ubicación</label>
+          <input type="text" id="input-direccion" class="form-input" placeholder="Ciudad, Ecuador">
+        </div>
+
+        <div class="form-botones">
+          <button type="reset" class="btn" style="background: var(--fondo-alt); color: var(--texto);">Restablecer</button>
+          <button type="submit" class="btn btn--primario" id="btn-guardar-perfil">
+            <i class="fas fa-save"></i> Guardar Cambios
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Cambiar contraseña -->
+    <section class="contraseña-seccion">
+      <h2 class="datos-titulo">Seguridad</h2>
+      <form class="perfil-form" id="form-contraseña">
+        <div class="form-grupo">
+          <label for="pass-actual" class="form-label">Contraseña Actual</label>
+          <input type="password" id="pass-actual" class="form-input" placeholder="••••••••">
+        </div>
+        <div class="form-fila">
+          <div class="form-grupo">
+            <label for="pass-nueva" class="form-label">Nueva Contraseña</label>
+            <input type="password" id="pass-nueva" class="form-input" placeholder="Mínimo 6 caracteres">
+          </div>
+          <div class="form-grupo">
+            <label for="pass-confirmar" class="form-label">Confirmar</label>
+            <input type="password" id="pass-confirmar" class="form-input" placeholder="Repite la contraseña">
+          </div>
+        </div>
+        <button type="submit" class="btn btn--secundario" id="btn-cambiar-pass">
+          <i class="fas fa-lock"></i> Actualizar Contraseña
+        </button>
+      </form>
+    </section>
+
+    <!-- Cerrar sesión -->
+    <section class="sesion-seccion">
+      <button class="btn btn--peligro" id="btn-cerrar-sesion">
+        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+      </button>
+    </section>
+  </main>
+  <script src="js/app.js"></script>
+</body>
+</html>

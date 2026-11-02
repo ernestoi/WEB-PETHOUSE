@@ -1,0 +1,176 @@
+.filtros-seccion {
+  margin-bottom: 2.5rem;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.filtro__select,
+.filtro__fecha {
+  padding: 1.2rem 1.5rem;
+  border: 1px solid var(--borde);
+  border-radius: 0.8rem;
+  font-size: 1.4rem;
+  font-family: 'Poppins', sans-serif;
+  background: var(--blanco);
+  box-shadow: var(--sombra);
+}
+
+.citas-seccion {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.lista-citas {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tarjeta-cita {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+}
+
+.tarjeta-cita__cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: var(--fondo);
+}
+
+.tarjeta-cita__fecha {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--texto);
+}
+
+.tarjeta-cita__estado {
+  padding: 0.5rem 1.2rem;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.estado--pendiente {
+  background: #FEF3C7;
+  color: #B45309;
+}
+
+.estado--confirmada {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.estado--completada {
+  background: #E0E7FF;
+  color: #3730A3;
+}
+
+.estado--cancelada {
+  background: #FEE2E2;
+  color: #B91C1C;
+}
+
+.tarjeta-cita__cuerpo {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .tarjeta-cita__cuerpo {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.tarjeta-cita__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.tarjeta-cita__hora {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primario);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.tarjeta-cita__cliente,
+.tarjeta-cita__mascota,
+.tarjeta-cita__servicio {
+  font-size: 1.3rem;
+  color: var(--texto-claro);
+}
+
+.tarjeta-cita__cliente strong,
+.tarjeta-cita__mascota strong,
+.tarjeta-cita__servicio strong {
+  color: var(--texto);
+}
+
+.tarjeta-cita__acciones {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.btn--icono {
+  width: 4rem;
+  height: 4rem;
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font-size: 1.6rem;
+  transition: all 0.2s;
+}
+
+.btn--confirmar {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.btn--confirmar:hover {
+  background: #A7F3D0;
+}
+
+.btn--completar {
+  background: #E0E7FF;
+  color: #3730A3;
+}
+
+.btn--completar:hover {
+  background: #C7D2FE;
+}
+
+.btn--editar {
+  background: #EEF2FF;
+  color: var(--primario);
+}
+
+.btn--editar:hover {
+  background: #DDD6FE;
+}
+
+.btn--cancelar {
+  background: #FEE2E2;
+  color: #B91C1C;
+}
+
+.btn--cancelar:hover {
+  background: #FECACA;
+}

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Citas — Pet's House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/vista_admin/common.css" />
+    <link rel="stylesheet" href="../css/vista_admin/citas.css" />
+  </head>
+  <body>
+    <nav class="nav-principal">
+      <ul class="nav-lista">
+        <li>
+          <a href="index.html" class="nav-enlace" id="nav-dashboard"
+            ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+          >
+        </li>
+        <li>
+          <a href="servicios.html" class="nav-enlace" id="nav-servicios"
+            ><i class="fas fa-concierge-bell"></i> Servicios</a
+          >
+        </li>
+        <li>
+          <a href="clientes.html" class="nav-enlace" id="nav-clientes"
+            ><i class="fas fa-users"></i> Clientes</a
+          >
+        </li>
+        <li>
+          <a href="citas.html" class="nav-enlace activo" id="nav-citas"
+            ><i class="fas fa-calendar-alt"></i> Citas</a
+          >
+        </li>
+        <li>
+          <a href="perfil.html" class="nav-enlace" id="nav-perfil"
+            ><i class="fas fa-user-circle"></i> Perfil</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <main class="contenedor">
+      <header class="encabezado">
+        <h1 class="encabezado__titulo" id="titulo-pagina">Gestión de Citas</h1>
+        <p class="encabezado__subtitulo" id="fecha-filtro">Todas las citas</p>
+      </header>
+
+      <!-- Filtros -->
+      <section class="filtros-seccion">
+        <div class="filtros" id="filtros-citas">
+          <select id="filtro-estado" class="filtro__select">
+            <option value="todas">Todas las citas</option>
+            <option value="pendiente">Pendientes</option>
+            <option value="confirmada">Confirmadas</option>
+            <option value="completada">Completadas</option>
+            <option value="cancelada">Canceladas</option>
+          </select>
+          <input type="date" id="filtro-fecha" class="filtro__fecha" />
+        </div>
+      </section>
+
+      <!-- Lista de citas -->
+      <section class="citas-seccion">
+        <div class="lista-citas" id="lista-todas-citas">
+          <div class="tarjeta-cita" data-id="1" data-estado="pendiente">
+            <div class="tarjeta-cita__cabecera">
+              <span class="tarjeta-cita__fecha">Hoy, 02 de Noviembre</span>
+              <span class="tarjeta-cita__estado estado--pendiente"
+                >Pendiente</span
+              >
+            </div>
+            <div class="tarjeta-cita__cuerpo">
+              <div class="tarjeta-cita__info">
+                <p class="tarjeta-cita__hora">
+                  <i class="fas fa-clock"></i> 10:00 — 11:30
+                </p>
+                <p class="tarjeta-cita__cliente">
+                  <strong>Cliente:</strong> María López
+                </p>
+                <p class="tarjeta-cita__mascota">
+                  <strong>Mascota:</strong> Max — Golden Retriever
+                </p>
+                <p class="tarjeta-cita__servicio">
+                  <strong>Servicio:</strong> Baño + Corte
+                </p>
+              </div>
+              <div class="tarjeta-cita__acciones">
+                <button
+                  class="btn--icono btn--confirmar"
+                  data-id="1"
+                  title="Confirmar"
+                >
+                  <i class="fas fa-check"></i>
+                </button>
+                <button
+                  class="btn--icono btn--editar"
+                  data-id="1"
+                  title="Editar"
+                >
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button
+                  class="btn--icono btn--cancelar"
+                  data-id="1"
+                  title="Cancelar"
+                >
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="tarjeta-cita" data-id="2" data-estado="confirmada">
+            <div class="tarjeta-cita__cabecera">
+              <span class="tarjeta-cita__fecha">Hoy, 02 de Noviembre</span>
+              <span class="tarjeta-cita__estado estado--confirmada"
+                >Confirmada</span
+              >
+            </div>
+            <div class="tarjeta-cita__cuerpo">
+              <div class="tarjeta-cita__info">
+                <p class="tarjeta-cita__hora">
+                  <i class="fas fa-clock"></i> 11:30 — 13:00
+                </p>
+                <p class="tarjeta-cita__cliente">
+                  <strong>Cliente:</strong> Carlos Pérez
+                </p>
+                <p class="tarjeta-cita__mascota">
+                  <strong>Mascota:</strong> Luna — Persa
+                </p>
+                <p class="tarjeta-cita__servicio">
+                  <strong>Servicio:</strong> Baño completo
+                </p>
+              </div>
+              <div class="tarjeta-cita__acciones">
+                <button
+                  class="btn--icono btn--completar"
+                  data-id="2"
+                  title="Marcar completada"
+                >
+                  <i class="fas fa-check-double"></i>
+                </button>
+                <button
+                  class="btn--icono btn--editar"
+                  data-id="2"
+                  title="Editar"
+                >
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button
+                  class="btn--icono btn--cancelar"
+                  data-id="2"
+                  title="Cancelar"
+                >
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="tarjeta-cita" data-id="3" data-estado="pendiente">
+            <div class="tarjeta-cita__cabecera">
+              <span class="tarjeta-cita__fecha"
+                >Miércoles, 04 de Noviembre</span
+              >
+              <span class="tarjeta-cita__estado estado--pendiente"
+                >Pendiente</span
+              >
+            </div>
+            <div class="tarjeta-cita__cuerpo">
+              <div class="tarjeta-cita__info">
+                <p class="tarjeta-cita__hora">
+                  <i class="fas fa-clock"></i> 15:00 — 16:30
+                </p>
+                <p class="tarjeta-cita__cliente">
+                  <strong>Cliente:</strong> Ana Ramírez
+                </p>
+                <p class="tarjeta-cita__mascota">
+                  <strong>Mascota:</strong> Mishi — Siamés
+                </p>
+                <p class="tarjeta-cita__servicio">
+                  <strong>Servicio:</strong> Corte sanitario
+                </p>
+              </div>
+              <div class="tarjeta-cita__acciones">
+                <button
+                  class="btn--icono btn--confirmar"
+                  data-id="3"
+                  title="Confirmar"
+                >
+                  <i class="fas fa-check"></i>
+                </button>
+                <button
+                  class="btn--icono btn--editar"
+                  data-id="3"
+                  title="Editar"
+                >
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button
+                  class="btn--icono btn--cancelar"
+                  data-id="3"
+                  title="Cancelar"
+                >
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="js/app.js"></script>
+  </body>
+</html>
