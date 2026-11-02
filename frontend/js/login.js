@@ -20,18 +20,15 @@ formulario.addEventListener("submit", (event) => {
     password: contraseña,
   };
 
-  // Preparamos los datos en formato JSON para enviar al backend mediante fetch
-  const cuerpo = JSON.stringify(datosLogin);//Toma el objeto con el correo y contraseña y lo convierte en un formato a JSON
-  fetch("http://localhost:3000/api/login", {
-    method: "POST",
-    credentials: "include", //para la sesion
-    headers: {
-      "Content-Type": "application/json", //Le avisamos al servidor que le enviamos archivo JSON
-    },
-    body: cuerpo // Los datos ya tratados
-  })
-    .then((respuesta) => {//llega la respuesta del servidor
-      return respuesta.json(); //posterior lo abrimos para leer el contenido
+    // Preparamos los datos en formato JSON para enviar al backend mediante fetch
+    const cuerpo = JSON.stringify(datosLogin);
+    fetch("http://localhost:3000/api/auth/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json" //Le avisamos al servidor que le enviamos archivo JSON
+        },
+        // Los datos ya tratados
+        body: cuerpo
     })
     .then((datosLimpios) => { //ya abierto, recibe lo que retorna respuesta .then, el contenido listo
       if (datosLimpios.exito) { // exito=true: fue exitoso
