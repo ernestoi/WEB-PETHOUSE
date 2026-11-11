@@ -1,4 +1,6 @@
 require('dotenv').config();
+console.log("JWT_SECRET vale:", process.env.JWT_SECRET);
+console.log("Longitud:", process.env.JWT_SECRET?.length);
 
 ///<<<<<<< HEAD
 const express = require("express");
@@ -54,4 +56,5 @@ pool.query('SELECT 1')
         console.error('Error al conectar a la base de datos:', error.message);
         process.exit(1);
     });
+
 //>>>>>>> 163b3d60a49a001d4f7ea053b1ad2de0afef9d37

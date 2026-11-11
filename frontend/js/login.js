@@ -1,45 +1,63 @@
-//const { json } = require("node:stream/consumers");
+const formulario = document.querySelector('form');
+const inputCorreo = document.getElementById('email');
+const inputPass = document.getElementById('password');
 
-console.log("login.js con exito");
+formulario.addEventListener('submit', async e => {
+  e.preventDefault();
 
-// referenciar el html
-const formulario = document.getElementById("form-login");
-const email = document.getElementById("email");
-const input_password = document.getElementById("password");
+  const correo = inputCorreo.value.trim();
+  const contrasena = inputPass.value;
 
-// lógica
-formulario.addEventListener("submit", (event) => {
-  event.preventDefault();
-  console.log("formulario detectado");
-  const correo = email.value;
-  const contraseña = input_password.value;
-
-  // El objeto con los datos del login
-  const datosLogin = {
-    email: correo,
-    password: contraseña,
-  };
-
-    // Preparamos los datos en formato JSON para enviar al backend mediante fetch
-    const cuerpo = JSON.stringify(datosLogin);
-    fetch("http://localhost:3000/api/auth/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json" //Le avisamos al servidor que le enviamos archivo JSON
-        },
-        // Los datos ya tratados
-        body: cuerpo
-    })
-    .then((datosLimpios) => { //ya abierto, recibe lo que retorna respuesta .then, el contenido listo
-      if (datosLimpios.exito) { // exito=true: fue exitoso
-        //guardamos los datos en el navegador
-        localStorage.setItem("nombre", datosLimpios.nombre);
-        localStorage.setItem("correo", datosLimpios.correo);
-        localStorage.setItem("celular", datosLimpios.celular);
-        alert(datosLimpios.mensaje); // mostramos el saludo y
-        window.location.href = "perfil_cliente.html";// se envia al perfil
-      } else{
-        alert(datosLimpios.mensaje || "Error al iniciar sesión");
-      }
+  try {
+    // PRIMERO INTENTA COMO CLIENTE
+    let respuesta = await fetch('http://localhost:3000/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: correo,
+        password: contrasena
+      })
     });
+
+    let datos = await respuesta.json();
+
+    if (datos.token) {
+      // Es CLIENTE
+      localStorage.setItem('token', datos.token);
+      localStorage.setItem('nombre', datos.user.name);
+      localStorage.setItem('rol', datos.user.role);
+      alert('¡Bienvenido!');
+      window.location.href = 'perfil_cliente.html'; // ← Va al perfil del cliente
+      return;
+    }
+
+    // SI NO FUE CLIENTE → INTENTA COMO ADMIN
+    respuesta = await fetch('http://localhost:3000/api/auth/admin/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: correo, // ← Al admin le mandamos como "username"
+        password: contrasena
+      })
+    });
+
+    datos = await respuesta.json();
+
+    if (datos.token) {
+      // Es ADMINISTRADOR
+      localStorage.setItem('token', datos.token);
+      localStorage.setItem('nombre', datos.user.name);
+      localStorage.setItem('rol', datos.user.role);
+      alert('¡Bienvenido Administrador!');
+      window.location.href = '../admin/index.html'; // ← Sube y va a la carpeta admin
+      return;
+    }
+
+    // Si ninguno funcionó
+    alert('Correo o contraseña incorrectos');
+
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Error de conexión con el servidor');
+  }
 });

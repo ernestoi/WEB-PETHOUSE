@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
+const clientRoutes = require('./routes/clientRoutes');
 
 const authRoutes = require('./routes/authRoutes');
 const serviceRoutes = require('./routes/serviceRoutes');
@@ -24,6 +25,7 @@ app.use('/api/variants', variantRoutes);
 app.use('/api/extras', extraRoutes);
 app.use('/api/pets', petRoutes);
 app.use('/api/citas', citaRoutes);
+app.use('/api/clients', clientRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

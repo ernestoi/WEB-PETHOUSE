@@ -1,6 +1,12 @@
 const Pet = require('../models/petModel');
 const AppError = require('../utils/AppError');
 
+async function getAllPets(req, res) {
+    const total = await Pet.countAllPets()
+    return res.json({
+        totalPets: total
+    });
+}
 
 function getPetData(body) {
     const { name, species, breed, birthDate, size, hairType } = body ?? {};
@@ -41,4 +47,5 @@ async function remove(req, res) {
     res.status(204).end();
 }
 
-module.exports = { list, getById, create, update, remove };
+
+module.exports = { list, getById, create, update, remove, getAllPets };

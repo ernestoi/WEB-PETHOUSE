@@ -10,6 +10,10 @@ const COLUMNS = `
   tipo_pelo AS "hairType",
   foto_perfil AS "photoUrl"
 `;
+async function countAllPets() {
+    const {rows} = await pool.query("SELECT COUNT(*) AS total FROM mascota")
+    return rows[0].total;
+}
 
 async function findAllByClient(clientId) {
     const { rows } = await pool.query(
@@ -60,4 +64,4 @@ async function deactivate(id, clientId) {
     return rowCount > 0;
 }
 
-module.exports = { findAllByClient, findByIdForClient, create, update, deactivate };
+module.exports = { findAllByClient, findByIdForClient, create, update, deactivate, countAllPets };
