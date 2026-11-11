@@ -8,6 +8,7 @@ const router = Router();
 router.use(authenticate, authorize('cliente'));
 
 router.get('/', citaController.list);
+router.get('/availability', citaController.availability);
 router.get('/:id', citaController.getById);
 router.post('/', citaController.create);
 router.patch('/:id/cancel', citaController.cancel);
