@@ -2,7 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const clientRoutes = require('./routes/clientRoutes');
+const path = require("path");
 
+const myProfileRoutes = require('./routes/myProfileRotes');
 const authRoutes = require('./routes/authRoutes');
 const serviceRoutes = require('./routes/serviceRoutes');
 const variantRoutes = require('./routes/variantRoutes');
@@ -15,9 +17,21 @@ const errorHandler = require('./middlewares/errorHandler');
 
 const app = express();
 
-app.use(helmet());
+app.use(
+  helmet({
+    crossOriginResourcePolicy: {
+      policy: "cross-origin",
+    },
+  })
+);
 app.use(cors());
+
 app.use(express.json({ limit: '100kb' }));
+// SERVIR FOTOGRAFÍAS DE LOS CLIENTES
+app.use(
+  "/uploads",
+  express.static(path.join(__dirname, "../uploads"))
+);
 
 app.use('/api/auth', authRoutes);
 app.use('/api/services', serviceRoutes);
@@ -26,6 +40,7 @@ app.use('/api/extras', extraRoutes);
 app.use('/api/pets', petRoutes);
 app.use('/api/citas', citaRoutes);
 app.use('/api/clients', clientRoutes);
+app.use('/api/client', myProfileRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

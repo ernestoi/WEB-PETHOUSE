@@ -95,8 +95,37 @@ async function update(id, { name, email, phone, address }) {
   return rows[0] || null;
 }
 
+// ==========================================
+// ACTUALIZAR FOTOGRAFÍA DEL CLIENTE
+// ==========================================
+
+// ==========================================
+// ACTUALIZAR FOTOGRAFÍA DEL CLIENTE
+// ==========================================
+
+async function updatePhoto(id, photoUrl) {
+  const { rows } = await pool.query(
+    `UPDATE cliente
+     SET foto_perfil = $1,
+         fecha_actualizacion = NOW()
+     WHERE id_cliente = $2
+       AND activo = TRUE
+     RETURNING
+       id_cliente AS id,
+       nombre AS name,
+       email,
+       celular AS phone,
+       direccion AS address,
+       foto_perfil AS "photoUrl"`,
+    [photoUrl, id]
+  );
+
+  return rows[0] || null;
+}
+
 module.exports = {
   findAll,
   findById,
   update,
+  updatePhoto
 };

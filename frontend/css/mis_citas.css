@@ -1,0 +1,462 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+
+/* CONFIGURACIÓN DE PETHOUSE */
+
+.vista_mis-citas {
+    width: 90%;
+    max-width: 110rem;
+    margin: 4rem auto;
+    padding-bottom: 8rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.vista_mis-citas[hidden] {
+    display: none;
+}
+
+/* ENCABEZADO */
+
+.header-mis-citas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.header-mis-citas h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--color-negro);
+    margin: 0 0 .5rem;
+}
+
+.header-mis-citas p {
+    font-size: 1.4rem;
+    color: var(--color-gris);
+    margin: 0;
+}
+
+#btnActualizarCitas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+    padding: 1.2rem 1.8rem;
+    border: 1px solid var(--color-turquesa);
+    border-radius: .8rem;
+    background: var(--color-blanco);
+    color: var(--color-turquesa);
+    font-family: "Poppins", sans-serif;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#btnActualizarCitas:hover {
+    background: var(--color-turquesa);
+    color: var(--color-blanco);
+}
+
+#btnActualizarCitas:disabled {
+    opacity: .6;
+    cursor: wait;
+}
+
+/* RESUMEN DE CITAS */
+
+.resumen-citas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.resumen-cita {
+    background: var(--color-blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--color-celeste_claro);
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    transition: .3s;
+}
+
+.resumen-cita:hover {
+    border-color: var(--color-turquesa);
+    transform: translateY(-.2rem);
+}
+
+.resumen-cita span {
+    color: var(--color-gris);
+    font-size: 1.3rem;
+}
+
+.resumen-cita strong {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--color-turquesa);
+}
+
+/* FILTROS */
+
+.filtros-citas {
+    display: flex;
+    gap: 1rem;
+    border-bottom: 1px solid var(--color-gris_mas_claro);
+    margin-bottom: 2.5rem;
+    overflow-x: auto;
+}
+
+.filtro-cita {
+    border: none;
+    background: transparent;
+    color: var(--color-gris);
+    padding: 1.2rem 1.8rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border-bottom: .3rem solid transparent;
+    white-space: nowrap;
+    transition: .3s;
+}
+
+.filtro-cita:hover,
+.filtro-cita.activo {
+    color: var(--color-turquesa);
+}
+
+.filtro-cita.activo {
+    border-bottom-color: var(--color-turquesa);
+    font-weight: 600;
+}
+
+/* LISTA DE CITAS */
+
+.lista-citas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.tarjeta-cita {
+    background: var(--color-blanco);
+    border: 1px solid var(--color-celeste_claro);
+    border-radius: 1.2rem;
+    padding: 2rem;
+    box-shadow: 0 .3rem 1rem rgba(0, 0, 0, .04);
+    transition: .3s;
+}
+
+.tarjeta-cita:hover {
+    box-shadow: 0 .6rem 1.8rem rgba(4, 126, 137, .10);
+    transform: translateY(-.2rem);
+}
+
+/* INFORMACIÓN DE LA MASCOTA */
+
+.cita-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.cita-mascota-info {
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+}
+
+.cita-avatar {
+    width: 5.5rem;
+    height: 5.5rem;
+    min-width: 5.5rem;
+    border-radius: 50%;
+    background: var(--color-gris_mas_claro);
+    display: grid;
+    place-items: center;
+    color: var(--color-turquesa);
+    font-size: 2rem;
+    overflow: hidden;
+}
+
+.cita-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cita-mascota-info h3 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-negro);
+}
+
+.cita-mascota-info p {
+    font-size: 1.2rem;
+    color: var(--color-gris);
+    margin: .3rem 0 0;
+}
+
+/* ESTADOS */
+
+.estado-cita {
+    padding: .6rem 1rem;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    white-space: nowrap;
+    background: var(--color-gris_mas_claro);
+    color: var(--color-gris);
+}
+
+.estado-pendiente {
+    background: var(--color-celeste_claro);
+    color: var(--color-turquesa);
+}
+
+.estado-confirmada,
+.estado-completada {
+    background: #e3f3e8;
+    color: #287943;
+}
+
+.estado-cancelada,
+.estado-no_asistio {
+    background: var(--color-rojo_claro);
+    color: var(--color-rojo);
+}
+
+/* DATOS DE LA CITA */
+
+.cita-datos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding: 1.8rem 0;
+    border-top: 1px solid var(--color-gris_mas_claro);
+    border-bottom: 1px solid var(--color-gris_mas_claro);
+}
+
+.cita-dato {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    min-width: 0;
+}
+
+.cita-dato span {
+    font-size: 1.2rem;
+    color: var(--color-gris);
+}
+
+.cita-dato span i {
+    color: var(--color-turquesa);
+    margin-right: .5rem;
+}
+
+.cita-dato strong {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--color-negro);
+    overflow-wrap: anywhere;
+}
+
+/* TOTAL */
+
+.cita-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+}
+
+.cita-total span {
+    font-size: 1.3rem;
+    color: var(--color-gris);
+}
+
+.cita-total strong {
+    font-size: 1.8rem;
+    color: var(--color-turquesa);
+}
+
+/* SERVICIOS ADICIONALES */
+
+.cita-adicionales {
+    margin: 0 0 1.5rem;
+    padding: 1.2rem;
+    background: var(--color-gris_mas_claro);
+    border-radius: .8rem;
+}
+
+.cita-adicionales summary {
+    color: var(--color-turquesa);
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cita-adicionales p {
+    font-size: 1.2rem;
+    color: var(--color-gris);
+    margin-bottom: 0;
+}
+
+/* BOTONES */
+
+.cita-acciones {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-detalle-cita,
+.btn-cancelar-cita {
+    flex: 1;
+    padding: 1.1rem;
+    border-radius: .8rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-detalle-cita {
+    background: var(--color-blanco);
+    color: var(--color-turquesa);
+    border: 1px solid var(--color-turquesa);
+}
+
+.btn-detalle-cita:hover {
+    background: var(--color-celeste_claro);
+}
+
+.btn-cancelar-cita {
+    background: var(--color-rojo_claro);
+    color: var(--color-rojo);
+    border: 1px solid var(--color-rojo_claro);
+}
+
+.btn-cancelar-cita:hover {
+    background: var(--color-rojo);
+    color: var(--color-blanco);
+}
+
+.btn-cancelar-cita:disabled {
+    opacity: .5;
+    cursor: wait;
+}
+
+/* MENSAJES */
+
+.mensaje-citas {
+    padding: 1.5rem;
+    background: var(--color-rojo_claro);
+    color: var(--color-rojo);
+    border-radius: .8rem;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+.sin-citas {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: var(--color-blanco);
+    border-radius: 1rem;
+    border: 1px solid var(--color-celeste_claro);
+}
+
+.sin-citas i {
+    font-size: 4rem;
+    color: var(--color-turquesa);
+    margin-bottom: 1.5rem;
+}
+
+.sin-citas h3 {
+    font-size: 1.8rem;
+    color: var(--color-negro);
+}
+
+.sin-citas p {
+    font-size: 1.3rem;
+    color: var(--color-gris);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 750px) {
+
+    .vista_mis-citas {
+        width: 92%;
+        margin: 2.5rem auto;
+    }
+
+    .header-mis-citas {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .resumen-citas {
+        gap: .8rem;
+    }
+
+    .resumen-cita {
+        padding: 1.2rem;
+    }
+
+    .resumen-cita span {
+        font-size: 1.1rem;
+    }
+
+    .resumen-cita strong {
+        font-size: 2.2rem;
+    }
+
+    .lista-citas {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta-cita {
+        padding: 1.5rem;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .cita-superior {
+        flex-wrap: wrap;
+    }
+
+    .cita-datos {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+    }
+
+    .cita-acciones {
+        flex-direction: column;
+    }
+
+    .filtro-cita {
+        padding: 1rem 1.2rem;
+        font-size: 1.2rem;
+    }
+
+}
+
+@media (max-width: 380px) {
+
+    .cita-datos {
+        grid-template-columns: 1fr;
+    }
+
+    .resumen-citas {
+        grid-template-columns: 1fr;
+    }
+
+}

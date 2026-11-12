@@ -1,6 +1,12 @@
-// ========================================
-// PASOS DE LA RESERVA
-// ========================================
+const API_URL = "http://localhost:3000/api";
+
+// CONFIGURACIÓN
+
+const DURACION_CITA = 90;
+
+const HORARIOS = ["09:00", "10:30", "12:00", "13:30", "15:00"];
+
+// ELEMENTOS HTML
 
 const paso_1 = document.getElementById("reservaMascota");
 const paso_2 = document.getElementById("reservaServicios");
@@ -8,161 +14,614 @@ const paso_3 = document.getElementById("reservaHorario");
 const paso_4 = document.getElementById("reservaRevision");
 const paso_5 = document.getElementById("reservaResultado");
 
-const siguienteMascota =
-  document.getElementById("btnMascotaSiguiente");
+const siguienteMascota = document.getElementById("btnMascotaSiguiente");
+const siguienteServicio = document.getElementById("btnServiciosSiguiente");
+const siguienteHorario = document.getElementById("btnHorarioSiguiente");
+const confirmarCita = document.getElementById("btnConfirmarCita");
 
-const siguienteServicio =
-  document.getElementById("btnServiciosSiguiente");
+const contenedorMascotas = document.querySelector(".seleccion-mascotas");
+const contenedorServicios = document.getElementById("serviciosDisponibles");
+const contenedorAdicionales = document.getElementById("serviciosAdicionales");
+const contenedorHorarios = document.getElementById("horariosDisponibles");
 
-const opcionesMascota = document.querySelectorAll(
-  'input[name="mascotaReserva"]'
-);
+const fechaCita = document.getElementById("fechaCita");
 
-const opcionesServicio = document.querySelectorAll(
-  'input[name="servicioReserva"]'
-);
+// DATOS DE LA RESERVA
 
-let idMascotaSeleccionada = null;
-let idServicioSeleccionado = null;
+let mascotas = [];
+let variantes = [];
+let adicionales = [];
 
-// ========================================
-// OCULTAR PASOS Y MOSTRAR EL ELEGIDO
-// ========================================
+let mascotaSeleccionada = null;
+let servicioSeleccionado = null;
+let adicionalesSeleccionados = [];
+let horarioSeleccionado = null;
 
-function mostrarPasos(paso) {
-  paso_1.hidden = true;
-  paso_2.hidden = true;
-  paso_3.hidden = true;
-  paso_4.hidden = true;
-  paso_5.hidden = true;
+// FUNCIONES GENERALES
 
-  paso.hidden = false;
+function obtenerToken() {
+  return localStorage.getItem("token");
+}
 
-  // Actualizar los números de arriba.
-  const pasos = [paso_1, paso_2, paso_3, paso_4];
+async function consultarAPI(ruta, opciones = {}) {
+  const token = obtenerToken();
 
-  const indicadores = document.querySelectorAll(
-    ".vista_agendar_cita .paso"
-  );
+  if (!token) {
+    throw new Error("Tu sesión ha expirado. Inicia sesión nuevamente.");
+  }
 
-  const posicionActual = pasos.indexOf(paso);
+  const respuesta = await fetch(`${API_URL}${ruta}`, {
+    ...opciones,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+      ...opciones.headers,
+    },
+  });
 
-  indicadores.forEach((indicador, posicion) => {
-    indicador.classList.remove("activo", "completo");
-    indicador.removeAttribute("aria-current");
+  const datos = respuesta.status === 204 ? null : await respuesta.json();
 
-    if (posicion < posicionActual) {
-      indicador.classList.add("completo");
-    }
+  if (!respuesta.ok) {
+    throw new Error(datos?.message || "No se pudo completar la operación.");
+  }
 
-    if (posicion === posicionActual) {
-      indicador.classList.add("activo");
-      indicador.setAttribute("aria-current", "step");
-    }
+  return datos;
+}
+
+function normalizar(valor) {
+  return String(valor ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim()
+    .toLowerCase();
+}
+
+function formatoPrecio(valor) {
+  return Number(valor).toLocaleString("es-EC", {
+    style: "currency",
+    currency: "USD",
   });
 }
 
-// ========================================
-// SELECCIONAR MASCOTA
-// ========================================
+function escapar(valor) {
+  return String(valor ?? "").replace(
+    /[&<>"']/g,
+    (caracter) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;",
+      })[caracter],
+  );
+}
 
-siguienteMascota.disabled = true;
+function mostrarError(mensaje) {
+  const elemento = document.getElementById("errorReserva");
+  elemento.textContent = mensaje;
+  elemento.hidden = false;
+}
 
-opcionesMascota.forEach((opcion) => {
-  opcion.addEventListener("change", () => {
-    idMascotaSeleccionada = opcion.value;
+function ocultarError() {
+  const elemento = document.getElementById("errorReserva");
+  elemento.textContent = "";
+  elemento.hidden = true;
+}
 
-    // Habilitar Siguiente.
-    siguienteMascota.disabled = false;
+// NAVEGACIÓN
 
-    // Mostrar el nombre en el paso Servicios.
-    const tarjeta = opcion.closest(".opcion-mascota");
-    const nombre = tarjeta.querySelector("strong").textContent;
+function mostrarPasos(paso) {
+  [paso_1, paso_2, paso_3, paso_4, paso_5].forEach(
+    (elemento) => (elemento.hidden = true),
+  );
 
-    document.getElementById("nombreMascotaElegida").textContent =
-      nombre;
+  paso.hidden = false;
 
-    console.log("Mascota seleccionada:", idMascotaSeleccionada);
-  });
-});
+  const pasos = [paso_1, paso_2, paso_3, paso_4];
+  const posicion = pasos.indexOf(paso);
 
-// ========================================
-// SELECCIONAR SERVICIO
-// ========================================
+  document
+    .querySelectorAll(".vista_agendar_cita .paso")
+    .forEach((indicador, index) => {
+      indicador.classList.remove("activo", "completo");
+      indicador.removeAttribute("aria-current");
 
-siguienteServicio.disabled = true;
+      if (index < posicion) {
+        indicador.classList.add("completo");
+      }
 
-opcionesServicio.forEach((opcion) => {
-  opcion.addEventListener("change", () => {
-    idServicioSeleccionado = opcion.value;
+      if (index === posicion) {
+        indicador.classList.add("activo");
+        indicador.setAttribute("aria-current", "step");
+      }
+    });
+}
 
-    // Habilitar Siguiente y mostrar los adicionales.
-    siguienteServicio.disabled = false;
+document
+  .getElementById("btnServiciosAnterior")
+  .addEventListener("click", () => mostrarPasos(paso_1));
 
-    document.getElementById("bloqueAdicionales").hidden = false;
+document
+  .getElementById("btnHorarioAnterior")
+  .addEventListener("click", () => mostrarPasos(paso_2));
 
-    console.log("Servicio seleccionado:", idServicioSeleccionado);
-  });
-});
+document
+  .getElementById("btnRevisionAnterior")
+  .addEventListener("click", () => mostrarPasos(paso_3));
 
-// ========================================
-// DESTINOS DE SIGUIENTE Y ANTERIOR
-// ========================================
+// CARGAR MASCOTAS
 
-// Se asignan aquí para que no tengas que editar cada botón.
-siguienteMascota.dataset.destino = "reservaServicios";
+async function cargarMascotas() {
+  try {
+    mascotas = await consultarAPI("/pets");
 
-document.getElementById("btnServiciosAnterior").dataset.destino =
-  "reservaMascota";
+    contenedorMascotas.innerHTML = "<legend>Mis mascotas</legend>";
 
-siguienteServicio.dataset.destino = "reservaHorario";
+    if (!mascotas.length) {
+      document.getElementById("reservaSinMascotas").hidden = false;
+      siguienteMascota.disabled = true;
+      return;
+    }
 
-document.getElementById("btnHorarioAnterior").dataset.destino =
-  "reservaServicios";
+    document.getElementById("reservaSinMascotas").hidden = true;
 
-document.getElementById("btnHorarioSiguiente").dataset.destino =
-  "reservaRevision";
+    contenedorMascotas.innerHTML += mascotas
+      .map(
+        (mascota) => `
+            <label class="opcion-mascota">
+                <input
+                    type="radio"
+                    name="mascotaReserva"
+                    value="${mascota.id}"
+                >
 
-document.getElementById("btnRevisionAnterior").dataset.destino =
-  "reservaHorario";
+                <img
+                    src="${escapar(mascota.photoUrl || "../img/index.png")}"
+                    alt=""
+                    class="foto-mascota-reserva"
+                >
 
-// ========================================
-// ESCUCHAR LOS BOTONES DE NAVEGACIÓN
-// ========================================
+                <span class="datos-mascota-reserva">
+                    <strong>${escapar(mascota.name)}</strong>
+                    <span>
+                        ${escapar(mascota.size)} ·
+                        Pelo ${escapar(mascota.hairType)}
+                    </span>
+                    <span>${escapar(mascota.breed || "Sin raza registrada")}</span>
+                </span>
+            </label>
+        `,
+      )
+      .join("");
 
-const btn_pasos = document.querySelectorAll(
-  ".acciones-paso button[data-destino]"
-);
+    contenedorMascotas.querySelectorAll("input").forEach((input) => {
+      input.addEventListener("change", () => {
+        mascotaSeleccionada = mascotas.find(
+          (mascota) => mascota.id === Number(input.value),
+        );
 
-btn_pasos.forEach((boton) => {
-  // Confirmar cita tendrá su propia lógica de guardado.
-  if (boton.id === "btnConfirmarCita") {
+        siguienteMascota.disabled = false;
+
+        document.getElementById("nombreMascotaElegida").textContent =
+          mascotaSeleccionada.name;
+      });
+    });
+  } catch (error) {
+    alert(error.message);
+  }
+}
+
+// CARGAR SERVICIOS PRINCIPALES
+
+async function cargarServicios() {
+  try {
+    variantes = await consultarAPI("/variants");
+
+    const compatibles = variantes.filter((variante) => {
+      const mismaEspecie =
+        normalizar(variante.species) ===
+        normalizar(mascotaSeleccionada.species);
+
+      const mismoTamano =
+        normalizar(variante.size) === normalizar(mascotaSeleccionada.size);
+
+      const mismoPelo =
+        !variante.hairType ||
+        normalizar(variante.hairType) ===
+          normalizar(mascotaSeleccionada.hairType);
+
+      const esCorteModelo = normalizar(variante.serviceName).includes(
+        "corte modelo",
+      );
+
+      return (
+        mismaEspecie &&
+        mismoTamano &&
+        mismoPelo &&
+        (!esCorteModelo || normalizar(mascotaSeleccionada.hairType) === "largo")
+      );
+    });
+
+    contenedorServicios.innerHTML = "<legend>Servicio principal</legend>";
+
+    if (!compatibles.length) {
+      contenedorServicios.innerHTML +=
+        '<p class="aviso">No hay servicios disponibles para las características de esta mascota.</p>';
+
+      siguienteServicio.disabled = true;
+      return;
+    }
+
+    contenedorServicios.innerHTML += compatibles
+      .map(
+        (variante) => `
+            <label class="opcion-servicio">
+                <input
+                    type="radio"
+                    name="servicioReserva"
+                    value="${variante.id}"
+                >
+
+                <i class="fa-solid fa-paw" aria-hidden="true"></i>
+
+                <span class="datos-servicio">
+                    <strong>${escapar(variante.serviceName)}</strong>
+                    <span>
+                        ${escapar(variante.size)} ·
+                        ${escapar(variante.hairType || "Cualquier tipo de pelo")}
+                    </span>
+                </span>
+
+                <strong class="precio-servicio">
+                    ${formatoPrecio(variante.price)}
+                </strong>
+            </label>
+        `,
+      )
+      .join("");
+
+    contenedorServicios.querySelectorAll("input").forEach((input) => {
+      input.addEventListener("change", () => {
+        servicioSeleccionado = compatibles.find(
+          (variante) => variante.id === Number(input.value),
+        );
+
+        adicionalesSeleccionados = [];
+        document.getElementById("bloqueAdicionales").hidden = false;
+
+        siguienteServicio.disabled = false;
+
+        cargarAdicionales();
+        actualizarTotal();
+      });
+    });
+  } catch (error) {
+    alert(error.message);
+  }
+}
+
+// CARGAR SERVICIOS ADICIONALES
+
+async function cargarAdicionales() {
+  try {
+    adicionales = await consultarAPI("/extras");
+
+    contenedorAdicionales.innerHTML = "<legend>Adicionales opcionales</legend>";
+
+    contenedorAdicionales.innerHTML += adicionales
+      .map(
+        (extra) => `
+            <label class="opcion-adicional">
+                <input
+                    type="checkbox"
+                    name="adicionalReserva"
+                    value="${extra.id}"
+                >
+
+                <span>${escapar(extra.name)}</span>
+
+                <span class="precio-adicional">
+                    ${formatoPrecio(extra.price)}
+                </span>
+            </label>
+        `,
+      )
+      .join("");
+
+    contenedorAdicionales.querySelectorAll("input").forEach((input) => {
+      input.addEventListener("change", () => {
+        const id = Number(input.value);
+
+        if (input.checked) {
+          adicionalesSeleccionados.push(id);
+        } else {
+          adicionalesSeleccionados = adicionalesSeleccionados.filter(
+            (item) => item !== id,
+          );
+        }
+
+        actualizarTotal();
+      });
+    });
+  } catch (error) {
+    alert(error.message);
+  }
+}
+
+// ACTUALIZAR TOTAL
+
+function calcularTotal() {
+  const precioPrincipal = Number(servicioSeleccionado?.price || 0);
+
+  const precioAdicionales = adicionales
+    .filter((extra) => adicionalesSeleccionados.includes(extra.id))
+    .reduce((total, extra) => total + Number(extra.price), 0);
+
+  return precioPrincipal + precioAdicionales;
+}
+
+function actualizarTotal() {
+  document.getElementById("totalServicios").textContent =
+    formatoPrecio(calcularTotal());
+}
+
+// CONSULTAR HORARIOS
+
+async function cargarHorarios() {
+  contenedorHorarios.innerHTML = "";
+  siguienteHorario.disabled = true;
+  horarioSeleccionado = null;
+
+  const mensaje = document.getElementById("mensajeHorarios");
+
+  if (!fechaCita.value) {
+    mensaje.textContent = "Primero selecciona una fecha.";
     return;
   }
 
-  boton.addEventListener("click", () => {
-    if (
-      boton.id === "btnMascotaSiguiente" &&
-      idMascotaSeleccionada === null
-    ) {
-      alert("Selecciona una mascota para continuar.");
-      return;
-    }
+  mensaje.textContent = "Consultando disponibilidad...";
 
-    if (
-      boton.id === "btnServiciosSiguiente" &&
-      idServicioSeleccionado === null
-    ) {
-      alert("Selecciona un servicio para continuar.");
-      return;
-    }
-
-    const contenedorHTML = document.getElementById(
-      boton.dataset.destino
+  try {
+    const resultado = await consultarAPI(
+      `/citas/availability?date=${fechaCita.value}`,
     );
 
-    if (contenedorHTML) {
-      mostrarPasos(contenedorHTML);
-    }
-  });
+    resultado.slots.forEach((slot) => {
+      const boton = document.createElement("button");
+
+      boton.type = "button";
+      boton.textContent = slot.time;
+      boton.disabled = !slot.available;
+      boton.className = "horario";
+
+      if (!slot.available) {
+        boton.classList.add("ocupado");
+        boton.title = "Horario no disponible";
+      }
+
+      boton.addEventListener("click", () => {
+        contenedorHorarios
+          .querySelectorAll("button")
+          .forEach((item) => item.classList.remove("seleccionado"));
+
+        boton.classList.add("seleccionado");
+
+        horarioSeleccionado = slot;
+
+        siguienteHorario.disabled = false;
+      });
+
+      contenedorHorarios.appendChild(boton);
+    });
+
+    mensaje.textContent = resultado.slots.some((slot) => slot.available)
+      ? "Selecciona uno de los horarios disponibles."
+      : "No hay horarios disponibles para esta fecha.";
+  } catch (error) {
+    mensaje.textContent = error.message;
+  }
+}
+
+fechaCita.addEventListener("change", cargarHorarios);
+
+// FECHA MÍNIMA
+
+function obtenerFechaLocal() {
+  const fecha = new Date();
+  const year = fecha.getFullYear();
+  const month = String(fecha.getMonth() + 1).padStart(2, "0");
+  const day = String(fecha.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
+fechaCita.min = obtenerFechaLocal();
+
+// MOSTRAR RESUMEN
+
+function prepararResumen() {
+  const extrasElegidos = adicionales.filter((extra) =>
+    adicionalesSeleccionados.includes(extra.id),
+  );
+
+  document.getElementById("revisionMascota").textContent =
+    mascotaSeleccionada.name;
+
+  document.getElementById("revisionServicio").textContent =
+    servicioSeleccionado.serviceName;
+
+  document.getElementById("revisionPrecioServicio").textContent = formatoPrecio(
+    servicioSeleccionado.price,
+  );
+
+  document.getElementById("revisionFecha").textContent = fechaCita.value;
+
+  document.getElementById("revisionHora").textContent =
+    horarioSeleccionado.time;
+
+  document.getElementById("revisionAdicionales").innerHTML =
+    extrasElegidos.length
+      ? extrasElegidos
+          .map(
+            (extra) =>
+              `<li>${escapar(extra.name)} — ${formatoPrecio(extra.price)}</li>`,
+          )
+          .join("")
+      : "<li>Sin adicionales</li>";
+
+  document.getElementById("revisionTotal").textContent =
+    formatoPrecio(calcularTotal());
+
+  ocultarError();
+}
+
+// NAVEGACIÓN ENTRE PASOS
+
+siguienteMascota.addEventListener("click", async () => {
+  if (!mascotaSeleccionada) return;
+
+  siguienteServicio.disabled = true;
+  document.getElementById("bloqueAdicionales").hidden = true;
+
+  idServicioSeleccionado = null;
+  servicioSeleccionado = null;
+
+  await cargarServicios();
+
+  mostrarPasos(paso_2);
 });
+
+siguienteServicio.addEventListener("click", async () => {
+  if (!servicioSeleccionado) return;
+
+  mostrarPasos(paso_3);
+  await cargarHorarios();
+});
+
+siguienteHorario.addEventListener("click", () => {
+  if (!horarioSeleccionado) return;
+
+  prepararResumen();
+  mostrarPasos(paso_4);
+});
+
+// CONFIRMAR RESERVA
+
+confirmarCita.addEventListener("click", async () => {
+  if (!mascotaSeleccionada || !servicioSeleccionado || !horarioSeleccionado) {
+    mostrarError("Completa todos los datos de la reserva.");
+    return;
+  }
+
+  confirmarCita.disabled = true;
+  confirmarCita.textContent = "Registrando cita...";
+
+  ocultarError();
+
+  try {
+    const reserva = await consultarAPI("/citas", {
+      method: "POST",
+      body: JSON.stringify({
+        petId: mascotaSeleccionada.id,
+        variantId: servicioSeleccionado.id,
+        startAt: horarioSeleccionado.startAt,
+        extraIds: adicionalesSeleccionados,
+        notes: null,
+      }),
+    });
+
+    const extrasElegidos = adicionales.filter((extra) =>
+      adicionalesSeleccionados.includes(extra.id),
+    );
+
+    document.getElementById("confirmacionMascota").textContent =
+      mascotaSeleccionada.name;
+
+    document.getElementById("confirmacionServicio").textContent =
+      servicioSeleccionado.serviceName;
+
+    document.getElementById("confirmacionPrecioServicio").textContent =
+      formatoPrecio(servicioSeleccionado.price);
+
+    document.getElementById("confirmacionFecha").textContent = fechaCita.value;
+
+    document.getElementById("confirmacionHora").textContent =
+      horarioSeleccionado.time;
+
+    document.getElementById("confirmacionAdicionales").innerHTML =
+      extrasElegidos.length
+        ? extrasElegidos
+            .map(
+              (extra) =>
+                `<li>${escapar(extra.name)} — ${formatoPrecio(extra.price)}</li>`,
+            )
+            .join("")
+        : "<li>Sin adicionales</li>";
+
+    document.getElementById("confirmacionTotal").textContent =
+      formatoPrecio(calcularTotal());
+
+    mostrarPasos(paso_5);
+  } catch (error) {
+    mostrarError(error.message);
+
+    if (error.message.toLowerCase().includes("horario")) {
+      await cargarHorarios();
+    }
+  } finally {
+    confirmarCita.disabled = false;
+    confirmarCita.textContent = "Confirmar cita";
+  }
+});
+
+// INICIAR RESERVA
+async function iniciarReserva() {
+  siguienteMascota.disabled = true;
+  siguienteServicio.disabled = true;
+  siguienteHorario.disabled = true;
+
+  const fechaInicial = obtenerFechaLocal();
+  fechaCita.value = fechaInicial;
+
+  await cargarMascotas();
+}
+
+// CONFIRMACIÓN POR WHATSAPP
+
+const btnWhatsApp = document.getElementById("btnWhatsAppConfirmacion");
+
+const WHATSAPP_PETHOUSE = "593XXXXXXXXX";
+
+btnWhatsApp.addEventListener("click", () => {
+  const mensaje = `
+Hola, PETHOUSE.
+
+He registrado una solicitud de cita.
+
+DATOS DE LA RESERVA
+
+Mascota: ${mascotaSeleccionada.name}
+Servicio: ${servicioSeleccionado.serviceName}
+Fecha: ${fechaCita.value}
+Hora: ${horarioSeleccionado.time}
+
+Servicios adicionales:
+${
+  adicionales
+    .filter((extra) => adicionalesSeleccionados.includes(extra.id))
+    .map((extra) => `- ${extra.name}: ${formatoPrecio(extra.price)}`)
+    .join("\n") || "Sin adicionales"
+}
+
+Total: ${formatoPrecio(calcularTotal())}
+
+Quedo pendiente de la confirmación.
+    `;
+
+  const url = `https://wa.me/${WHATSAPP_PETHOUSE}?text=${encodeURIComponent(mensaje)}`;
+
+  window.open(url, "_blank");
+});
+
+iniciarReserva();

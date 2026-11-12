@@ -1,6 +1,7 @@
 // referencia HTML
 const user_options = document.querySelectorAll(".user");
-
+const btn_misCitas = document.getElementById("btnIrMisCitas");
+const btn_Citas = document.getElementById("btn_MisCitas");
 // VISTA DEL PERFIL
 const vista_perfil = document.querySelector(".vista_perfil-cliente");
 const btn_vistaPerfil = document.querySelector(".cont_btn-profile a");
@@ -13,6 +14,10 @@ const btn_vistaMascotas = document.querySelector(".btn_ver-mascotas");
 // VISTA PARA AGENDAR CITA
 const vista_agendar_cita = document.querySelector(".vista_agendar_cita");
 const btn_vistaAgendarCita = document.querySelector(".cont_btn-reserve a");
+
+// VISTA PARA ver mis CITA
+const vista_mis_citas = document.querySelector(".vista_mis-citas");
+const btn_mis_citas = document.querySelector(".cont_btn-appointments a");
 
 // Opciones del menú ..!!
 const btns_menu = document.querySelectorAll(".content-menu .btn");
@@ -36,6 +41,7 @@ function activarBoton(opcion_selecionada) {
   btn_vistaMascotas.classList.remove("active");
   btn_vistaPerfil.classList.remove("active");
   btn_vistaAgendarCita.classList.remove("active");
+  btn_mis_citas.classList.remove("active");
   opcion_selecionada.classList.add("active");
 }
 
@@ -44,6 +50,7 @@ function mostrarVista(nombreVista) {
   vista_perfil.hidden = nombreVista !== "perfil";
   vista_mis_mascotas.hidden = nombreVista !== "mascotas";
   vista_agendar_cita.hidden = nombreVista !== "reservarCita";
+  vista_mis_citas.hidden = nombreVista !== "mis_citas";
 }
 
 btn_vistaMascotas.addEventListener("click", () => {
@@ -53,6 +60,15 @@ btn_vistaMascotas.addEventListener("click", () => {
 btn_vistaAgendarCita.addEventListener("click", () => {
   mostrarVista("reservarCita");
   activarBoton(btn_vistaAgendarCita);
+});
+btn_mis_citas.addEventListener("click", ()=>{
+  mostrarVista("mis_citas");
+  activarBoton(btn_mis_citas);
+})
+// IR A MIS CITAS DESDE LA CONFIRMACIÓN
+btn_Citas.addEventListener("click", () => {
+    mostrarVista("mis_citas");
+    activarBoton(btn_Citas);
 });
 
 // Mostrar la vista del perfil

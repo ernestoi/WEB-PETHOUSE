@@ -7,6 +7,7 @@ const express = require("express");
 const cors = require("cors");
 const session = require("express-session");// inicio de sesión
 const crypto = require("node:crypto");
+const path = require('path');
 
 const webRoutes = require("./routes/routes.js");
 

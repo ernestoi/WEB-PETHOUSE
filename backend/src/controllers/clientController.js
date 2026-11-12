@@ -157,10 +157,99 @@ async function deactivatePet(req, res) {
   });
 }
 
+// ==========================================
+// CONSULTAR PERFIL DEL CLIENTE
+// ==========================================
+
+async function getMyProfile(req, res) {
+  const client = await Client.findById(parseId(req.user.id));
+
+  if (!client) {
+    throw new AppError("Perfil de cliente no encontrado", 404);
+  }
+
+  res.json(client);
+}
+
+// ==========================================
+// ACTUALIZAR PERFIL DEL CLIENTE
+// ==========================================
+
+async function updateMyProfile(req, res) {
+  const data = validateClientData(req.body);
+
+  const client = await Client.update(parseId(req.user.id), data);
+
+  if (!client) {
+    throw new AppError("Perfil de cliente no encontrado", 404);
+  }
+
+  res.json({
+    message: "Perfil actualizado correctamente",
+    client,
+  });
+}
+
+// ==========================================
+// ACTUALIZAR FOTOGRAFÍA DEL CLIENTE
+// ==========================================
+
+/*
+async function updateMyPhoto(req, res) {
+  if (!req.file) {
+    throw new AppError("Debes seleccionar una fotografía", 400);
+  }
+
+  const photoUrl = `/uploads/clientes/${req.file.filename}`;
+
+  const client = await Client.updatePhoto(parseId(req.user.id), photoUrl);
+
+  if (!client) {
+    throw new AppError("Perfil de cliente no encontrado", 404);
+  }
+
+  res.json({
+    message: "Fotografía actualizada correctamente",
+    client,
+  });
+}*/
+async function updateMyPhoto(req, res) {
+
+  console.log("ARCHIVO RECIBIDO:", req.file);
+
+  if (!req.file) {
+    throw new AppError("Debes seleccionar una fotografía", 400);
+  }
+
+  console.log("RUTA DEL ARCHIVO:", req.file.path);
+
+  const photoUrl = `/uploads/clientes/${req.file.filename}`;
+
+  const client = await Client.updatePhoto(
+    parseId(req.user.id),
+    photoUrl
+  );
+
+  if (!client) {
+    throw new AppError("Perfil de cliente no encontrado", 404);
+  }
+
+  res.json({
+    message: "Fotografía actualizada correctamente",
+    client
+  });
+}
+
+
+
 module.exports = {
   list,
   getById,
   update,
   listPets,
-  deactivatePet
+  deactivatePet,
+  validateClientData,
+  getMyProfile,
+  updateMyProfile,
+  updateMyPhoto
 };
