@@ -1,732 +1,738 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Perfil del usuario | PETHOUSE</title>
 
     <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
-    >
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
 
-    <link rel="stylesheet" href="../css/perfil_cliente.css">
-    <link rel="stylesheet" href="../css/mis_mascotas.css">
-    <link rel="stylesheet" href="../css/agendar_cita.css">
-    <link rel="stylesheet" href="../css/mis_citas.css">
-</head>
+    <link rel="stylesheet" href="../css/perfil_cliente.css" />
+    <link rel="stylesheet" href="../css/mis_mascotas.css" />
+    <link rel="stylesheet" href="../css/agendar_cita.css" />
+    <link rel="stylesheet" href="../css/mis_citas.css" />
+  </head>
 
-<body>
-
+  <body>
     <!-- VISTA DEL PERFIL -->
-
     <section class="vista_perfil-cliente">
+      <header class="content-header_perfil">
+        <div class="header-title_perfil">
+          <div class="content-btn_arrow">
+            <i class="fa-solid fa-circle-arrow-left"></i>
+            Regresar
+          </div>
 
-        <header class="content-header_perfil">
+          <div class="content-title_user">
+            <h1 class="title_user">Mi Perfil</h1>
+          </div>
+        </div>
 
-            <div class="header-title_perfil">
-                <div class="content-btn_arrow">
-                    <i class="fa-solid fa-circle-arrow-left"></i>
-                    Regresar
-                </div>
+        <div class="content-info_user">
+          <div class="cont-img">
+            <img src="../img/index.png" alt="Imagen del perfil" />
+            <span><i class="fa-solid fa-camera"></i></span>
+          </div>
 
-                <div class="content-title_user">
-                    <h1 class="title_user">Mi Perfil</h1>
-                </div>
-            </div>
+          <div class="cont-info">
+            <h2 class="name_user"></h2>
+            <p class="email_user"></p>
+            <p class="phone_user"></p>
+          </div>
+        </div>
+      </header>
 
-            <div class="content-info_user">
-                <div class="cont-img">
-                    <img src="../img/index.png" alt="Imagen del perfil">
-                    <span><i class="fa-solid fa-camera"></i></span>
-                </div>
+      <main class="content-options_user">
+        <div class="personal-information user">
+          <a href="#">
+            <i class="fa-regular fa-user"></i>
+            Mis Datos
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+        </div>
 
-                <div class="cont-info">
-                    <h2 class="name_user"></h2>
-                    <p class="email_user"></p>
-                    <p class="phone_user"></p>
-                </div>
-            </div>
+        <div class="my-pets user">
+          <button class="btn_ver-mascotas" type="button">
+            <i class="fa-solid fa-dog"></i>
+            Mis Mascotas
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
 
+        <div class="cita user">
+          <button class="btn_ver-citas" type="button">
+            <i class="fa-regular fa-calendar-check"></i>
+            Mis Citas
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="notification_active user">
+          <p>
+            <i class="fa-solid fa-bell"></i>
+            Activar la notificación
+          </p>
+
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="help user">
+          <p>
+            <i class="fa-regular fa-circle-question"></i>
+            Ayuda
+            <i class="fa-solid fa-chevron-right"></i>
+          </p>
+        </div>
+
+        <div class="close_sesion user">
+          <p>
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Cerrar sesión
+            <i class="fa-solid fa-chevron-right"></i>
+          </p>
+        </div>
+      </main>
+    </section>
+
+    <!-- MODAL: MIS DATOS -->
+    <div class="modal-perfil" id="modalMisDatos" hidden>
+      <div class="modal-perfil-overlay"></div>
+
+      <div class="modal-perfil-contenido">
+        <header class="modal-perfil-header">
+          <div>
+            <h2>Mis datos personales</h2>
+            <p>Administra tu información en PETHOUSE.</p>
+          </div>
+
+          <button type="button" id="cerrarModalPerfil">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         </header>
 
-        <main class="content-options_user">
+        <form id="formMisDatos" enctype="multipart/form-data">
+          <!-- FOTOGRAFÍA -->
+          <div class="perfil-foto-edicion">
+            <div class="perfil-foto-contenedor">
+              <img
+                src="../img/index.png"
+                id="previewFotoPerfil"
+                alt="Fotografía de perfil"
+              />
 
-            <div class="personal-information user">
-                <a href="#">
-                    <i class="fa-regular fa-user"></i>
-                    Mis Datos
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
+              <label for="inputFotoPerfil" class="btn-camara-perfil">
+                <i class="fa-solid fa-camera"></i>
+              </label>
+
+              <input
+                type="file"
+                id="inputFotoPerfil"
+                accept="image/jpeg,image/png,image/webp"
+                hidden
+              />
             </div>
 
-            <div class="my-pets user">
-                <button class="btn_ver-mascotas" type="button">
-                    <i class="fa-solid fa-dog"></i>
-                    Mis Mascotas
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-            </div>
+            <span>Cambiar fotografía</span>
+            <small>JPG, PNG o WEBP · Máximo 2 MB</small>
+          </div>
 
-            <div class="cita user">
-                <button class="btn_ver-citas" type="button">
-                    <i class="fa-regular fa-calendar-check"></i>
-                    Mis Citas
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-            </div>
+          <!-- DATOS PERSONALES -->
+          <div class="campo-perfil">
+            <label for="perfilNombre">Nombre completo</label>
+            <input type="text" id="perfilNombre" required />
+          </div>
 
-            <div class="notification_active user">
-                <p>
-                    <i class="fa-solid fa-bell"></i>
-                    Activar la notificación
-                </p>
+          <div class="campo-perfil">
+            <label for="perfilCorreo">Correo electrónico</label>
+            <input type="email" id="perfilCorreo" required />
+          </div>
 
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider"></span>
-                </label>
-            </div>
+          <div class="campo-perfil">
+            <label for="perfilCelular">Celular</label>
+            <input type="tel" id="perfilCelular" />
+          </div>
 
-            <div class="help user">
-                <p>
-                    <i class="fa-regular fa-circle-question"></i>
-                    Ayuda
-                    <i class="fa-solid fa-chevron-right"></i>
-                </p>
-            </div>
+          <div class="campo-perfil">
+            <label for="perfilDireccion">Dirección</label>
+            <input type="text" id="perfilDireccion" />
+          </div>
 
-            <div class="close_sesion user">
-                <p>
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    Cerrar sesión
-                    <i class="fa-solid fa-chevron-right"></i>
-                </p>
-            </div>
+          <div class="acciones-perfil">
+            <button type="button" id="cancelarModalPerfil">Cancelar</button>
 
-        </main>
-
-    </section>
+            <button type="submit" id="guardarPerfil">
+              <i class="fa-solid fa-floppy-disk"></i>
+              Guardar cambios
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!-- VISTA DE MIS MASCOTAS -->
-
     <section class="vista_mis-mascotas" hidden>
+      <header class="header-mascotas">
+        <h2 class="titulo-grande">Mis mascotas</h2>
 
-        <header class="header-mascotas">
-            <h2 class="titulo-grande">Mis mascotas</h2>
-            <button class="btn-agregar">+ Agregar mascota</button>
+        <button class="btn-agregar" id="btnAgregarMascota">
+          + Agregar mascota
+        </button>
+      </header>
+
+      <main class="container-principal">
+        <!-- AQUÍ SE CARGARÁN DINÁMICAMENTE LAS MASCOTAS -->
+        <div class="lista-mascotas_container" id="listaMascotas">
+          <!-- Las tarjetas se generan desde JavaScript -->
+        </div>
+      </main>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- MODAL: AGREGAR MASCOTA -->
+    <!-- ========================================== -->
+
+    <div class="modal-mascota" id="modalAgregarMascota" hidden>
+      <div class="modal-mascota-overlay"></div>
+
+      <div class="modal-mascota-contenido">
+        <header class="modal-mascota-header">
+          <div>
+            <h2>Registrar nueva mascota</h2>
+            <p>Completa la información de tu compañero peludo.</p>
+          </div>
+
+          <button type="button" id="cerrarModalMascota">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         </header>
 
-        <main class="container-principal">
+        <form id="formAgregarMascota" enctype="multipart/form-data">
+          <!-- FOTOGRAFÍA -->
+          <div class="mascota-foto-edicion">
+            <div class="mascota-foto-contenedor">
+              <img
+                src="../img/index.png"
+                id="previewFotoMascota"
+                alt="Fotografía de mascota"
+              />
 
-            <div class="lista-mascotas_container">
+              <label for="inputFotoMascota" class="btn-camara-mascota">
+                <i class="fa-solid fa-camera"></i>
+              </label>
 
-                <div class="tarjeta-mascota">
-                    <div class="mascota-superior">
-
-                        <div class="avatar-container-mediano">
-                            <img
-                                src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=200"
-                                class="avatar-mascota-mediano"
-                                alt="Max"
-                            >
-
-                            <span class="icono-patita-mediano">
-                                <i class="fa-solid fa-paw"></i>
-                            </span>
-                        </div>
-
-                        <div class="info-mascota-detalle">
-                            <div class="nombre-y-menu">
-                                <h3>Max</h3>
-                                <button class="btn-tres-puntos">⋮</button>
-                            </div>
-
-                            <p class="raza-texto">Golden Retriever</p>
-
-                            <div class="caracteristicas-lista">
-                                <div class="caracteristica-item">
-                                    <span class="icono-carac">
-                                        <i class="fa-solid fa-hourglass-end"></i>
-                                    </span>
-                                    <span>3 años</span>
-                                </div>
-
-                                <div class="caracteristica-item">
-                                    <span class="icono-carac">
-                                        <i class="fa-solid fa-mars"></i>
-                                    </span>
-                                    <span>Macho</span>
-                                </div>
-
-                                <div class="caracteristica-item">
-                                    <span class="icono-carac">
-                                        <i class="fa-solid fa-ruler-vertical"></i>
-                                    </span>
-                                    <span>Tamaño: Grande</span>
-                                </div>
-
-                                <button class="btn-historial">
-                                    Ver historial
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="tarjeta-mascota">
-                    <div class="mascota-superior">
-
-                        <div class="avatar-container-mediano">
-                            <img
-                                src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=200"
-                                class="avatar-mascota-mediano"
-                                alt="Luna"
-                            >
-
-                            <span class="icono-patita-mediano">
-                                <i class="fa-solid fa-paw"></i>
-                            </span>
-                        </div>
-
-                        <div class="info-mascota-detalle">
-                            <div class="nombre-y-menu">
-                                <h3>Luna</h3>
-                                <button class="btn-tres-puntos">⋮</button>
-                            </div>
-
-                            <p class="raza-texto">Poodle</p>
-
-                            <div class="caracteristicas-lista">
-                                <div class="caracteristica-item">
-                                    <span class="icono-carac">
-                                        <i class="fa-solid fa-hourglass-end"></i>
-                                    </span>
-                                    <span>2 años</span>
-                                </div>
-
-                                <div class="caracteristica-item">
-                                    <span class="icono-carac">
-                                        <i class="fa-solid fa-mars-stroke"></i>
-                                    </span>
-                                    <span>Hembra</span>
-                                </div>
-
-                                <div class="caracteristica-item">
-                                    <span class="icono-carac">
-                                        <i class="fa-solid fa-ruler-vertical"></i>
-                                    </span>
-                                    <span>Tamaño: Pequeño</span>
-                                </div>
-
-                                <button class="btn-historial">
-                                    Ver historial
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
+              <input
+                type="file"
+                id="inputFotoMascota"
+                name="foto"
+                accept="image/jpeg,image/png,image/webp"
+                hidden
+                required
+              />
             </div>
 
-        </main>
+            <span>Fotografía de tu mascota</span>
+            <small>JPG, PNG o WEBP · Máximo 5 MB</small>
+          </div>
 
-    </section>
+          <!-- INFORMACIÓN DE LA MASCOTA -->
+          <div class="form-mascota-grid">
+            <div class="campo-mascota">
+              <label for="mascotaNombre">Nombre *</label>
+              <input
+                type="text"
+                id="mascotaNombre"
+                name="name"
+                placeholder="Ej. Max"
+                maxlength="100"
+                required
+              />
+            </div>
+
+            <div class="campo-mascota">
+              <label for="mascotaEspecie">Especie *</label>
+              <select id="mascotaEspecie" name="species" required>
+                <option value="">Selecciona una especie</option>
+                <option value="perro">Perro</option>
+                <option value="gato">Gato</option>
+              </select>
+            </div>
+
+            <div class="campo-mascota">
+              <label for="mascotaRaza">Raza</label>
+              <input
+                type="text"
+                id="mascotaRaza"
+                name="breed"
+                placeholder="Ej. Golden Retriever"
+              />
+            </div>
+
+            <div class="campo-mascota">
+              <label for="mascotaSexo">Sexo *</label>
+              <select id="mascotaSexo" name="sex" required>
+                <option value="">Selecciona el sexo</option>
+                <option value="Macho">Macho</option>
+                <option value="Hembra">Hembra</option>
+              </select>
+            </div>
+
+            <div class="campo-mascota">
+              <label for="mascotaFecha">Fecha de nacimiento</label>
+              <input type="date" id="mascotaFecha" name="birthDate" />
+            </div>
+
+            <div class="campo-mascota">
+              <label for="mascotaTamano">Tamaño *</label>
+              <select id="mascotaTamano" required>
+                <option value="">Seleccionar</option>
+                <option value="mini">Mini</option>
+                <option value="pequeño">Pequeño</option>
+                <option value="mediano">Mediano</option>
+                <option value="grande">Grande</option>
+                <option value="gigante">Gigante</option>
+              </select>
+            </div>
+
+            <div class="campo-mascota campo-completo">
+              <label for="mascotaPelo">Tipo de pelo</label>
+              <select id="mascotaPelo">
+                <option value="">Seleccionar</option>
+                <option value="corto">Corto</option>
+                <option value="medio">Medio</option>
+                <option value="largo">Largo</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- BOTONES -->
+          <div class="acciones-mascota">
+            <button
+              type="button"
+              id="cancelarModalMascota"
+              class="btn-cancelar-mascota"
+            >
+              Cancelar
+            </button>
+
+            <button
+              type="submit"
+              id="guardarMascota"
+              class="btn-guardar-mascota"
+            >
+              <i class="fa-solid fa-paw"></i>
+              Guardar mascota
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!-- VISTA DE AGENDAR CITA -->
 
     <section class="vista_agendar_cita" hidden>
+      <header class="cabecera">
+        <span class="marca" aria-hidden="true">
+          <i class="fa-solid fa-paw"></i>
+        </span>
 
-        <header class="cabecera">
-            <span class="marca" aria-hidden="true">
-                <i class="fa-solid fa-paw"></i>
-            </span>
+        <div>
+          <h1>Reservar cita</h1>
+          <p>Un momento de cuidado para tu mascota</p>
+        </div>
+      </header>
 
-            <div>
-                <h1>Reservar cita</h1>
-                <p>Un momento de cuidado para tu mascota</p>
-            </div>
-        </header>
+      <ol class="pasos" aria-label="Pasos de la reserva">
+        <li class="paso activo" id="indicadorMascota">
+          <span class="numero">1</span>
+          <span>Mascota</span>
+        </li>
 
-        <ol class="pasos" aria-label="Pasos de la reserva">
+        <li class="paso" id="indicadorServicios">
+          <span class="numero">2</span>
+          <span>Servicios</span>
+        </li>
 
-            <li class="paso activo" id="indicadorMascota">
-                <span class="numero">1</span>
-                <span>Mascota</span>
-            </li>
+        <li class="paso" id="indicadorHorario">
+          <span class="numero">3</span>
+          <span>Fecha y hora</span>
+        </li>
 
-            <li class="paso" id="indicadorServicios">
-                <span class="numero">2</span>
-                <span>Servicios</span>
-            </li>
+        <li class="paso" id="indicadorConfirmacion">
+          <span class="numero">4</span>
+          <span>Confirmar</span>
+        </li>
+      </ol>
 
-            <li class="paso" id="indicadorHorario">
-                <span class="numero">3</span>
-                <span>Fecha y hora</span>
-            </li>
+      <!-- PASO 1: MASCOTA -->
 
-            <li class="paso" id="indicadorConfirmacion">
-                <span class="numero">4</span>
-                <span>Confirmar</span>
-            </li>
+      <div id="reservaMascota" class="contenido-paso">
+        <h2>¿Para quién reservamos?</h2>
 
-        </ol>
+        <p class="descripcion">Selecciona una de tus mascotas registradas.</p>
 
-        <!-- PASO 1: MASCOTA -->
+        <fieldset class="seleccion-mascotas">
+          <legend>Mis mascotas</legend>
+        </fieldset>
 
-        <div id="reservaMascota" class="contenido-paso">
+        <p id="reservaSinMascotas" class="aviso" hidden>
+          Registra una mascota en Mis mascotas para reservar una cita.
+        </p>
 
-            <h2>¿Para quién reservamos?</h2>
+        <div class="acciones-paso">
+          <button
+            type="button"
+            class="boton"
+            id="btnMascotaSiguiente"
+            data-destino="reservaServicios"
+            disabled
+          >
+            Siguiente
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
 
-            <p class="descripcion">
-                Selecciona una de tus mascotas registradas.
-            </p>
+      <!-- PASO 2: SERVICIOS -->
 
-            <fieldset class="seleccion-mascotas">
-                <legend>Mis mascotas</legend>
-            </fieldset>
+      <div id="reservaServicios" class="contenido-paso" hidden>
+        <h2>Selecciona el servicio</h2>
 
-            <p id="reservaSinMascotas" class="aviso" hidden>
-                Registra una mascota en Mis mascotas para reservar una cita.
-            </p>
+        <p class="descripcion">
+          Estas opciones corresponden al tamaño y pelaje de tu mascota.
+        </p>
 
-            <div class="acciones-paso">
-                <button
-                    type="button"
-                    class="boton"
-                    id="btnMascotaSiguiente"
-                    data-destino="reservaServicios"
-                    disabled
-                >
-                    Siguiente
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-            </div>
+        <p class="mascota-elegida">
+          <i class="fa-solid fa-paw"></i>
+          Mascota:
+          <strong id="nombreMascotaElegida">Por seleccionar</strong>
+        </p>
 
+        <fieldset id="serviciosDisponibles" class="seleccion-servicios">
+          <legend>Servicio principal</legend>
+        </fieldset>
+
+        <div id="bloqueAdicionales" hidden>
+          <h3>¿Deseas agregar algo más?</h3>
+
+          <p class="descripcion">
+            Puedes seleccionar varios adicionales o continuar sin ellos.
+          </p>
+
+          <fieldset id="serviciosAdicionales" class="seleccion-adicionales">
+            <legend>Adicionales opcionales</legend>
+          </fieldset>
         </div>
 
-        <!-- PASO 2: SERVICIOS -->
-
-        <div id="reservaServicios" class="contenido-paso" hidden>
-
-            <h2>Selecciona el servicio</h2>
-
-            <p class="descripcion">
-                Estas opciones corresponden al tamaño y pelaje de tu mascota.
-            </p>
-
-            <p class="mascota-elegida">
-                <i class="fa-solid fa-paw"></i>
-                Mascota:
-                <strong id="nombreMascotaElegida">Por seleccionar</strong>
-            </p>
-
-            <fieldset id="serviciosDisponibles" class="seleccion-servicios">
-                <legend>Servicio principal</legend>
-            </fieldset>
-
-            <div id="bloqueAdicionales" hidden>
-
-                <h3>¿Deseas agregar algo más?</h3>
-
-                <p class="descripcion">
-                    Puedes seleccionar varios adicionales o continuar sin ellos.
-                </p>
-
-                <fieldset
-                    id="serviciosAdicionales"
-                    class="seleccion-adicionales"
-                >
-                    <legend>Adicionales opcionales</legend>
-                </fieldset>
-
-            </div>
-
-            <div class="total-reserva">
-                <span>Total</span>
-                <strong id="totalServicios">$0.00</strong>
-            </div>
-
-            <div class="acciones-paso">
-
-                <button
-                    type="button"
-                    class="boton secundario"
-                    id="btnServiciosAnterior"
-                >
-                    Anterior
-                </button>
-
-                <button
-                    type="button"
-                    class="boton"
-                    id="btnServiciosSiguiente"
-                    disabled
-                >
-                    Siguiente
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-
-            </div>
-
+        <div class="total-reserva">
+          <span>Total</span>
+          <strong id="totalServicios">$0.00</strong>
         </div>
 
-        <!-- PASO 3: FECHA Y HORA -->
+        <div class="acciones-paso">
+          <button
+            type="button"
+            class="boton secundario"
+            id="btnServiciosAnterior"
+          >
+            Anterior
+          </button>
 
-        <div id="reservaHorario" class="contenido-paso" hidden>
+          <button
+            type="button"
+            class="boton"
+            id="btnServiciosSiguiente"
+            disabled
+          >
+            Siguiente
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
 
-            <h2>Selecciona fecha y hora</h2>
+      <!-- PASO 3: FECHA Y HORA -->
 
-            <p class="descripcion">
-                Elige una fecha para consultar los horarios disponibles.
-            </p>
+      <div id="reservaHorario" class="contenido-paso" hidden>
+        <h2>Selecciona fecha y hora</h2>
 
-            <div class="campo">
-                <label class="etiqueta" for="fechaCita">
-                    Selecciona la fecha
-                </label>
+        <p class="descripcion">
+          Elige una fecha para consultar los horarios disponibles.
+        </p>
 
-                <input
-                    type="date"
-                    id="fechaCita"
-                    name="fechaCita"
-                >
-            </div>
+        <div class="campo">
+          <label class="etiqueta" for="fechaCita"> Selecciona la fecha </label>
 
-            <fieldset class="seleccion-horarios">
-
-                <legend>Selecciona la hora</legend>
-
-                <p id="mensajeHorarios" class="ayuda" role="status">
-                    Primero selecciona una fecha.
-                </p>
-
-                <div id="horariosDisponibles" class="horarios"></div>
-
-            </fieldset>
-
-            <div class="acciones-paso">
-
-                <button
-                    type="button"
-                    class="boton secundario"
-                    id="btnHorarioAnterior"
-                >
-                    Anterior
-                </button>
-
-                <button
-                    type="button"
-                    class="boton"
-                    id="btnHorarioSiguiente"
-                    disabled
-                >
-                    Revisar reserva
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-
-            </div>
-
+          <input type="date" id="fechaCita" name="fechaCita" />
         </div>
 
-        <!-- PASO 4: REVISIÓN -->
+        <fieldset class="seleccion-horarios">
+          <legend>Selecciona la hora</legend>
 
-        <div id="reservaRevision" class="contenido-paso" hidden>
+          <p id="mensajeHorarios" class="ayuda" role="status">
+            Primero selecciona una fecha.
+          </p>
 
-            <h2>Revisa tu reserva</h2>
+          <div id="horariosDisponibles" class="horarios"></div>
+        </fieldset>
 
-            <p class="descripcion">
-                Comprueba los datos antes de confirmar tu cita.
-            </p>
+        <div class="acciones-paso">
+          <button
+            type="button"
+            class="boton secundario"
+            id="btnHorarioAnterior"
+          >
+            Anterior
+          </button>
 
-            <div class="resumen">
+          <button type="button" class="boton" id="btnHorarioSiguiente" disabled>
+            Revisar reserva
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
 
-                <h3>Resumen de la reserva</h3>
+      <!-- PASO 4: REVISIÓN -->
 
-                <dl class="detalle-reserva">
+      <div id="reservaRevision" class="contenido-paso" hidden>
+        <h2>Revisa tu reserva</h2>
 
-                    <div class="fila">
-                        <dt>Mascota</dt>
-                        <dd id="revisionMascota">—</dd>
-                    </div>
+        <p class="descripcion">
+          Comprueba los datos antes de confirmar tu cita.
+        </p>
 
-                    <div class="fila">
-                        <dt>Servicio principal</dt>
-                        <dd id="revisionServicio">—</dd>
-                    </div>
+        <div class="resumen">
+          <h3>Resumen de la reserva</h3>
 
-                    <div class="fila">
-                        <dt>Precio del servicio</dt>
-                        <dd id="revisionPrecioServicio">—</dd>
-                    </div>
-
-                    <div class="fila">
-                        <dt>Fecha</dt>
-                        <dd id="revisionFecha">—</dd>
-                    </div>
-
-                    <div class="fila">
-                        <dt>Hora</dt>
-                        <dd id="revisionHora">—</dd>
-                    </div>
-
-                </dl>
-
-                <h3>Servicios adicionales</h3>
-
-                <ul id="revisionAdicionales">
-                    <li>Sin adicionales</li>
-                </ul>
-
-                <div class="total-reserva">
-                    <span>Total</span>
-                    <strong id="revisionTotal">$0.00</strong>
-                </div>
-
+          <dl class="detalle-reserva">
+            <div class="fila">
+              <dt>Mascota</dt>
+              <dd id="revisionMascota">—</dd>
             </div>
 
-            <p id="errorReserva" class="aviso" role="alert" hidden></p>
-
-            <div class="acciones-paso">
-
-                <button
-                    type="button"
-                    class="boton secundario"
-                    id="btnRevisionAnterior"
-                >
-                    Anterior
-                </button>
-
-                <button
-                    type="button"
-                    class="boton"
-                    id="btnConfirmarCita"
-                >
-                    Confirmar cita
-                </button>
-
+            <div class="fila">
+              <dt>Servicio principal</dt>
+              <dd id="revisionServicio">—</dd>
             </div>
 
+            <div class="fila">
+              <dt>Precio del servicio</dt>
+              <dd id="revisionPrecioServicio">—</dd>
+            </div>
+
+            <div class="fila">
+              <dt>Fecha</dt>
+              <dd id="revisionFecha">—</dd>
+            </div>
+
+            <div class="fila">
+              <dt>Hora</dt>
+              <dd id="revisionHora">—</dd>
+            </div>
+          </dl>
+
+          <h3>Servicios adicionales</h3>
+
+          <ul id="revisionAdicionales">
+            <li>Sin adicionales</li>
+          </ul>
+
+          <div class="total-reserva">
+            <span>Total</span>
+            <strong id="revisionTotal">$0.00</strong>
+          </div>
         </div>
 
-        <!-- RESULTADO DE LA RESERVA -->
+        <p id="errorReserva" class="aviso" role="alert" hidden></p>
 
-        <div id="reservaResultado" class="confirmacion" hidden>
+        <div class="acciones-paso">
+          <button
+            type="button"
+            class="boton secundario"
+            id="btnRevisionAnterior"
+          >
+            Anterior
+          </button>
 
-            <div class="encabezado-confirmacion">
+          <button type="button" class="boton" id="btnConfirmarCita">
+            Confirmar cita
+          </button>
+        </div>
+      </div>
 
-                <div class="check">
-                    <i class="fa-solid fa-check"></i>
-                </div>
+      <!-- RESULTADO DE LA RESERVA -->
 
-                <h2 id="tituloCitaConfirmada" tabindex="-1">
-                    ¡Cita confirmada!
-                </h2>
+      <div id="reservaResultado" class="confirmacion" hidden>
+        <div class="encabezado-confirmacion">
+          <div class="check">
+            <i class="fa-solid fa-check"></i>
+          </div>
 
-                <p class="descripcion">
-                    Tu reserva se ha registrado correctamente.
-                </p>
+          <h2 id="tituloCitaConfirmada" tabindex="-1">¡Cita confirmada!</h2>
 
-            </div>
-
-            <div class="resumen">
-
-                <h3>Detalles de tu cita</h3>
-
-                <dl class="detalle-reserva">
-
-                    <div class="fila">
-                        <dt>Mascota</dt>
-                        <dd id="confirmacionMascota">—</dd>
-                    </div>
-
-                    <div class="fila">
-                        <dt>Servicio principal</dt>
-                        <dd id="confirmacionServicio">—</dd>
-                    </div>
-
-                    <div class="fila">
-                        <dt>Precio del servicio</dt>
-                        <dd id="confirmacionPrecioServicio">—</dd>
-                    </div>
-
-                    <div class="fila">
-                        <dt>Fecha</dt>
-                        <dd id="confirmacionFecha">—</dd>
-                    </div>
-
-                    <div class="fila">
-                        <dt>Hora</dt>
-                        <dd id="confirmacionHora">—</dd>
-                    </div>
-
-                </dl>
-
-                <h3>Servicios adicionales</h3>
-
-                <ul id="confirmacionAdicionales">
-                    <li>Sin adicionales</li>
-                </ul>
-
-                <div class="total-reserva">
-                    <span>Total</span>
-                    <strong id="confirmacionTotal">—</strong>
-                </div>
-            </div>
-
-            <div class="acciones-confirmacion">
-
-                <button
-                    type="button"
-                    class="boton"
-                    id="btnWhatsAppConfirmacion"
-                >
-                    <i class="fa-brands fa-whatsapp"></i>
-                    Recibir confirmación por WhatsApp
-                </button>
-
-                <button
-                    type="button"
-                    class="boton secundario"
-                    id="btn_MisCitas"
-                >
-                    Ver mis citas
-                </button>
-
-            </div>
-
+          <p class="descripcion">Tu reserva se ha registrado correctamente.</p>
         </div>
 
+        <div class="resumen">
+          <h3>Detalles de tu cita</h3>
+
+          <dl class="detalle-reserva">
+            <div class="fila">
+              <dt>Mascota</dt>
+              <dd id="confirmacionMascota">—</dd>
+            </div>
+
+            <div class="fila">
+              <dt>Servicio principal</dt>
+              <dd id="confirmacionServicio">—</dd>
+            </div>
+
+            <div class="fila">
+              <dt>Precio del servicio</dt>
+              <dd id="confirmacionPrecioServicio">—</dd>
+            </div>
+
+            <div class="fila">
+              <dt>Fecha</dt>
+              <dd id="confirmacionFecha">—</dd>
+            </div>
+
+            <div class="fila">
+              <dt>Hora</dt>
+              <dd id="confirmacionHora">—</dd>
+            </div>
+          </dl>
+
+          <h3>Servicios adicionales</h3>
+
+          <ul id="confirmacionAdicionales">
+            <li>Sin adicionales</li>
+          </ul>
+
+          <div class="total-reserva">
+            <span>Total</span>
+            <strong id="confirmacionTotal">—</strong>
+          </div>
+        </div>
+
+        <div class="acciones-confirmacion">
+          <button type="button" class="boton" id="btnWhatsAppConfirmacion">
+            <i class="fa-brands fa-whatsapp"></i>
+            Recibir confirmación por WhatsApp
+          </button>
+
+          <button type="button" class="boton secundario" id="btn_MisCitas">
+            Ver mis citas
+          </button>
+        </div>
+      </div>
     </section>
 
     <!-- VISTA DE MIS CITAS -->
 
     <section class="vista_mis-citas" hidden>
-
-        <header class="header-mis-citas">
-
-            <div>
-                <h1>Mis citas</h1>
-                <p>Consulta y administra tus reservas en PETHOUSE.</p>
-            </div>
-
-            <button type="button" id="btnActualizarCitas">
-                <i class="fa-solid fa-rotate"></i>
-                Actualizar
-            </button>
-
-        </header>
-
-        <!-- RESUMEN -->
-
-        <div class="resumen-citas">
-
-            <article class="resumen-cita">
-                <span>Próximas</span>
-                <strong id="totalProximas">0</strong>
-            </article>
-
-            <article class="resumen-cita">
-                <span>Completadas</span>
-                <strong id="totalCompletadas">0</strong>
-            </article>
-
-            <article class="resumen-cita">
-                <span>Canceladas</span>
-                <strong id="totalCanceladas">0</strong>
-            </article>
-
+      <header class="header-mis-citas">
+        <div>
+          <h1>Mis citas</h1>
+          <p>Consulta y administra tus reservas en PETHOUSE.</p>
         </div>
 
-        <!-- FILTROS -->
+        <button type="button" id="btnActualizarCitas">
+          <i class="fa-solid fa-rotate"></i>
+          Actualizar
+        </button>
+      </header>
 
-        <div class="filtros-citas">
+      <!-- RESUMEN -->
 
-            <button
-                type="button"
-                class="filtro-cita activo"
-                data-filtro="proximas"
-            >
-                Próximas
-            </button>
+      <div class="resumen-citas">
+        <article class="resumen-cita">
+          <span>Próximas</span>
+          <strong id="totalProximas">0</strong>
+        </article>
 
-            <button
-                type="button"
-                class="filtro-cita"
-                data-filtro="historial"
-            >
-                Historial
-            </button>
+        <article class="resumen-cita">
+          <span>Completadas</span>
+          <strong id="totalCompletadas">0</strong>
+        </article>
 
-            <button
-                type="button"
-                class="filtro-cita"
-                data-filtro="canceladas"
-            >
-                Canceladas
-            </button>
+        <article class="resumen-cita">
+          <span>Canceladas</span>
+          <strong id="totalCanceladas">0</strong>
+        </article>
+      </div>
 
-        </div>
+      <!-- FILTROS -->
 
-        <div id="mensajeCitas" class="mensaje-citas" hidden></div>
+      <div class="filtros-citas">
+        <button type="button" class="filtro-cita activo" data-filtro="proximas">
+          Próximas
+        </button>
 
-        <div id="listaCitas" class="lista-citas"></div>
+        <button type="button" class="filtro-cita" data-filtro="historial">
+          Historial
+        </button>
 
-        <div id="sinCitas" class="sin-citas" hidden>
+        <button type="button" class="filtro-cita" data-filtro="canceladas">
+          Canceladas
+        </button>
+      </div>
 
-            <i class="fa-regular fa-calendar-xmark"></i>
+      <div id="mensajeCitas" class="mensaje-citas" hidden></div>
 
-            <h3>No tienes citas registradas</h3>
+      <div id="listaCitas" class="lista-citas"></div>
 
-            <p>Cuando reserves una cita, aparecerá aquí.</p>
+      <div id="sinCitas" class="sin-citas" hidden>
+        <i class="fa-regular fa-calendar-xmark"></i>
 
-        </div>
+        <h3>No tienes citas registradas</h3>
 
+        <p>Cuando reserves una cita, aparecerá aquí.</p>
+      </div>
     </section>
 
     <!-- MENÚ DE NAVEGACIÓN -->
 
     <nav class="content-menu">
+      <div class="cont_btn-home btn">
+        <a href="index.html">
+          <i class="fa-regular fa-house"></i>
+          <p>Inicio</p>
+        </a>
+      </div>
 
-        <div class="cont_btn-home btn">
-            <a href="index.html">
-                <i class="fa-regular fa-house"></i>
-                <p>Inicio</p>
-            </a>
-        </div>
+      <div class="cont_btn-services btn">
+        <a href="#">
+          <i class="fa-solid fa-paw"></i>
+          <p>Servicios</p>
+        </a>
+      </div>
 
-        <div class="cont_btn-services btn">
-            <a href="#">
-                <i class="fa-solid fa-paw"></i>
-                <p>Servicios</p>
-            </a>
-        </div>
+      <div class="cont_btn-reserve btn">
+        <a href="#" class="btn_menu-reservar">
+          <i class="fa-regular fa-calendar-plus"></i>
+          <p>Reservar</p>
+        </a>
+      </div>
 
-        <div class="cont_btn-reserve btn">
-            <a href="#" class="btn_menu-reservar">
-                <i class="fa-regular fa-calendar-plus"></i>
-                <p>Reservar</p>
-            </a>
-        </div>
+      <div class="cont_btn-appointments btn">
+        <a href="#" class="btn_menu-citas">
+          <i class="fa-regular fa-calendar-days"></i>
+          <p>Mis citas</p>
+        </a>
+      </div>
 
-        <div class="cont_btn-appointments btn">
-            <a href="#" class="btn_menu-citas">
-                <i class="fa-regular fa-calendar-days"></i>
-                <p>Mis citas</p>
-            </a>
-        </div>
-
-        <div class="cont_btn-profile btn">
-            <a href="#" class="btn_menu-perfil">
-                <i class="fa-solid fa-user"></i>
-                <p>Mi perfil</p>
-            </a>
-        </div>
-
+      <div class="cont_btn-profile btn">
+        <a href="#" class="btn_menu-perfil">
+          <i class="fa-solid fa-user"></i>
+          <p>Mi perfil</p>
+        </a>
+      </div>
     </nav>
 
     <!-- SCRIPTS -->
@@ -735,7 +741,5 @@
     <script src="../js/mis_mascotas.js"></script>
     <script src="../js/registrar_cita.js"></script>
     <script src="../js/mis_citas.js"></script>
-
-</body>
+  </body>
 </html>
-
