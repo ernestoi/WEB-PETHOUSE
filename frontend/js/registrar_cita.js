@@ -1,4 +1,5 @@
 const API_URL = "http://localhost:3000/api";
+const URL_SERVIDOR_RESERVA = API_URL.replace(/\/api$/, "");
 
 // CONFIGURACIÓN
 
@@ -152,6 +153,22 @@ document
 
 // CARGAR MASCOTAS
 
+
+function obtenerFotoMascota(photoUrl) {
+    if (!photoUrl) {
+        return "../img/index.png";
+    }
+
+    if (/^https?:\/\//i.test(photoUrl)) {
+        return photoUrl;
+    }
+
+    return new URL(
+        photoUrl,
+        `${URL_SERVIDOR_RESERVA}/`
+    ).href;
+}
+
 async function cargarMascotas() {
   try {
     mascotas = await consultarAPI("/pets");
@@ -175,13 +192,11 @@ async function cargarMascotas() {
                     name="mascotaReserva"
                     value="${mascota.id}"
                 >
-
                 <img
-                    src="${escapar(mascota.photoUrl || "../img/index.png")}"
-                    alt=""
+                    src="${escapar(obtenerFotoMascota(mascota.photoUrl))}"
+                    alt="Foto de ${escapar(mascota.name)}"
                     class="foto-mascota-reserva"
                 >
-
                 <span class="datos-mascota-reserva">
                     <strong>${escapar(mascota.name)}</strong>
                     <span>
