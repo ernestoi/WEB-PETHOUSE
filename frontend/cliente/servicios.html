@@ -1,200 +1,409 @@
+
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Servicios</title>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Servicios | Pet House</title>
+
+    <link rel="icon" type="image/x-icon" href="../img/icon-logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
-    <!-- Etiqueta para el logo de la pestaña -->
-    <link rel="icon" type="image/x-icon" href="../img/icon-logo.png" />
-    <link rel="stylesheet" href="../css/servicios.css" />
-  </head>
-  <body>
-    <!-- 1. El encabezado: Logo y el menú de rayitas -->
+    <link rel="stylesheet" href="../css/servicios.css">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
     <header class="content-header">
-      <nav class="header">
-        <img src="../img/Logo.png" alt="Logo PetHouse" class="logo" />
-        <ul class="list-menu">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="servicios.html">Servicio</a></li>
-          <li><a href="#">Reserva tu cita</a></li>
-          <li><a href="nosotros.html">Nosotros</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-          <li>
-            <div class="content-buttons">
-              <a href="login.html" class="btn-iniciar">Iniciar Sesión</a>
-              <a href="registro.html" class="btn-registrar">Registrarse</a>
-            </div>
-          </li>
-        </ul>
-        <button
-          class="menu_hamburguesa"
-          aria-label="Abrir menú"
-          aria-expanded="false"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </nav>
-      <!-- Asegúrate de poner el nombre exacto de tu imagen con su extensión (.png o .jpg) -->
+        <nav class="header">
+
+            <img src="../img/Logo.png" alt="Logo Pet House" class="logo">
+
+            <ul class="list-menu" id="menuPrincipal">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+
+                <li>
+                    <div class="content-buttons">
+                        <a href="login.html" class="btn-iniciar">Iniciar Sesión</a>
+                        <a href="registro.html" class="btn-registrar">Registrarse</a>
+                    </div>
+                </li>
+            </ul>
+
+            <button
+                class="menu_hamburguesa"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="menuPrincipal"
+                type="button">
+
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </nav>
     </header>
 
-    <!-- Lista de tarjetas de servicios -->
+
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="lista-servicios_container">
-      <h2 class="title-services">Nuestros Servicios</h2>
-      <!-- Tarjeta 1: Baño canino -->
-      <div class="tarjeta-servicio">
-        <div class="img_container">
-          <img
-            src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=200"
-            alt="Baño"
-          />
-        </div>
-        <!-- <div class="icono-flotante">🛁</div>-->
-        <div class="info-servicio">
-          <h4>Baño Medicado</h4>
-          <p>Limpieza profunda y cuidado del pelaje.</p>
-          <span class="precio">--</span>
-          <div class="btn_container">
-            <button class="btn-details" type="button">Ver más</button>
-          </div>
-        </div>
-      </div>
-      <div class="model_container">
-        <div class="btn_close">
-            <button class="btn" type="button"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="img_content">
-            <img src="../img/index.pngg" alt="" srcset="">
-        </div>
-        <div class="description_content">
-            <h4 class="title">Baño medicado</h4>
-            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa itaque possimus quod quis illo eius culpa facilis nulla velit sequi, ea cumque, expedita ut, officia dolorum praesentium quaerat dolorem et.</p>
-        </div>
-      </div>
 
-      <!-- Tarjeta 2: Corte canino -->
-      <div class="tarjeta-servicio">
-        <!-- <div class="icono-flotante">🛁</div>-->
-        <div class="info-servicio">
-          <h4>Corte de uñas</h4>
-          <p>Limpieza profunda y cuidado del pelaje.</p>
-          <span class="precio">--</span>
-          <div class="btn_container">
-            <button class="btn-details" type="button">Ver más</button>
-          </div>
-        </div>
-        <div class="img_container">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNXDhi_REw6aZOHOmCETVZ1wwjR_YNt_qtfKC0-wZJCg&s=10"
-            alt="Baño"
-          />
-        </div>
-      </div>
-      <div class="model_container">
-        <div class="btn_close">
-            <button class="btn" type="button"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="img_content">
-            <img src="../img/index.png" alt="" srcset="">
-        </div>
-      </div>
+        <section class="encabezado-servicios">
+            <span class="subtitulo-servicios">PET HOUSE · ESTÉTICA CANINA</span>
 
-      <!-- Tarjeta 3: Baño + Corte -->
-      <div class="tarjeta-servicio">
-        <div class="img_container">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoYTu3h39IMvK-LLw2afetD9T6uN_0-UTbFoQ7W5Bhmw&s=10"
-            alt="Colorimetría canina"
-          />
-        </div>
-        <!-- <div class="icono-flotante">🛁</div>-->
-        <div class="info-servicio">
-          <h4>Colorimetría</h4>
-          <p>Limpieza profunda y cuidado del pelaje.</p>
-          <span class="precio">--</span>
-          <div class="btn_container">
-            <button class="btn-details" type="button">Ver más</button>
-          </div>
-        </div>
-      </div>
-      <div class="model_container">
-        <div class="btn_close">
-            <button class="btn" type="button"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="img_content">
-            <img src="../img/index.png" alt="" srcset="">
-        </div>
-      </div>
+            <h1 class="title-services">
+                Nuestros <span>Servicios</span>
+            </h1>
 
-      <!-- Tarjeta 4: Corte canino -->
-      <div class="tarjeta-servicio">
-        <!-- <div class="icono-flotante">🛁</div>-->
-        <div class="info-servicio">
-          <h4>Corte Bajo</h4>
-          <p>Limpieza profunda y cuidado del pelaje.</p>
-          <span class="precio">--</span>
-          <div class="btn_container">
-            <button class="btn-details" type="button">Ver más</button>
-          </div>
-        </div>
-        <div class="img_container">
-          <img
-            src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=200"
-            alt="Baño"
-          />
-        </div>
-      </div>
-      <div class="model_container">
-        <div class="btn_close">
-            <button type="button"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="img_content">
-            <img src="../img/index.png" alt="" srcset="">
-        </div>
-      </div>
+            <p>
+                Cuidamos la higiene y belleza de tu mejor amigo
+                con atención personalizada y mucho cariño.
+            </p>
+        </section>
 
-      <!-- Tarjeta 5: Baño + Corte -->
-      <div class="tarjeta-servicio">
-        <div class="img_container">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY9s_nlOPYn8VyJcyrVmMd21SEl0dZpFNCiUHrLtpKDA&s=10"
-            alt="Corte modelo canino"
-          />
-        </div>
-        <!-- <div class="icono-flotante">🛁</div>-->
-        <div class="info-servicio">
-          <h4>Corte Modelo</h4>
-          <p>Limpieza profunda y cuidado del pelaje.</p>
-          <span class="precio">--</span>
-          <div class="btn_container">
-            <button class="btn-details" type="button">Ver más</button>
-          </div>
-        </div>
-      </div>
 
-      <!-- Tarjeta 4: Corte canino -->
-      <div class="tarjeta-servicio">
-        <!-- <div class="icono-flotante">🛁</div>-->
-        <div class="info-servicio">
-          <h4>Transporte puerta a puerta</h4>
-          <p>Limpieza profunda y cuidado del pelaje.</p>
-          <span class="precio">--</span>
-          <div class="btn_container">
-            <button class="btn-details" type="button">Ver más</button>
-          </div>
-        </div>
-        <div class="img_container">
-          <img
-            src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=200"
-            alt="Baño"
-          />
-        </div>
-      </div>
+        <!-- LISTADO DE SERVICIOS -->
+        <section class="servicios-grid" aria-label="Catálogo de servicios">
+
+
+            <!-- SERVICIO 1 -->
+            <article class="tarjeta-servicio"
+                data-detalle="Baño orientado a la higiene y al cuidado del pelaje de tu mascota. Nuestro equipo brinda una atención cuidadosa durante el servicio.">
+
+                <div class="img_container">
+                    <img
+                        src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=900&auto=format&fit=crop&q=85"
+                        alt="Perro durante su baño y cuidado"
+                        loading="lazy">
+                </div>
+
+                <div class="info-servicio">
+
+                    <span class="servicio-categoria">HIGIENE Y CUIDADO</span>
+
+                    <h2>Baño medicado</h2>
+
+                    <p>
+                        Baño especializado para el cuidado e higiene
+                        de la piel y el pelaje de tu mascota.
+                    </p>
+
+                    <div class="servicio-footer">
+
+                        <span class="duracion-servicio">
+                            <i class="fa-regular fa-clock"></i>
+                            1 h 30 min
+                        </span>
+
+                        <button class="btn-details" type="button">
+                            Ver detalles
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- SERVICIO 2 -->
+            <article class="tarjeta-servicio tarjeta-servicio--invertida"
+                data-detalle="Cuidado de las uñas para mantener las patitas de tu mascota limpias y cómodas. Se realiza con atención y cuidado.">
+
+                <div class="img_container">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNXDhi_REw6aZOHOmCETVZ1wwjR_YNt_qtfKC0-wZJCg&s=10"
+                        alt="Corte de uñas de una mascota"
+                        loading="lazy">
+                </div>
+
+                <div class="info-servicio">
+
+                    <span class="servicio-categoria">CUIDADO PERSONAL</span>
+
+                    <h2>Corte de uñas</h2>
+
+                    <p>
+                        Cuidado de las uñas para mantener las patitas
+                        de tu compañero limpias y cómodas.
+                    </p>
+
+                    <div class="servicio-footer">
+
+                        <span class="duracion-servicio">
+                            <i class="fa-regular fa-clock"></i>
+                            1 h 30 min
+                        </span>
+
+                        <button class="btn-details" type="button">
+                            Ver detalles
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- SERVICIO 3 -->
+            <article class="tarjeta-servicio"
+                data-detalle="Servicio estético de coloración para darle un estilo diferente y especial al pelaje de tu mascota.">
+
+                <div class="img_container">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoYTu3h39IMvK-LLw2afetD9T6uN_0-UTbFoQ7W5Bhmw&s=10"
+                        alt="Colorimetría y estética canina"
+                        loading="lazy">
+                </div>
+
+                <div class="info-servicio">
+
+                    <span class="servicio-categoria">ESTÉTICA CANINA</span>
+
+                    <h2>Colorimetría</h2>
+
+                    <p>
+                        Servicio estético de coloración para darle
+                        un estilo diferente a tu mascota.
+                    </p>
+
+                    <div class="servicio-footer">
+
+                        <span class="duracion-servicio">
+                            <i class="fa-regular fa-clock"></i>
+                            1 h 30 min
+                        </span>
+
+                        <button class="btn-details" type="button">
+                            Ver detalles
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- SERVICIO 4 -->
+            <article class="tarjeta-servicio tarjeta-servicio--invertida"
+                data-detalle="Corte de pelaje bajo para conseguir un acabado práctico y ordenado, adaptado a las características de tu mascota.">
+
+                <div class="img_container">
+                    <img
+                        src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=900&auto=format&fit=crop&q=85"
+                        alt="Corte bajo de pelaje canino"
+                        loading="lazy">
+                </div>
+
+                <div class="info-servicio">
+
+                    <span class="servicio-categoria">ESTÉTICA CANINA</span>
+
+                    <h2>Corte bajo</h2>
+
+                    <p>
+                        Corte de pelaje bajo para un acabado
+                        práctico y ordenado.
+                    </p>
+
+                    <div class="servicio-footer">
+
+                        <span class="duracion-servicio">
+                            <i class="fa-regular fa-clock"></i>
+                            1 h 30 min
+                        </span>
+
+                        <button class="btn-details" type="button">
+                            Ver detalles
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- SERVICIO 5 -->
+            <article class="tarjeta-servicio"
+                data-detalle="Corte estético adaptado al estilo y a las características del pelaje de tu mascota para darle una apariencia especial.">
+
+                <div class="img_container">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY9s_nlOPYn8VyJcyrVmMd21SEl0dZpFNCiUHrLtpKDA&s=10"
+                        alt="Corte modelo para perros"
+                        loading="lazy">
+                </div>
+
+                <div class="info-servicio">
+
+                    <span class="servicio-categoria">ESTÉTICA CANINA</span>
+
+                    <h2>Corte modelo</h2>
+
+                    <p>
+                        Corte estético adaptado al estilo y
+                        características de tu mascota.
+                    </p>
+
+                    <div class="servicio-footer">
+
+                        <span class="duracion-servicio">
+                            <i class="fa-regular fa-clock"></i>
+                            1 h 30 min
+                        </span>
+
+                        <button class="btn-details" type="button">
+                            Ver detalles
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- SERVICIO 6 -->
+            <article class="tarjeta-servicio tarjeta-servicio--invertida"
+                data-detalle="Facilitamos el traslado de tu mascota mediante nuestro servicio de transporte puerta a puerta, coordinando previamente la atención.">
+
+                <div class="img_container">
+                    <img
+                        src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=900&auto=format&fit=crop&q=85"
+                        alt="Transporte y cuidado de mascotas"
+                        loading="lazy">
+                </div>
+
+                <div class="info-servicio">
+
+                    <span class="servicio-categoria">COMODIDAD</span>
+
+                    <h2>Transporte puerta a puerta</h2>
+
+                    <p>
+                        Facilitamos el traslado de tu mascota
+                        con nuestro servicio puerta a puerta.
+                    </p>
+
+                    <div class="servicio-footer">
+
+                        <span class="duracion-servicio">
+                            <i class="fa-regular fa-clock"></i>
+                            1 h 30 min
+                        </span>
+
+                        <button class="btn-details" type="button">
+                            Ver detalles
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+                </div>
+            </article>
+
+        </section>
     </main>
 
+
+    <!-- MODAL ÚNICO REUTILIZABLE -->
+    <div class="modal-servicio" id="modalServicio" aria-hidden="true">
+
+        <div class="modal-servicio__fondo" data-cerrar-modal></div>
+
+        <section
+            class="modal-servicio__panel"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitulo"
+            aria-describedby="modalDescripcion"
+            tabindex="-1">
+
+            <button
+                class="modal-servicio__cerrar"
+                type="button"
+                aria-label="Cerrar ventana"
+                data-cerrar-modal>
+
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+
+            <div class="modal-servicio__imagen">
+                <img id="modalImagen" src="" alt="">
+            </div>
+
+
+            <div class="modal-servicio__informacion">
+
+                <span class="modal-servicio__categoria" id="modalCategoria">
+                    SERVICIO PET HOUSE
+                </span>
+
+                <h2 id="modalTitulo">Nombre del servicio</h2>
+
+                <p id="modalDescripcion">
+                    Descripción del servicio.
+                </p>
+
+
+                <div class="modal-servicio__datos">
+
+                    <div class="modal-servicio__dato">
+                        <div class="dato-icono">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+
+                        <div>
+                            <span>Duración aproximada</span>
+                            <strong>1 hora y 30 minutos</strong>
+                        </div>
+                    </div>
+
+
+                    <div class="modal-servicio__dato">
+                        <div class="dato-icono">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+
+                        <div>
+                            <span>Atención</span>
+                            <strong>Personalizada</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="modal-servicio__separador"></div>
+
+                <p class="modal-servicio__nota">
+                    ¡Tu mascota merece lo mejor! Reserva su cita
+                    y déjanos cuidar de su bienestar.
+                </p>
+
+
+                <a href="login.html" class="btn-reservar-modal">
+                    Reservar este servicio
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <span class="modal-servicio__disponibilidad">
+                    La reserva está sujeta a disponibilidad.
+                </span>
+
+            </div>
+
+        </section>
+    </div>
+
+
+    <!-- SCRIPTS -->
     <script src="../js/main.js"></script>
     <script src="../js/servicios.js"></script>
-  </body>
+
+</body>
 </html>
+

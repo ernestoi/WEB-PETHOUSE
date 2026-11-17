@@ -604,39 +604,67 @@ async function iniciarReserva() {
 
 // CONFIRMACIÓN POR WHATSAPP
 
+
+// CONFIRMACIÓN POR WHATSAPP AL ADMINISTRADOR
+
 const btnWhatsApp = document.getElementById("btnWhatsAppConfirmacion");
 
-const WHATSAPP_PETHOUSE = "593XXXXXXXXX";
+const WHATSAPP_ADMIN = "593978926124";
 
-btnWhatsApp.addEventListener("click", () => {
-  const mensaje = `
-Hola, PETHOUSE.
+// FORMATEAR FECHA
+function formatearFechaWhatsApp(fecha) {
+  if (!fecha) return "";
 
-He registrado una solicitud de cita.
-
-DATOS DE LA RESERVA
-
-Mascota: ${mascotaSeleccionada.name}
-Servicio: ${servicioSeleccionado.serviceName}
-Fecha: ${fechaCita.value}
-Hora: ${horarioSeleccionado.time}
-
-Servicios adicionales:
-${
-  adicionales
-    .filter((extra) => adicionalesSeleccionados.includes(extra.id))
-    .map((extra) => `- ${extra.name}: ${formatoPrecio(extra.price)}`)
-    .join("\n") || "Sin adicionales"
+  const [year, month, day] = fecha.split("-");
+  return `${day}/${month}/${year}`;
 }
 
-Total: ${formatoPrecio(calcularTotal())}
+// ABRIR WHATSAPP CON LOS DATOS DE LA CITA
+if (btnWhatsApp) {
+  btnWhatsApp.addEventListener("click", () => {
 
-Quedo pendiente de la confirmación.
-    `;
+    if (!mascotaSeleccionada || !servicioSeleccionado || !horarioSeleccionado) {
+      alert("No se encontraron todos los datos de la cita.");
+      return;
+    }
 
-  const url = `https://wa.me/${WHATSAPP_PETHOUSE}?text=${encodeURIComponent(mensaje)}`;
+    const extrasElegidos = adicionales.filter((extra) =>
+      adicionalesSeleccionados.includes(extra.id)
+    );
 
-  window.open(url, "_blank");
-});
+    const mensaje = `
+🐾 *NUEVA SOLICITUD DE CITA - PET HOUSE*
+
+Se ha registrado una nueva solicitud de cita.
+
+📋 *DATOS DE LA RESERVA*
+
+🐶 Mascota: ${mascotaSeleccionada.name}
+✂️ Servicio: ${servicioSeleccionado.serviceName}
+📅 Fecha: ${formatearFechaWhatsApp(fechaCita.value)}
+🕒 Hora: ${horarioSeleccionado.time}
+
+➕ *SERVICIOS ADICIONALES*
+${
+  extrasElegidos.length
+    ? extrasElegidos.map((extra) =>
+        `- ${extra.name}: ${formatoPrecio(extra.price)}`
+      ).join("\n")
+    : "Sin servicios adicionales"
+}
+
+💰 Total: ${formatoPrecio(calcularTotal())}
+
+⚠️ Estado: Pendiente de confirmación.
+
+Mensaje generado desde el sistema Pet House.
+    `.trim();
+
+    const url = `https://wa.me/${WHATSAPP_ADMIN}?text=${encodeURIComponent(mensaje)}`;
+
+    window.open(url, "_blank");
+  });
+}
+
 
 iniciarReserva();
