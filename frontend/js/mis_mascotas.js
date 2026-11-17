@@ -22,6 +22,7 @@ const previewFotoMascota = document.getElementById("previewFotoMascota");
 
 let archivoFotoMascota = null;
 let urlVistaPrevia = null;
+let mascotasCargadas = [];
 
 // ==========================================
 // OBTENER TOKEN
@@ -175,7 +176,6 @@ function crearTarjetaMascota(mascota) {
       <div class="mascota-superior">
 
         <div class="avatar-container-mediano">
-
           <img
             src="${escaparHTML(foto)}"
             class="avatar-mascota-mediano"
@@ -186,7 +186,6 @@ function crearTarjetaMascota(mascota) {
           <span class="icono-patita-mediano">
             <i class="fa-solid fa-paw"></i>
           </span>
-
         </div>
 
         <div class="info-mascota-detalle">
@@ -195,10 +194,26 @@ function crearTarjetaMascota(mascota) {
 
             <h3>${escaparHTML(mascota.name)}</h3>
 
-            <button type="button" class="btn-tres-puntos">
-              ⋮
-            </button>
+            <div class="menu-mascota-contenedor">
 
+              <button type="button"
+                class="btn-tres-puntos"
+                aria-label="Opciones de mascota"
+                aria-expanded="false">
+                ⋮
+              </button>
+
+              <div class="menu-mascota-opciones" hidden>
+                <button
+                  type="button"
+                  class="btn-desactivar-mascota"
+                  data-id="${Number(mascota.id)}">
+                  <i class="fa-solid fa-eye-slash"></i>
+                  Desactivar mascota
+                </button>
+              </div>
+
+            </div>
           </div>
 
           <p class="raza-texto">
@@ -231,17 +246,13 @@ function crearTarjetaMascota(mascota) {
             <button
               type="button"
               class="btn-historial"
-              data-id="${Number(mascota.id)}"
-            >
+              data-id="${Number(mascota.id)}">
               Ver historial
             </button>
 
           </div>
-
         </div>
-
       </div>
-
     </div>
   `;
 }
@@ -270,11 +281,14 @@ async function cargarMascotas() {
       throw new Error("No se pudieron cargar las mascotas.");
     }
 
-    const mascotas = await respuesta.json();
+    mascotasCargadas = await respuesta.json();
+
+    console.log("MASCOTAS RECIBIDAS:", mascotasCargadas);
 
     listaMascotas.innerHTML = "";
 
-    if (!mascotas.length) {
+    // COMPROBAR SI EXISTEN MASCOTAS
+    if (!mascotasCargadas.length) {
       listaMascotas.innerHTML = `
         <div class="sin-mascotas">
           <i class="fa-solid fa-paw"></i>
@@ -285,11 +299,15 @@ async function cargarMascotas() {
       return;
     }
 
-    listaMascotas.innerHTML = mascotas.map(crearTarjetaMascota).join("");
+    // MOSTRAR TARJETAS
+    listaMascotas.innerHTML = mascotasCargadas
+      .map(crearTarjetaMascota)
+      .join("");
 
-    console.log("Mascotas cargadas:", mascotas);
+    console.log("Mascotas cargadas correctamente:", mascotasCargadas);
   } catch (error) {
     console.error("Error al cargar mascotas:", error);
+
     listaMascotas.innerHTML = `
       <p>No fue posible cargar tus mascotas. Intenta nuevamente.</p>
     `;
@@ -343,7 +361,7 @@ formAgregarMascota.addEventListener("submit", async (event) => {
     });
 
     const resultado = await respuesta.json();
-    
+
     console.log("ESTADO DEL SERVIDOR:", respuesta.status);
     console.log("RESPUESTA DEL SERVIDOR:", resultado);
 
@@ -373,16 +391,87 @@ formAgregarMascota.addEventListener("submit", async (event) => {
 // EVENTO DELEGADO: HISTORIAL
 // ==========================================
 
-listaMascotas.addEventListener("click", (event) => {
-  const boton = event.target.closest(".btn-historial");
+listaMascotas.addEventListener("click", async (event) => {
+  // ABRIR MENÚ
+  const botonMenu = event.target.closest(".btn-tres-puntos");
 
-  if (!boton) return;
+  if (botonMenu) {
+    const contenedor = botonMenu.closest(".menu-mascota-contenedor");
+    const menu = contenedor.querySelector(".menu-mascota-opciones");
 
-  const mascotaId = boton.dataset.id;
+    const abrir = menu.hidden;
 
-  console.log("Historial de mascota:", mascotaId);
+    document.querySelectorAll(".menu-mascota-opciones").forEach((m) => {
+      m.hidden = true;
+    });
 
-  // Aquí conectaremos la vista del historial.
+    menu.hidden = !abrir;
+
+    botonMenu.setAttribute("aria-expanded", String(abrir));
+    return;
+  }
+
+  // DESACTIVAR MASCOTA
+  const botonDesactivar = event.target.closest(".btn-desactivar-mascota");
+
+  if (botonDesactivar) {
+    const id = botonDesactivar.dataset.id;
+
+    const mascota = mascotasCargadas.find((m) => Number(m.id) === Number(id));
+
+    if (!confirm(`¿Deseas desactivar a ${mascota?.name}?`)) {
+      return;
+    }
+
+    try {
+      const respuesta = await fetch(`${API_MASCOTAS}/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${obtenerToken()}`,
+        },
+      });
+
+      if (!respuesta.ok) {
+        throw new Error("No se pudo desactivar la mascota.");
+      }
+
+      // Actualizar el arreglo local
+      mascotasCargadas = mascotasCargadas.filter(
+        (mascota) => Number(mascota.id) !== Number(id),
+      );
+
+      // Eliminar la tarjeta inmediatamente
+      const tarjeta = botonDesactivar.closest(".tarjeta-mascota");
+
+      if (tarjeta) {
+        tarjeta.remove();
+      }
+
+      // Si ya no quedan mascotas, mostrar mensaje
+      if (mascotasCargadas.length === 0) {
+        listaMascotas.innerHTML = `
+    <div class="sin-mascotas">
+      <i class="fa-solid fa-paw"></i>
+      <h3>Aún no tienes mascotas registradas</h3>
+      <p>Agrega a tu compañero peludo para comenzar.</p>
+    </div>
+  `;
+      }
+
+      alert("¡Mascota desactivada correctamente! 🐾");
+    } catch (error) {
+      alert(error.message);
+    }
+
+    return;
+  }
+
+  // HISTORIAL (LO CONECTAREMOS DESPUÉS)
+  const botonHistorial = event.target.closest(".btn-historial");
+
+  if (botonHistorial) {
+    console.log("Historial de mascota:", botonHistorial.dataset.id);
+  }
 });
 
 // ==========================================

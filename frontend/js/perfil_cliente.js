@@ -2,6 +2,7 @@
 const user_options = document.querySelectorAll(".user");
 const btn_misCitas = document.getElementById("btnIrMisCitas");
 const btn_Citas = document.getElementById("btn_MisCitas");
+const btn_verCitasPerfil = document.querySelector(".btn_ver-citas");
 // VISTA DEL PERFIL
 const vista_perfil = document.querySelector(".vista_perfil-cliente");
 const btn_vistaPerfil = document.querySelector(".cont_btn-profile a");
@@ -43,16 +44,46 @@ user_options.forEach((option, indice) =>{
 */
 
 // MOSTRAR BOTON SELECCIONADO
-function activarBoton(opcionSeleccionada) {
-  btn_vistaMascotas.classList.remove("active");
-  btn_vistaPerfil.classList.remove("active");
-  btn_vistaAgendarCita.classList.remove("active");
-  btn_mis_citas.classList.remove("active");
 
-  if (opcionSeleccionada) {
-    opcionSeleccionada.classList.add("active");
-  }
+function activarBoton(opcionSeleccionada) {
+
+    // Quitar el color activo de todos los elementos del menú
+    btns_menu.forEach((contenedor) => {
+
+        contenedor.classList.remove("active");
+
+        const enlace = contenedor.querySelector("a");
+
+        if (enlace) {
+            enlace.classList.remove("active");
+        }
+
+    });
+
+    // Quitar estado activo de los botones internos
+    btn_vistaMascotas.classList.remove("active");
+    btn_Citas.classList.remove("active");
+
+    if (!opcionSeleccionada) return;
+
+    // Identificar si la opción pertenece al menú lateral
+    const contenedorMenu = opcionSeleccionada.closest(".content-menu .btn");
+
+    if (contenedorMenu) {
+
+        // Pintar el contenedor del menú
+        contenedorMenu.classList.add("active");
+
+        // Pintar también el enlace
+        opcionSeleccionada.classList.add("active");
+
+    } else {
+
+        opcionSeleccionada.classList.add("active");
+
+    }
 }
+
 
 // Mostrar la vista de Mis Mascotas
 function mostrarVista(nombreVista) {
@@ -61,10 +92,17 @@ function mostrarVista(nombreVista) {
   vista_agendar_cita.hidden = nombreVista !== "reservarCita";
   vista_mis_citas.hidden = nombreVista !== "mis_citas";
 }
+// IR A MIS CITAS DESDE LA TARJETA DEL PERFIL
+if (btn_verCitasPerfil) {
+    btn_verCitasPerfil.addEventListener("click", () => {
+        mostrarVista("mis_citas");
+        activarBoton(btn_mis_citas);
+    });
+}
 
 btn_vistaMascotas.addEventListener("click", () => {
   mostrarVista("mascotas");
-  activarBoton(btn_vistaMascotas);
+  activarBoton(btn_vistaPerfil);
 });
 btn_vistaAgendarCita.addEventListener("click", () => {
   mostrarVista("reservarCita");

@@ -57,14 +57,15 @@
 
           <div class="contacto-acciones">
             <a
-              href="https://wa.me/593XXXXXXXXX"
+              href="https://wa.me/593978926124?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20Pet%20House."
               target="_blank"
               rel="noopener noreferrer"
             >
+              <i class="fa-brands fa-whatsapp"></i>
               WhatsApp
             </a>
 
-            <a href="mailto:CORREO_DEL_NEGOCIO"> Enviar correo </a>
+            <a href="#"> Enviar correo </a>
           </div>
 
           <img src="../img/contacto.png" alt="Perro y gato" />
@@ -74,29 +75,26 @@
         <div class="contacto-formulario">
           <h2>Envíanos un mensaje</h2>
 
-          <form id="contactoForm">
+          <form id="formContacto">
             <input
               type="text"
-              id="nombre"
+              id="nombreContacto"
               name="nombre"
               placeholder="Nombre completo"
-              minlength="2"
               maxlength="100"
-              autocomplete="name"
               required
             />
 
             <input
               type="email"
-              id="correo"
+              id="correoContacto"
               name="correo"
               placeholder="Correo electrónico"
               maxlength="254"
-              autocomplete="email"
               required
             />
 
-            <select id="motivo" name="motivo" required>
+            <select id="motivoContacto" name="motivo" required>
               <option value="">Motivo de consulta</option>
               <option value="servicios">Consulta sobre servicios</option>
               <option value="citas">Consulta sobre citas</option>
@@ -104,23 +102,16 @@
             </select>
 
             <textarea
-              id="mensaje"
+              id="mensajeContacto"
               name="mensaje"
               placeholder="Escribe tu mensaje..."
-              minlength="10"
-              maxlength="2000"
+              maxlength="5000"
               required
             ></textarea>
 
-            <p
-              id="estadoFormulario"
-              class="mensaje-formulario"
-              role="status"
-              aria-live="polite"
-              hidden
-            ></p>
+            <button type="submit" id="btnEnviarContacto">Enviar mensaje</button>
 
-            <button type="submit" id="btnEnviar">Enviar mensaje</button>
+            <p id="estadoContacto" role="status" aria-live="polite"></p>
           </form>
         </div>
       </section>

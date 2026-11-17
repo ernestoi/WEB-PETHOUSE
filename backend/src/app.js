@@ -11,6 +11,7 @@ const variantRoutes = require('./routes/variantRoutes');
 const extraRoutes = require('./routes/extraRoutes')
 const petRoutes = require('./routes/petRoutes');
 const citaRoutes = require('./routes/citaRoutes');
+const contactoRoutes = require('./routes/contactoRoutes');
 
 const notFound = require('./middlewares/notFound');
 const errorHandler = require('./middlewares/errorHandler');
@@ -41,6 +42,8 @@ app.use('/api/pets', petRoutes);
 app.use('/api/citas', citaRoutes);
 app.use('/api/clients', clientRoutes);
 app.use('/api/client', myProfileRoutes);
+
+app.use('/api/contacto', contactoRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
