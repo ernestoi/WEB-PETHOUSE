@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Registro</title>
 
     <link
       rel="stylesheet"
@@ -43,32 +43,32 @@
         </div>
 
         <!-- Formulario de registro -->
-        <form class="form-registro">
+        <form id="form-registro" class="form-registro">
           <div class="input-group">
             <span class="input-icono"><i class="fa-solid fa-user"></i></span>
-            <input type="text" placeholder="Nombre completo" />
+            <input id="nombre" type="text" placeholder="Nombre completo" />
           </div>
 
           <div class="input-group">
             <span class="input-icono"
               ><i class="fa-solid fa-envelope"></i
             ></span>
-            <input type="email" placeholder="Correo electrónico" />
+            <input id="correo" type="email" placeholder="Correo electrónico" />
           </div>
 
           <div class="input-group">
             <span class="input-icono"><i class="fa-solid fa-phone"></i></span>
-            <input type="tel" placeholder="Número de teléfono" />
+            <input id="telefono" type="tel" placeholder="Número de teléfono" />
           </div>
 
           <div class="input-group">
             <span class="input-icono"><i class="fa-solid fa-key"></i></span>
-            <input type="password" placeholder="Contraseña" />
+            <input id="contrasena" type="password" placeholder="Contraseña" />
           </div>
 
           <div class="input-group">
             <span class="input-icono"><i class="fa-solid fa-key"></i></span>
-            <input type="password" placeholder="Confirmar contraseña" />
+            <input id="confirmar-contrasena" type="password" placeholder="Confirmar contraseña" />
           </div>
 
           <!-- Botón principal (reutilizamos la clase que ya teníamos) -->
@@ -83,5 +83,6 @@
         ¿Ya tienes una cuenta? <a href="login.html">Iniciar sesión</a>
       </p>
     </main>
+    <script src="../js/registro_cliente.js"></script>
   </body>
 </html>

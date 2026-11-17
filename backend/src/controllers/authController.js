@@ -103,6 +103,7 @@ function buildSession(user, type, role) {
 
 // ---------- Acciones ----------
 
+
 async function registerClient(req, res) {
   const data = validateRegistration(req.body);
   const passwordHash = await hashPassword(data.password);
@@ -114,8 +115,15 @@ async function registerClient(req, res) {
     phone: data.phone,
   });
 
-  res.status(201).json(client);
+  // Crear sesión automáticamente después del registro
+  const session = buildSession(client, "client", "cliente");
+
+  return res.status(201).json({
+    message: "Cliente registrado correctamente",
+    ...session,
+  });
 }
+
 
 async function loginClient(req, res) {
   const { login, password } = validateLogin(req.body, "email");
